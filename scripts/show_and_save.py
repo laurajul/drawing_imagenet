@@ -53,13 +53,11 @@ def get_next_class(visited):
     return random.choice(unvisited)
 
 
-def get_random_image(class_folder):
-    """Get a random image from the class folder."""
+def get_images_in_class(class_folder):
+    """Get all images from the class folder."""
     class_path = TRAIN_DIR / class_folder
     images = [f for f in os.listdir(class_path) if f.lower().endswith(('.jpeg', '.jpg', '.png'))]
-    if not images:
-        return None
-    return random.choice(images)
+    return images
 
 
 def display_image(image_path):
@@ -129,44 +127,60 @@ def main():
         # Get class name from index
         class_name = class_index.get(class_folder, "unknown")
 
-        # Get a random image from this class
-        image_filename = get_random_image(class_folder)
-        if image_filename is None:
+        # Get all images from this class
+        all_images = get_images_in_class(class_folder)
+        if not all_images:
             print(f"No images found in {class_folder}, skipping...")
             save_visited_class(class_folder)
             continue
 
-        image_path = TRAIN_DIR / class_folder / image_filename
+        # Track shown images for this class
+        shown_images = set()
 
-        # Display info
-        print(f"\n{'='*50}")
-        print(f"Class folder: {class_folder}")
-        print(f"Class name: {class_name}")
-        print(f"Image: {image_filename}")
-        print(f"Classes remaining: {1000 - len(visited) - 1}")
-        print(f"{'='*50}")
-
-        # Record start time and display image
-        start_time = datetime.now()
-        display_image(image_path)
-
-        # Ask if done
-        while True:
-            response = input("\nDone? (yes/skip/quit): ").strip().lower()
-            if response in ['yes', 'y']:
-                end_time = datetime.now()
-                save_selection(image_path, class_folder, class_name, image_filename, start_time, end_time)
+        # Image selection loop (for skipping within same class)
+        class_done = False
+        while not class_done:
+            # Get an unshown image
+            available_images = [img for img in all_images if img not in shown_images]
+            if not available_images:
+                print("No more images in this class. Moving to next class...")
                 save_visited_class(class_folder)
                 break
-            elif response in ['skip', 's']:
-                save_visited_class(class_folder)
-                print("Skipped.")
-                break
-            elif response in ['quit', 'q']:
-                print("Exiting...")
-                return
-            else:
-                print("Please type 'yes', 'skip', or 'quit'")
+
+            image_filename = random.choice(available_images)
+            shown_images.add(image_filename)
+            image_path = TRAIN_DIR / class_folder / image_filename
+
+            # Display info
+            print(f"\n{'='*50}")
+            print(f"Class folder: {class_folder}")
+            print(f"Class name: {class_name}")
+            print(f"Image: {image_filename}")
+            print(f"Images remaining in class: {len(available_images) - 1}")
+            print(f"Classes remaining: {1000 - len(visited) - 1}")
+            print(f"{'='*50}")
+
+            # Record start time and display image
+            start_time = datetime.now()
+            display_image(image_path)
+
+            # Ask if done
+            while True:
+                response = input("\nDone? (yes/skip/quit): ").strip().lower()
+                if response in ['yes', 'y']:
+                    end_time = datetime.now()
+                    save_selection(image_path, class_folder, class_name, image_filename, start_time, end_time)
+                    save_visited_class(class_folder)
+                    class_done = True
+                    break
+                elif response in ['skip', 's']:
+                    print("Showing another image from the same class...")
+                    break  # Break inner loop, continue outer loop to show next image
+                elif response in ['quit', 'q']:
+                    print("Exiting...")
+                    return
+                else:
+                    print("Please type 'yes', 'skip', or 'quit'")
 
         # Ask if continue
         response = input("\nShow next image? (yes/no): ").strip().lower()
