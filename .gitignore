@@ -1,5 +1,13 @@
-data/*
+# Ignore all files in data/ recursively
+data/**
+
+# But allow git to traverse into subdirectories
+!data/**/
+
+# Allow .txt files at any depth under data/
+!data/**/*.txt
+
+# Keep the class index json
+!data/imagenet_class_index.json
+!data/selection/
 .venv
-!data/*.txt
-!data/imagenet-mini/*.txt
-!data/selection/*.txt
