@@ -26,6 +26,7 @@ ROOT = Path(__file__).parent.parent
 SCANS_DIR = ROOT / "data" / "scans"
 DRAWINGS_DIR = ROOT / "data" / "drawings"
 SELECTION_DIR = ROOT / "data" / "selection"
+DESCRIPTION_FILE = ROOT / "md" / "description.md"
 OUT = Path(__file__).parent / "index.html"
 
 # Local: index.html lives in website/, images in ../data/
@@ -151,10 +152,9 @@ nav a:hover { text-decoration: underline; }
 .description {
   margin: 0 var(--margin) 3rem;
   padding: 1.5rem;
-  background: #e4e4e4;
+  background: #fff;
   font-size: 0.9rem;
   color: #555;
-  min-height: 7rem;
 }
 
 /* ── Entry sections ── */
@@ -177,7 +177,7 @@ nav a:hover { text-decoration: underline; }
 
 /* ── Image wrapper with lazy fade-in ── */
 .img-wrap {
-  background: #d8d8d8;
+  background: #fff;
   min-height: 160px;
   display: flex;
   align-items: center;
@@ -240,10 +240,18 @@ JS = """\
 """
 
 
+def load_description() -> str:
+    if not DESCRIPTION_FILE.exists():
+        return ""
+    md_text = DESCRIPTION_FILE.read_text(encoding="utf-8")
+    # Split on blank lines → wrap each block in <p>
+    paragraphs = re.split(r"\n{2,}", md_text.strip())
+    return "\n  ".join(f"<p>{p.strip()}</p>" for p in paragraphs if p.strip())
+
+
 def generate(entries: list[dict]) -> str:
     entries_html = "".join(entry_html(e) for e in entries)
-    count = len(entries)
-    subtitle = f"{count} drawing{'s' if count != 1 else ''}" if count else "no drawings yet"
+    description_html = load_description()
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -264,7 +272,7 @@ def generate(entries: list[dict]) -> str:
 </header>
 
 <div class="description">
-  Project description — style: justified paragraph (Blocksatz)
+  {description_html}
 </div>
 
 <main>{entries_html}

@@ -14,6 +14,7 @@ on:
       - "data/drawings/**"
       - "data/selection/**"
       - "website/**"
+      - "md/**"
       - ".github/workflows/deploy.yml"
   workflow_dispatch: # allow manual trigger from the Actions tab
 
