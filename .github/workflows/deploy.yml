@@ -1,0 +1,59 @@
+# Deploy Drawing Imagenet to GitHub Pages
+# Site will be live at: https://laurajul.github.io/drawing_imagenet/
+#
+# First-time setup: in your repo Settings → Pages, set Source to
+# "GitHub Actions" (not a branch).
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [master]
+    paths:
+      - "data/scans/**"
+      - "data/drawings/**"
+      - "data/selection/**"
+      - "website/**"
+      - ".github/workflows/deploy.yml"
+  workflow_dispatch: # allow manual trigger from the Actions tab
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate index.html (deploy paths)
+        run: python3 website/generate.py --deploy
+
+      - name: Assemble site
+        run: |
+          mkdir -p _site/data
+          # index.html goes to site root
+          cp website/index.html _site/index.html
+          # copy only the image types the site references
+          cp -r data/scans    _site/data/scans
+          cp -r data/drawings _site/data/drawings
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
