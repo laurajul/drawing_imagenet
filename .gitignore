@@ -11,4 +11,8 @@ data/**
 !data/imagenet_class_index.json
 !data/selection/
 !data/selection/**
+!data/scans/
+!data/scans/**
+!data/drawings/
+!data/drawings/**
 .venv
