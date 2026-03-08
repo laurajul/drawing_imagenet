@@ -38,6 +38,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Install Python dependencies
+        run: pip install pillow
+
       - name: Generate index.html (deploy paths)
         run: python3 website/generate.py --deploy
 

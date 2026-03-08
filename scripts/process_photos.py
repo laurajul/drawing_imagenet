@@ -18,7 +18,7 @@ from remove_background import process_folder
 
 ROOT       = Path(__file__).parent.parent
 INPUT_DIR  = ROOT / "data" / "raw" / "photos"
-OUTPUT_DIR = ROOT / "data" / "scans"
+OUTPUT_DIR = ROOT / "data" / "scans_raw"
 
 process_folder(
     input_dir          = INPUT_DIR,

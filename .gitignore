@@ -5,6 +5,8 @@
 __pycache__/
 *.pyc
 
-# Raw inputs — large, not part of the website
+# Raw inputs and intermediate files — not part of the website
 data/raw/
 data/imagenet-mini/
+data/drawings_raw/
+data/scans_raw/

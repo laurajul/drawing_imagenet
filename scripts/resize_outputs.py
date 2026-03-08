@@ -1,46 +1,47 @@
 #!/usr/bin/env python3
 """
-Resize processed drawings and scans so pairs are pixel-identical in size,
-while preserving relative subject sizes.
+Resize processed drawings and scans preserving relative subject sizes.
 
-Pipeline per class:
-  1. Measure the drawing's content bounding box (non-transparent pixels).
-  2. Resize the drawing so its content bbox longest side × SCALE,
-     preserving the drawing's own aspect ratio.
-  3. Resize the scan to exactly match the drawing's final dimensions,
-     stretching/squeezing as needed so the pair is consistent.
-     ("Scans follow drawings.")
+Two-pass pipeline:
+  Pass 1 — measure the non-transparent content bbox of every drawing in
+            drawings_raw/. The bbox size reflects actual subject size:
+            a small harvestman has a small bbox, a large stork has a large one.
+  Pass 2 — pin the largest bbox to MAX_PX; scale all others proportionally.
+            This preserves relative sizes while keeping every image ≤ MAX_PX,
+            so the CSS max-width never flattens the size differences.
 
-Example: SCALE=1.3, drawing content bbox longest side = 80 px
-  → target longest = 104 px
-  drawing 95×110  → 90×104   (AR preserved)
-  scan    130×80  → 90×104   (squeezed/stretched to match drawing exactly)
+Scans are resized to exactly match their paired drawing (stretch if needed).
+Reading from *_raw/ and writing to final dirs makes this idempotent.
+
+Run order:
+    python3 scripts/process_drawings.py   # → data/drawings_raw/
+    python3 scripts/process_photos.py     # → data/scans_raw/
+    python3 scripts/resize_outputs.py     # → data/drawings/ + data/scans/
 """
 
 import numpy as np
 from pathlib import Path
 from PIL import Image
 
-ROOT         = Path(__file__).parent.parent
-DRAWINGS_DIR = ROOT / "data" / "drawings"
-SCANS_DIR    = ROOT / "data" / "scans"
+ROOT             = Path(__file__).parent.parent
+DRAWINGS_SRC_DIR = ROOT / "data" / "drawings_raw"
+DRAWINGS_OUT_DIR = ROOT / "data" / "drawings"
+SCANS_SRC_DIR    = ROOT / "data" / "scans_raw"
+SCANS_OUT_DIR    = ROOT / "data" / "scans"
 
-SCALE = 1.3
+MAX_PX = 750   # longest side of the largest subject in the final output
 
 
 def content_bbox_longest(img: Image.Image) -> int:
-    """Return the longest side of the non-transparent content bounding box."""
+    """Longest side of the non-transparent content bounding box."""
     if img.mode != 'RGBA':
-        # No alpha channel — treat entire image as content
         return max(img.size)
     alpha = np.array(img)[:, :, 3]
     rows = np.where(alpha.any(axis=1))[0]
     cols = np.where(alpha.any(axis=0))[0]
     if len(rows) == 0 or len(cols) == 0:
         return max(img.size)
-    bbox_h = int(rows[-1] - rows[0] + 1)
-    bbox_w = int(cols[-1] - cols[0] + 1)
-    return max(bbox_w, bbox_h)
+    return max(int(rows[-1] - rows[0] + 1), int(cols[-1] - cols[0] + 1))
 
 
 def resize_longest(img: Image.Image, longest: int) -> Image.Image:
@@ -51,14 +52,43 @@ def resize_longest(img: Image.Image, longest: int) -> Image.Image:
 
 
 def main():
-    drawings = sorted(DRAWINGS_DIR.glob("d_*.webp"))
-    print(f"Found {len(drawings)} drawings\n")
+    if not DRAWINGS_SRC_DIR.exists():
+        print(f"ERROR: {DRAWINGS_SRC_DIR} not found.")
+        print("Run process_drawings.py first.")
+        return
+    if not SCANS_SRC_DIR.exists():
+        print(f"ERROR: {SCANS_SRC_DIR} not found.")
+        print("Run process_photos.py first.")
+        return
+
+    DRAWINGS_OUT_DIR.mkdir(parents=True, exist_ok=True)
+    SCANS_OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    drawings = sorted(DRAWINGS_SRC_DIR.glob("d_*.webp"))
+    print(f"Found {len(drawings)} drawings in {DRAWINGS_SRC_DIR.name}/\n")
+
+    # Pass 1 — measure content bboxes
+    bbox_map: dict[Path, int] = {}
+    for drawing in drawings:
+        try:
+            with Image.open(drawing) as d_img:
+                bbox_map[drawing] = content_bbox_longest(d_img)
+        except Exception:
+            pass
+
+    max_bbox = max(bbox_map.values()) if bbox_map else 1
+    min_bbox = min(bbox_map.values()) if bbox_map else 1
+    print(f"Content bbox range: {min_bbox}–{max_bbox} px")
+    print(f"Output range:       {round(min_bbox/max_bbox*MAX_PX)}–{MAX_PX} px\n")
 
     resized = skipped = missing = corrupt = 0
 
+    # Pass 2 — resize proportionally
     for drawing in drawings:
+        if drawing not in bbox_map:
+            continue
         stem = drawing.stem[2:]   # strip "d_" prefix
-        scan = SCANS_DIR / f"s_{stem}.webp"
+        scan = SCANS_SRC_DIR / f"s_{stem}.webp"
 
         if not scan.exists():
             print(f"  MISSING  scan: s_{stem}.webp")
@@ -67,10 +97,10 @@ def main():
 
         try:
             with Image.open(drawing) as d_img:
-                bbox_longest = content_bbox_longest(d_img)
+                bbox   = bbox_map[drawing]
                 d_orig = d_img.size
-                target_longest = round(bbox_longest * SCALE)
-                d_out = resize_longest(d_img.copy(), target_longest)
+                target_longest = round(bbox / max_bbox * MAX_PX)
+                d_out  = resize_longest(d_img.copy(), target_longest)
         except Exception as e:
             print(f"  CORRUPT  {drawing.name}: {e}")
             corrupt += 1
@@ -82,24 +112,16 @@ def main():
             s_orig = s_img.size
             s_out  = s_img.resize((target_w, target_h), Image.LANCZOS)
 
-        # Save drawing
-        if d_out.size != d_orig:
-            d_out.save(drawing, 'WEBP', quality=88)
-            print(f"  {stem}  [drawing]  {d_orig[0]}×{d_orig[1]} → {d_out.size[0]}×{d_out.size[1]}"
-                  f"  (bbox={bbox_longest} × {SCALE} = {target_longest})")
-            resized += 1
-        else:
-            skipped += 1
+        d_out.save(DRAWINGS_OUT_DIR / drawing.name, 'WEBP', quality=88)
+        print(f"  {stem}  [drawing]  {d_orig[0]}×{d_orig[1]} → {d_out.size[0]}×{d_out.size[1]}"
+              f"  (bbox={bbox}/{max_bbox} × {MAX_PX} = {target_longest})")
+        resized += 1
 
-        # Save scan
-        if s_out.size != s_orig:
-            s_out.save(scan, 'WEBP', quality=88)
-            stretch = (s_orig[0]/target_w, s_orig[1]/target_h)
-            note = f"  (stretch {stretch[0]:.2f}×{stretch[1]:.2f})" if stretch[0] != stretch[1] else ""
-            print(f"  {stem}  [scan]     {s_orig[0]}×{s_orig[1]} → {s_out.size[0]}×{s_out.size[1]}{note}")
-            resized += 1
-        else:
-            skipped += 1
+        s_out.save(SCANS_OUT_DIR / scan.name, 'WEBP', quality=88)
+        stretch = (s_orig[0] / target_w, s_orig[1] / target_h)
+        note = f"  (stretch {stretch[0]:.2f}×{stretch[1]:.2f})" if abs(stretch[0] - stretch[1]) > 0.01 else ""
+        print(f"  {stem}  [scan]     {s_orig[0]}×{s_orig[1]} → {s_out.size[0]}×{s_out.size[1]}{note}")
+        resized += 1
 
     print(f"\nDone. resized={resized}  skipped={skipped}  corrupt={corrupt}  missing={missing}")
 
