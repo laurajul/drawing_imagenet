@@ -197,6 +197,13 @@ nav a:hover { text-decoration: underline; }
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .entry-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 /* ── Image wrapper ── */
 /* No container sizing — images render at their exact pixel dimensions.
    Small subjects appear small; large subjects appear large. */
