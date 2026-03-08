@@ -14,6 +14,8 @@ import json
 import re
 from pathlib import Path
 
+from PIL import Image as PILImage
+
 parser = argparse.ArgumentParser()
 parser.add_argument(
     "--deploy",
@@ -35,6 +37,7 @@ REL_SCANS = "data/scans" if args.deploy else "../data/scans"
 REL_DRAWINGS = "data/drawings" if args.deploy else "../data/drawings"
 
 
+
 def find_json(class_id: str, class_name: str) -> dict | None:
     """Search selection/ (and subdirs) for matching json."""
     stem = f"{class_id}_{class_name}"
@@ -42,6 +45,11 @@ def find_json(class_id: str, class_name: str) -> dict | None:
         with open(p) as f:
             return json.load(f)
     return None
+
+
+def img_display_size(path: Path) -> tuple[int, int]:
+    with PILImage.open(path) as img:
+        return img.size
 
 
 def collect_entries() -> list[dict]:
@@ -57,11 +65,19 @@ def collect_entries() -> list[dict]:
         meta = find_json(class_id, class_name)
         if meta is None:
             continue
+        try:
+            sw, sh = img_display_size(scan)
+            dw, dh = img_display_size(drawing)
+        except Exception as e:
+            print(f"  SKIP {class_id}_{class_name}: {e}", flush=True)
+            continue
         entries.append({
             "class_id": class_id,
             "class_name": class_name,
             "scan": f"{REL_SCANS}/{scan.name}",
             "drawing": f"{REL_DRAWINGS}/{drawing.name}",
+            "scan_w": sw, "scan_h": sh,
+            "draw_w": dw, "draw_h": dh,
             "meta": meta,
         })
     return entries
@@ -94,14 +110,14 @@ def entry_html(e: dict) -> str:
       <h2>{heading}</h2>
       <div class="entry-grid">
         <div class="entry-col">
-          <div class="img-wrap lazy" data-src="{e['scan']}">
-            <noscript><img src="{e['scan']}" alt="{alt_scan}" loading="lazy"></noscript>
+          <div class="img-wrap lazy" data-src="{e['scan']}" data-width="{e['scan_w']}" data-height="{e['scan_h']}">
+            <noscript><img src="{e['scan']}" alt="{alt_scan}" width="{e['scan_w']}" height="{e['scan_h']}" loading="lazy"></noscript>
           </div>
           <pre class="caption">{scan_cap}</pre>
         </div>
         <div class="entry-col">
-          <div class="img-wrap lazy" data-src="{e['drawing']}">
-            <noscript><img src="{e['drawing']}" alt="{alt_draw}" loading="lazy"></noscript>
+          <div class="img-wrap lazy" data-src="{e['drawing']}" data-width="{e['draw_w']}" data-height="{e['draw_h']}">
+            <noscript><img src="{e['drawing']}" alt="{alt_draw}" width="{e['draw_w']}" height="{e['draw_h']}" loading="lazy"></noscript>
           </div>
           <pre class="caption">{draw_cap}</pre>
         </div>
@@ -113,7 +129,8 @@ CSS = """\
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --margin: 20%;
+  --img-width: 90%;
+  --text-width: 70%;
   --gap: 2.5rem;
   --mono: 'Courier New', Courier, monospace;
 }
@@ -128,7 +145,9 @@ body {
 
 /* ── Header ── */
 header {
-  padding: 1.25rem var(--margin);
+  width: var(--text-width);
+  margin: 0 auto;
+  padding: 1.25rem 0;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -150,7 +169,8 @@ nav a:hover { text-decoration: underline; }
 
 /* ── Description block ── */
 .description {
-  margin: 0 var(--margin) 3rem;
+  width: var(--text-width);
+  margin: 0 auto 3rem;
   padding: 1.5rem;
   background: #fff;
   font-size: 0.9rem;
@@ -159,7 +179,8 @@ nav a:hover { text-decoration: underline; }
 
 /* ── Entry sections ── */
 .entry {
-  margin: 0 var(--margin) 4rem;
+  width: var(--img-width);
+  margin: 0 auto 4rem;
 }
 
 .entry h2 {
@@ -170,26 +191,24 @@ nav a:hover { text-decoration: underline; }
 }
 
 .entry-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: var(--gap);
+  align-items: flex-start;
+  justify-content: center;
 }
 
-/* ── Image wrapper with lazy fade-in ── */
+/* ── Image wrapper ── */
+/* No container sizing — images render at their exact pixel dimensions.
+   Small subjects appear small; large subjects appear large. */
 .img-wrap {
-  background: #fff;
-  min-height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  display: block;
   margin-bottom: 0.6rem;
 }
 
 .img-wrap img {
-  width: 100%;
-  height: auto;
   display: block;
+  max-width: 750px;
+  height: auto;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -208,18 +227,24 @@ nav a:hover { text-decoration: underline; }
 
 JS = """\
 (function () {
-  var lazyWraps = document.querySelectorAll('.img-wrap.lazy');
+  var all = Array.prototype.slice.call(document.querySelectorAll('.img-wrap.lazy'));
 
   function load(wrap) {
     var src = wrap.dataset.src;
     if (!src) return;
     var img = document.createElement('img');
     img.alt = wrap.dataset.alt || '';
+    if (wrap.dataset.width) img.style.width = wrap.dataset.width + 'px';
     img.onload = function () { img.classList.add('loaded'); };
     img.src = src;
     wrap.appendChild(img);
     wrap.classList.remove('lazy');
   }
+
+  // Load first 6 wrappers (≈ 3 entries) immediately — no observer delay.
+  var eager = all.slice(0, 6);
+  var deferred = all.slice(6);
+  eager.forEach(load);
 
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
@@ -229,12 +254,11 @@ JS = """\
           io.unobserve(entry.target);
         }
       });
-    }, { rootMargin: '200px 0px' });
+    }, { rootMargin: '600px 0px' });  // preload 600 px ahead of viewport
 
-    lazyWraps.forEach(function (w) { io.observe(w); });
+    deferred.forEach(function (w) { io.observe(w); });
   } else {
-    // Fallback: load everything immediately
-    lazyWraps.forEach(load);
+    deferred.forEach(load);
   }
 }());
 """
@@ -291,4 +315,6 @@ if __name__ == "__main__":
     OUT.write_text(html, encoding="utf-8")
     print(f"Generated {OUT} with {len(entries)} entries.")
     for e in entries:
-        print(f"  {e['class_id']}_{e['class_name']}")
+        print(f"  {e['class_id']}_{e['class_name']}  "
+              f"scan={e['scan_w']}×{e['scan_h']}  "
+              f"drawing={e['draw_w']}×{e['draw_h']}")

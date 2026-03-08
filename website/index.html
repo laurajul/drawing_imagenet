@@ -8,7 +8,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --margin: 20%;
+  --img-width: 90%;
+  --text-width: 70%;
   --gap: 2.5rem;
   --mono: 'Courier New', Courier, monospace;
 }
@@ -23,7 +24,9 @@ body {
 
 /* ── Header ── */
 header {
-  padding: 1.25rem var(--margin);
+  width: var(--text-width);
+  margin: 0 auto;
+  padding: 1.25rem 0;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
@@ -45,7 +48,8 @@ nav a:hover { text-decoration: underline; }
 
 /* ── Description block ── */
 .description {
-  margin: 0 var(--margin) 3rem;
+  width: var(--text-width);
+  margin: 0 auto 3rem;
   padding: 1.5rem;
   background: #fff;
   font-size: 0.9rem;
@@ -54,7 +58,8 @@ nav a:hover { text-decoration: underline; }
 
 /* ── Entry sections ── */
 .entry {
-  margin: 0 var(--margin) 4rem;
+  width: var(--img-width);
+  margin: 0 auto 4rem;
 }
 
 .entry h2 {
@@ -65,26 +70,24 @@ nav a:hover { text-decoration: underline; }
 }
 
 .entry-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
   gap: var(--gap);
+  align-items: flex-start;
+  justify-content: center;
 }
 
-/* ── Image wrapper with lazy fade-in ── */
+/* ── Image wrapper ── */
+/* No container sizing — images render at their exact pixel dimensions.
+   Small subjects appear small; large subjects appear large. */
 .img-wrap {
-  background: #fff;
-  min-height: 160px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  display: block;
   margin-bottom: 0.6rem;
 }
 
 .img-wrap img {
-  width: 100%;
-  height: auto;
   display: block;
+  max-width: 750px;
+  height: auto;
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -116,24 +119,2187 @@ nav a:hover { text-decoration: underline; }
 </div>
 
 <main>
+    <section class="entry" id="n01440764_tench">
+      <h2>n01440764_tench</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01440764_tench.webp" data-width="393" data-height="295">
+            <noscript><img src="../data/scans/s_n01440764_tench.webp" alt="scan of tench" width="393" height="295" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01440764"
+"class_name": "tench"
+"original_filename": "n01440764_4979.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01440764_tench.webp" data-width="393" data-height="295">
+            <noscript><img src="../data/drawings/d_n01440764_tench.webp" alt="drawing of tench" width="393" height="295" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:16:54.356701"
+"drawing_end": "2026-02-27T12:16:59.177401"
+"elapsed_seconds": 4.8207</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n01537544_indigo_bunting">
+      <h2>n01537544_indigo_bunting</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01537544_indigo_bunting.webp" data-width="530" data-height="343">
+            <noscript><img src="../data/scans/s_n01537544_indigo_bunting.webp" alt="scan of indigo bunting" width="530" height="343" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01537544"
+"class_name": "indigo_bunting"
+"original_filename": "n01537544_1475.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01537544_indigo_bunting.webp" data-width="530" data-height="343">
+            <noscript><img src="../data/drawings/d_n01537544_indigo_bunting.webp" alt="drawing of indigo bunting" width="530" height="343" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T17:52:00.333750"
+"drawing_end": "2026-02-10T18:01:38.205019"
+"elapsed_seconds": 577.871269</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n01629819_European_fire_salamander">
+      <h2>n01629819_European_fire_salamander</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01629819_European_fire_salamander.webp" data-width="850" data-height="596">
+            <noscript><img src="../data/scans/s_n01629819_European_fire_salamander.webp" alt="scan of European fire salamander" width="850" height="596" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01629819"
+"class_name": "European_fire_salamander"
+"original_filename": "n01629819_6498.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01629819_European_fire_salamander.webp" data-width="850" data-height="596">
+            <noscript><img src="../data/drawings/d_n01629819_European_fire_salamander.webp" alt="drawing of European fire salamander" width="850" height="596" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T17:34:52.463063"
+"drawing_end": "2026-02-22T18:03:46.520380"
+"elapsed_seconds": 1734.057317</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n01751748_sea_snake">
+      <h2>n01751748_sea_snake</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01751748_sea_snake.webp" data-width="967" data-height="583">
+            <noscript><img src="../data/scans/s_n01751748_sea_snake.webp" alt="scan of sea snake" width="967" height="583" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01751748"
+"class_name": "sea_snake"
+"original_filename": "n01751748_781.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01751748_sea_snake.webp" data-width="967" data-height="583">
+            <noscript><img src="../data/drawings/d_n01751748_sea_snake.webp" alt="drawing of sea snake" width="967" height="583" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-16T22:40:59.511150"
+"drawing_end": "2026-02-17T11:06:28.349727"
+"elapsed_seconds": 44728.838577</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n01770081_harvestman">
+      <h2>n01770081_harvestman</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01770081_harvestman.webp" data-width="265" data-height="205">
+            <noscript><img src="../data/scans/s_n01770081_harvestman.webp" alt="scan of harvestman" width="265" height="205" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01770081"
+"class_name": "harvestman"
+"original_filename": "n01770081_8526.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01770081_harvestman.webp" data-width="265" data-height="205">
+            <noscript><img src="../data/drawings/d_n01770081_harvestman.webp" alt="drawing of harvestman" width="265" height="205" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:47:30.556778"
+"drawing_end": "2026-02-27T12:47:39.257275"
+"elapsed_seconds": 8.700497</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n01770393_scorpion">
+      <h2>n01770393_scorpion</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01770393_scorpion.webp" data-width="243" data-height="160">
+            <noscript><img src="../data/scans/s_n01770393_scorpion.webp" alt="scan of scorpion" width="243" height="160" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01770393"
+"class_name": "scorpion"
+"original_filename": "n01770393_3312.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01770393_scorpion.webp" data-width="243" data-height="160">
+            <noscript><img src="../data/drawings/d_n01770393_scorpion.webp" alt="drawing of scorpion" width="243" height="160" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:54:15.961787"
+"drawing_end": "2026-02-27T11:54:50.601718"
+"elapsed_seconds": 34.639931</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n01828970_bee_eater">
+      <h2>n01828970_bee_eater</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01828970_bee_eater.webp" data-width="558" data-height="866">
+            <noscript><img src="../data/scans/s_n01828970_bee_eater.webp" alt="scan of bee eater" width="558" height="866" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01828970"
+"class_name": "bee_eater"
+"original_filename": "n01828970_2287.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01828970_bee_eater.webp" data-width="558" data-height="866">
+            <noscript><img src="../data/drawings/d_n01828970_bee_eater.webp" alt="drawing of bee eater" width="558" height="866" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T16:13:10.040341"
+"drawing_end": "2026-02-22T16:24:19.081411"
+"elapsed_seconds": 669.04107</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n01860187_black_swan">
+      <h2>n01860187_black_swan</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n01860187_black_swan.webp" data-width="255" data-height="196">
+            <noscript><img src="../data/scans/s_n01860187_black_swan.webp" alt="scan of black swan" width="255" height="196" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n01860187"
+"class_name": "black_swan"
+"original_filename": "n01860187_1602.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n01860187_black_swan.webp" data-width="255" data-height="196">
+            <noscript><img src="../data/drawings/d_n01860187_black_swan.webp" alt="drawing of black swan" width="255" height="196" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:45:03.323817"
+"drawing_end": "2026-02-27T11:45:12.438344"
+"elapsed_seconds": 9.114527</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02002556_white_stork">
+      <h2>n02002556_white_stork</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02002556_white_stork.webp" data-width="953" data-height="633">
+            <noscript><img src="../data/scans/s_n02002556_white_stork.webp" alt="scan of white stork" width="953" height="633" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02002556"
+"class_name": "white_stork"
+"original_filename": "n02002556_24792.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02002556_white_stork.webp" data-width="953" data-height="633">
+            <noscript><img src="../data/drawings/d_n02002556_white_stork.webp" alt="drawing of white stork" width="953" height="633" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T14:28:44.072490"
+"drawing_end": "2026-02-17T14:34:50.621000"
+"elapsed_seconds": 366.54851</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02037110_oystercatcher">
+      <h2>n02037110_oystercatcher</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02037110_oystercatcher.webp" data-width="381" data-height="258">
+            <noscript><img src="../data/scans/s_n02037110_oystercatcher.webp" alt="scan of oystercatcher" width="381" height="258" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02037110"
+"class_name": "oystercatcher"
+"original_filename": "n02037110_29110.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02037110_oystercatcher.webp" data-width="381" data-height="258">
+            <noscript><img src="../data/drawings/d_n02037110_oystercatcher.webp" alt="drawing of oystercatcher" width="381" height="258" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:30:21.171634"
+"drawing_end": "2026-02-27T11:30:35.637266"
+"elapsed_seconds": 14.465632</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02056570_king_penguin">
+      <h2>n02056570_king_penguin</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02056570_king_penguin.webp" data-width="720" data-height="640">
+            <noscript><img src="../data/scans/s_n02056570_king_penguin.webp" alt="scan of king penguin" width="720" height="640" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02056570"
+"class_name": "king_penguin"
+"original_filename": "n02056570_7491.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02056570_king_penguin.webp" data-width="720" data-height="640">
+            <noscript><img src="../data/drawings/d_n02056570_king_penguin.webp" alt="drawing of king penguin" width="720" height="640" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-16T21:17:27.219413"
+"drawing_end": "2026-02-16T21:58:37.435051"
+"elapsed_seconds": 2470.215638</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02066245_grey_whale">
+      <h2>n02066245_grey_whale</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02066245_grey_whale.webp" data-width="304" data-height="235">
+            <noscript><img src="../data/scans/s_n02066245_grey_whale.webp" alt="scan of grey whale" width="304" height="235" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02066245"
+"class_name": "grey_whale"
+"original_filename": "n02066245_29794.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02066245_grey_whale.webp" data-width="304" data-height="235">
+            <noscript><img src="../data/drawings/d_n02066245_grey_whale.webp" alt="drawing of grey whale" width="304" height="235" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:52:34.532826"
+"drawing_end": "2026-03-03T13:52:59.806622"
+"elapsed_seconds": 25.273796</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02085782_Japanese_spaniel">
+      <h2>n02085782_Japanese_spaniel</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02085782_Japanese_spaniel.webp" data-width="33" data-height="34">
+            <noscript><img src="../data/scans/s_n02085782_Japanese_spaniel.webp" alt="scan of Japanese spaniel" width="33" height="34" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02085782"
+"class_name": "Japanese_spaniel"
+"original_filename": "n02085782_3238.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02085782_Japanese_spaniel.webp" data-width="33" data-height="34">
+            <noscript><img src="../data/drawings/d_n02085782_Japanese_spaniel.webp" alt="drawing of Japanese spaniel" width="33" height="34" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:01:18.176333"
+"drawing_end": "2026-02-27T11:01:37.590386"
+"elapsed_seconds": 19.414053</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02086646_Blenheim_spaniel">
+      <h2>n02086646_Blenheim_spaniel</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02086646_Blenheim_spaniel.webp" data-width="445" data-height="582">
+            <noscript><img src="../data/scans/s_n02086646_Blenheim_spaniel.webp" alt="scan of Blenheim spaniel" width="445" height="582" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02086646"
+"class_name": "Blenheim_spaniel"
+"original_filename": "n02086646_2366.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02086646_Blenheim_spaniel.webp" data-width="445" data-height="582">
+            <noscript><img src="../data/drawings/d_n02086646_Blenheim_spaniel.webp" alt="drawing of Blenheim spaniel" width="445" height="582" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-16T21:59:26.606611"
+"drawing_end": "2026-02-16T22:24:37.157002"
+"elapsed_seconds": 1510.550391</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02088364_beagle">
+      <h2>n02088364_beagle</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02088364_beagle.webp" data-width="508" data-height="379">
+            <noscript><img src="../data/scans/s_n02088364_beagle.webp" alt="scan of beagle" width="508" height="379" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02088364"
+"class_name": "beagle"
+"original_filename": "n02088364_6343.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02088364_beagle.webp" data-width="508" data-height="379">
+            <noscript><img src="../data/drawings/d_n02088364_beagle.webp" alt="drawing of beagle" width="508" height="379" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T16:26:57.107907"
+"drawing_end": "2026-02-10T16:49:56.087406"
+"elapsed_seconds": 1378.979499</pre>
+        </div>
+      </div>
+    </section>
     <section class="entry" id="n02091134_whippet">
       <h2>n02091134_whippet</h2>
       <div class="entry-grid">
         <div class="entry-col">
-          <div class="img-wrap lazy" data-src="../data/scans/s_n02091134_whippet.webp">
-            <noscript><img src="../data/scans/s_n02091134_whippet.webp" alt="scan of whippet" loading="lazy"></noscript>
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02091134_whippet.webp" data-width="482" data-height="386">
+            <noscript><img src="../data/scans/s_n02091134_whippet.webp" alt="scan of whippet" width="482" height="386" loading="lazy"></noscript>
           </div>
           <pre class="caption">"class_folder": "n02091134"
 "class_name": "whippet"
 "original_filename": "n02091134_9842.JPEG"</pre>
         </div>
         <div class="entry-col">
-          <div class="img-wrap lazy" data-src="../data/drawings/d_n02091134_whippet.webp">
-            <noscript><img src="../data/drawings/d_n02091134_whippet.webp" alt="drawing of whippet" loading="lazy"></noscript>
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02091134_whippet.webp" data-width="482" data-height="386">
+            <noscript><img src="../data/drawings/d_n02091134_whippet.webp" alt="drawing of whippet" width="482" height="386" loading="lazy"></noscript>
           </div>
           <pre class="caption">"drawing_start": "2026-02-10T18:03:39.132498"
 "drawing_end": "2026-02-10T18:21:16.823028"
 "elapsed_seconds": 1057.69053</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02091635_otterhound">
+      <h2>n02091635_otterhound</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02091635_otterhound.webp" data-width="411" data-height="604">
+            <noscript><img src="../data/scans/s_n02091635_otterhound.webp" alt="scan of otterhound" width="411" height="604" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02091635"
+"class_name": "otterhound"
+"original_filename": "n02091635_7075.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02091635_otterhound.webp" data-width="411" data-height="604">
+            <noscript><img src="../data/drawings/d_n02091635_otterhound.webp" alt="drawing of otterhound" width="411" height="604" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T22:20:16.358318"
+"drawing_end": "2026-02-24T22:27:54.181204"
+"elapsed_seconds": 457.822886</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02092002_Scottish_deerhound">
+      <h2>n02092002_Scottish_deerhound</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02092002_Scottish_deerhound.webp" data-width="408" data-height="398">
+            <noscript><img src="../data/scans/s_n02092002_Scottish_deerhound.webp" alt="scan of Scottish deerhound" width="408" height="398" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02092002"
+"class_name": "Scottish_deerhound"
+"original_filename": "n02092002_12862.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02092002_Scottish_deerhound.webp" data-width="408" data-height="398">
+            <noscript><img src="../data/drawings/d_n02092002_Scottish_deerhound.webp" alt="drawing of Scottish deerhound" width="408" height="398" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T15:11:46.582992"
+"drawing_end": "2026-02-10T16:25:48.297652"
+"elapsed_seconds": 4441.71466</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02093256_Staffordshire_bullterrier">
+      <h2>n02093256_Staffordshire_bullterrier</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02093256_Staffordshire_bullterrier.webp" data-width="358" data-height="274">
+            <noscript><img src="../data/scans/s_n02093256_Staffordshire_bullterrier.webp" alt="scan of Staffordshire bullterrier" width="358" height="274" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02093256"
+"class_name": "Staffordshire_bullterrier"
+"original_filename": "n02093256_3316.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02093256_Staffordshire_bullterrier.webp" data-width="358" data-height="274">
+            <noscript><img src="../data/drawings/d_n02093256_Staffordshire_bullterrier.webp" alt="drawing of Staffordshire bullterrier" width="358" height="274" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:41:28.638300"
+"drawing_end": "2026-02-27T12:41:45.849789"
+"elapsed_seconds": 17.211489</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02093647_Bedlington_terrier">
+      <h2>n02093647_Bedlington_terrier</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02093647_Bedlington_terrier.webp" data-width="681" data-height="474">
+            <noscript><img src="../data/scans/s_n02093647_Bedlington_terrier.webp" alt="scan of Bedlington terrier" width="681" height="474" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02093647"
+"class_name": "Bedlington_terrier"
+"original_filename": "n02093647_7422.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02093647_Bedlington_terrier.webp" data-width="681" data-height="474">
+            <noscript><img src="../data/drawings/d_n02093647_Bedlington_terrier.webp" alt="drawing of Bedlington terrier" width="681" height="474" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T21:11:45.472496"
+"drawing_end": "2026-02-22T21:38:57.251374"
+"elapsed_seconds": 1631.778878</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02096585_Boston_bull">
+      <h2>n02096585_Boston_bull</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02096585_Boston_bull.webp" data-width="237" data-height="213">
+            <noscript><img src="../data/scans/s_n02096585_Boston_bull.webp" alt="scan of Boston bull" width="237" height="213" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02096585"
+"class_name": "Boston_bull"
+"original_filename": "n02096585_8065.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02096585_Boston_bull.webp" data-width="237" data-height="213">
+            <noscript><img src="../data/drawings/d_n02096585_Boston_bull.webp" alt="drawing of Boston bull" width="237" height="213" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:03:26.992866"
+"drawing_end": "2026-02-27T12:03:34.851615"
+"elapsed_seconds": 7.858749</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02097209_standard_schnauzer">
+      <h2>n02097209_standard_schnauzer</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02097209_standard_schnauzer.webp" data-width="434" data-height="346">
+            <noscript><img src="../data/scans/s_n02097209_standard_schnauzer.webp" alt="scan of standard schnauzer" width="434" height="346" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02097209"
+"class_name": "standard_schnauzer"
+"original_filename": "n02097209_1954.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02097209_standard_schnauzer.webp" data-width="434" data-height="346">
+            <noscript><img src="../data/drawings/d_n02097209_standard_schnauzer.webp" alt="drawing of standard schnauzer" width="434" height="346" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T16:15:17.903992"
+"drawing_end": "2026-02-26T16:25:34.566984"
+"elapsed_seconds": 616.662992</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02099601_golden_retriever">
+      <h2>n02099601_golden_retriever</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02099601_golden_retriever.webp" data-width="222" data-height="196">
+            <noscript><img src="../data/scans/s_n02099601_golden_retriever.webp" alt="scan of golden retriever" width="222" height="196" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02099601"
+"class_name": "golden_retriever"
+"original_filename": "n02099601_3576.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02099601_golden_retriever.webp" data-width="222" data-height="196">
+            <noscript><img src="../data/drawings/d_n02099601_golden_retriever.webp" alt="drawing of golden retriever" width="222" height="196" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:59:43.525264"
+"drawing_end": "2026-02-27T11:59:59.894966"
+"elapsed_seconds": 16.369702</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02099712_Labrador_retriever">
+      <h2>n02099712_Labrador_retriever</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02099712_Labrador_retriever.webp" data-width="424" data-height="389">
+            <noscript><img src="../data/scans/s_n02099712_Labrador_retriever.webp" alt="scan of Labrador retriever" width="424" height="389" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02099712"
+"class_name": "Labrador_retriever"
+"original_filename": "n02099712_3969.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02099712_Labrador_retriever.webp" data-width="424" data-height="389">
+            <noscript><img src="../data/drawings/d_n02099712_Labrador_retriever.webp" alt="drawing of Labrador retriever" width="424" height="389" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T18:25:21.695118"
+"drawing_end": "2026-02-10T18:56:26.525006"
+"elapsed_seconds": 1864.829888</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02099849_Chesapeake_Bay_retriever">
+      <h2>n02099849_Chesapeake_Bay_retriever</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02099849_Chesapeake_Bay_retriever.webp" data-width="176" data-height="132">
+            <noscript><img src="../data/scans/s_n02099849_Chesapeake_Bay_retriever.webp" alt="scan of Chesapeake Bay retriever" width="176" height="132" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02099849"
+"class_name": "Chesapeake_Bay_retriever"
+"original_filename": "n02099849_3556.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02099849_Chesapeake_Bay_retriever.webp" data-width="176" data-height="132">
+            <noscript><img src="../data/drawings/d_n02099849_Chesapeake_Bay_retriever.webp" alt="drawing of Chesapeake Bay retriever" width="176" height="132" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T10:42:53.184896"
+"drawing_end": "2026-02-27T10:43:03.940944"
+"elapsed_seconds": 10.756048</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02101006_Gordon_setter">
+      <h2>n02101006_Gordon_setter</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02101006_Gordon_setter.webp" data-width="381" data-height="407">
+            <noscript><img src="../data/scans/s_n02101006_Gordon_setter.webp" alt="scan of Gordon setter" width="381" height="407" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02101006"
+"class_name": "Gordon_setter"
+"original_filename": "n02101006_1153.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02101006_Gordon_setter.webp" data-width="381" data-height="407">
+            <noscript><img src="../data/drawings/d_n02101006_Gordon_setter.webp" alt="drawing of Gordon setter" width="381" height="407" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T16:51:11.540730"
+"drawing_end": "2026-02-10T17:13:54.257318"
+"elapsed_seconds": 1362.716588</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02105412_kelpie">
+      <h2>n02105412_kelpie</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02105412_kelpie.webp" data-width="158" data-height="162">
+            <noscript><img src="../data/scans/s_n02105412_kelpie.webp" alt="scan of kelpie" width="158" height="162" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02105412"
+"class_name": "kelpie"
+"original_filename": "n02105412_6553.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02105412_kelpie.webp" data-width="158" data-height="162">
+            <noscript><img src="../data/drawings/d_n02105412_kelpie.webp" alt="drawing of kelpie" width="158" height="162" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:39:49.559876"
+"drawing_end": "2026-02-27T12:40:07.836641"
+"elapsed_seconds": 18.276765</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02105855_Shetland_sheepdog">
+      <h2>n02105855_Shetland_sheepdog</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02105855_Shetland_sheepdog.webp" data-width="180" data-height="259">
+            <noscript><img src="../data/scans/s_n02105855_Shetland_sheepdog.webp" alt="scan of Shetland sheepdog" width="180" height="259" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02105855"
+"class_name": "Shetland_sheepdog"
+"original_filename": "n02105855_1816.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02105855_Shetland_sheepdog.webp" data-width="180" data-height="259">
+            <noscript><img src="../data/drawings/d_n02105855_Shetland_sheepdog.webp" alt="drawing of Shetland sheepdog" width="180" height="259" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:52:27.196609"
+"drawing_end": "2026-02-27T11:52:39.003033"
+"elapsed_seconds": 11.806424</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02107574_Greater_Swiss_Mountain_dog">
+      <h2>n02107574_Greater_Swiss_Mountain_dog</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02107574_Greater_Swiss_Mountain_dog.webp" data-width="176" data-height="122">
+            <noscript><img src="../data/scans/s_n02107574_Greater_Swiss_Mountain_dog.webp" alt="scan of Greater Swiss Mountain dog" width="176" height="122" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02107574"
+"class_name": "Greater_Swiss_Mountain_dog"
+"original_filename": "n02107574_1330.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02107574_Greater_Swiss_Mountain_dog.webp" data-width="176" data-height="122">
+            <noscript><img src="../data/drawings/d_n02107574_Greater_Swiss_Mountain_dog.webp" alt="drawing of Greater Swiss Mountain dog" width="176" height="122" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:22:24.903985"
+"drawing_end": "2026-02-27T12:22:47.424418"
+"elapsed_seconds": 22.520433</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02110627_affenpinscher">
+      <h2>n02110627_affenpinscher</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02110627_affenpinscher.webp" data-width="41" data-height="47">
+            <noscript><img src="../data/scans/s_n02110627_affenpinscher.webp" alt="scan of affenpinscher" width="41" height="47" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02110627"
+"class_name": "affenpinscher"
+"original_filename": "n02110627_12399.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02110627_affenpinscher.webp" data-width="41" data-height="47">
+            <noscript><img src="../data/drawings/d_n02110627_affenpinscher.webp" alt="drawing of affenpinscher" width="41" height="47" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T10:30:28.203196"
+"drawing_end": "2026-02-27T10:41:45.098922"
+"elapsed_seconds": 676.895726</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02111129_Leonberg">
+      <h2>n02111129_Leonberg</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02111129_Leonberg.webp" data-width="387" data-height="355">
+            <noscript><img src="../data/scans/s_n02111129_Leonberg.webp" alt="scan of Leonberg" width="387" height="355" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02111129"
+"class_name": "Leonberg"
+"original_filename": "n02111129_7702.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02111129_Leonberg.webp" data-width="387" data-height="355">
+            <noscript><img src="../data/drawings/d_n02111129_Leonberg.webp" alt="drawing of Leonberg" width="387" height="355" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:05:19.296440"
+"drawing_end": "2026-02-27T11:05:30.488199"
+"elapsed_seconds": 11.191759</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02123045_tabby">
+      <h2>n02123045_tabby</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02123045_tabby.webp" data-width="445" data-height="417">
+            <noscript><img src="../data/scans/s_n02123045_tabby.webp" alt="scan of tabby" width="445" height="417" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02123045"
+"class_name": "tabby"
+"original_filename": "n02123045_8666.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02123045_tabby.webp" data-width="445" data-height="417">
+            <noscript><img src="../data/drawings/d_n02123045_tabby.webp" alt="drawing of tabby" width="445" height="417" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T21:27:04.236251"
+"drawing_end": "2026-02-24T21:44:56.356152"
+"elapsed_seconds": 1072.119901</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02123394_Persian_cat">
+      <h2>n02123394_Persian_cat</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02123394_Persian_cat.webp" data-width="199" data-height="261">
+            <noscript><img src="../data/scans/s_n02123394_Persian_cat.webp" alt="scan of Persian cat" width="199" height="261" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02123394"
+"class_name": "Persian_cat"
+"original_filename": "n02123394_1604.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02123394_Persian_cat.webp" data-width="199" data-height="261">
+            <noscript><img src="../data/drawings/d_n02123394_Persian_cat.webp" alt="drawing of Persian cat" width="199" height="261" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:04:35.480942"
+"drawing_end": "2026-02-27T12:04:41.320647"
+"elapsed_seconds": 5.839705</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02124075_Egyptian_cat">
+      <h2>n02124075_Egyptian_cat</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02124075_Egyptian_cat.webp" data-width="374" data-height="369">
+            <noscript><img src="../data/scans/s_n02124075_Egyptian_cat.webp" alt="scan of Egyptian cat" width="374" height="369" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02124075"
+"class_name": "Egyptian_cat"
+"original_filename": "n02124075_2487.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02124075_Egyptian_cat.webp" data-width="374" data-height="369">
+            <noscript><img src="../data/drawings/d_n02124075_Egyptian_cat.webp" alt="drawing of Egyptian cat" width="374" height="369" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T22:32:12.834129"
+"drawing_end": "2026-02-24T22:34:47.302033"
+"elapsed_seconds": 154.467904</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02138441_meerkat">
+      <h2>n02138441_meerkat</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02138441_meerkat.webp" data-width="388" data-height="510">
+            <noscript><img src="../data/scans/s_n02138441_meerkat.webp" alt="scan of meerkat" width="388" height="510" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02138441"
+"class_name": "meerkat"
+"original_filename": "n02138441_143.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02138441_meerkat.webp" data-width="388" data-height="510">
+            <noscript><img src="../data/drawings/d_n02138441_meerkat.webp" alt="drawing of meerkat" width="388" height="510" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T17:01:46.424898"
+"drawing_end": "2026-02-17T17:30:34.880218"
+"elapsed_seconds": 1728.45532</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02174001_rhinoceros_beetle">
+      <h2>n02174001_rhinoceros_beetle</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02174001_rhinoceros_beetle.webp" data-width="598" data-height="427">
+            <noscript><img src="../data/scans/s_n02174001_rhinoceros_beetle.webp" alt="scan of rhinoceros beetle" width="598" height="427" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02174001"
+"class_name": "rhinoceros_beetle"
+"original_filename": "n02174001_3095.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02174001_rhinoceros_beetle.webp" data-width="598" data-height="427">
+            <noscript><img src="../data/drawings/d_n02174001_rhinoceros_beetle.webp" alt="drawing of rhinoceros beetle" width="598" height="427" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T15:48:13.704465"
+"drawing_end": "2026-02-17T16:34:14.682819"
+"elapsed_seconds": 2760.978354</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02281406_sulphur_butterfly">
+      <h2>n02281406_sulphur_butterfly</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02281406_sulphur_butterfly.webp" data-width="159" data-height="110">
+            <noscript><img src="../data/scans/s_n02281406_sulphur_butterfly.webp" alt="scan of sulphur butterfly" width="159" height="110" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02281406"
+"class_name": "sulphur_butterfly"
+"original_filename": "n02281406_3338.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02281406_sulphur_butterfly.webp" data-width="159" data-height="110">
+            <noscript><img src="../data/drawings/d_n02281406_sulphur_butterfly.webp" alt="drawing of sulphur butterfly" width="159" height="110" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:41:23.987456"
+"drawing_end": "2026-02-27T11:41:36.864248"
+"elapsed_seconds": 12.876792</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02389026_sorrel">
+      <h2>n02389026_sorrel</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02389026_sorrel.webp" data-width="510" data-height="375">
+            <noscript><img src="../data/scans/s_n02389026_sorrel.webp" alt="scan of sorrel" width="510" height="375" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02389026"
+"class_name": "sorrel"
+"original_filename": "n02389026_7606.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02389026_sorrel.webp" data-width="510" data-height="375">
+            <noscript><img src="../data/drawings/d_n02389026_sorrel.webp" alt="drawing of sorrel" width="510" height="375" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T10:05:49.656714"
+"drawing_end": "2026-02-24T10:27:13.819145"
+"elapsed_seconds": 1284.162431</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02398521_hippopotamus">
+      <h2>n02398521_hippopotamus</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02398521_hippopotamus.webp" data-width="571" data-height="372">
+            <noscript><img src="../data/scans/s_n02398521_hippopotamus.webp" alt="scan of hippopotamus" width="571" height="372" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02398521"
+"class_name": "hippopotamus"
+"original_filename": "n02398521_14074.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02398521_hippopotamus.webp" data-width="571" data-height="372">
+            <noscript><img src="../data/drawings/d_n02398521_hippopotamus.webp" alt="drawing of hippopotamus" width="571" height="372" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T15:21:38.315886"
+"drawing_end": "2026-02-17T15:33:29.641928"
+"elapsed_seconds": 711.326042</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02423022_gazelle">
+      <h2>n02423022_gazelle</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02423022_gazelle.webp" data-width="367" data-height="370">
+            <noscript><img src="../data/scans/s_n02423022_gazelle.webp" alt="scan of gazelle" width="367" height="370" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02423022"
+"class_name": "gazelle"
+"original_filename": "n02423022_7746.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02423022_gazelle.webp" data-width="367" data-height="370">
+            <noscript><img src="../data/drawings/d_n02423022_gazelle.webp" alt="drawing of gazelle" width="367" height="370" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T16:36:17.872851"
+"drawing_end": "2026-02-22T16:48:27.458782"
+"elapsed_seconds": 729.585931</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02442845_mink">
+      <h2>n02442845_mink</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02442845_mink.webp" data-width="515" data-height="386">
+            <noscript><img src="../data/scans/s_n02442845_mink.webp" alt="scan of mink" width="515" height="386" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02442845"
+"class_name": "mink"
+"original_filename": "n02442845_13.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02442845_mink.webp" data-width="515" data-height="386">
+            <noscript><img src="../data/drawings/d_n02442845_mink.webp" alt="drawing of mink" width="515" height="386" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T16:00:02.045886"
+"drawing_end": "2026-02-22T16:12:27.019164"
+"elapsed_seconds": 744.973278</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02490219_marmoset">
+      <h2>n02490219_marmoset</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02490219_marmoset.webp" data-width="209" data-height="118">
+            <noscript><img src="../data/scans/s_n02490219_marmoset.webp" alt="scan of marmoset" width="209" height="118" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02490219"
+"class_name": "marmoset"
+"original_filename": "n02490219_132.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02490219_marmoset.webp" data-width="209" data-height="118">
+            <noscript><img src="../data/drawings/d_n02490219_marmoset.webp" alt="drawing of marmoset" width="209" height="118" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:57:54.553064"
+"drawing_end": "2026-03-03T13:58:05.487009"
+"elapsed_seconds": 10.933945</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02607072_anemone_fish">
+      <h2>n02607072_anemone_fish</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02607072_anemone_fish.webp" data-width="342" data-height="250">
+            <noscript><img src="../data/scans/s_n02607072_anemone_fish.webp" alt="scan of anemone fish" width="342" height="250" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02607072"
+"class_name": "anemone_fish"
+"original_filename": "n02607072_1159.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02607072_anemone_fish.webp" data-width="342" data-height="250">
+            <noscript><img src="../data/drawings/d_n02607072_anemone_fish.webp" alt="drawing of anemone fish" width="342" height="250" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:53:20.826697"
+"drawing_end": "2026-03-03T13:53:32.355994"
+"elapsed_seconds": 11.529297</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02687172_aircraft_carrier">
+      <h2>n02687172_aircraft_carrier</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02687172_aircraft_carrier.webp" data-width="183" data-height="152">
+            <noscript><img src="../data/scans/s_n02687172_aircraft_carrier.webp" alt="scan of aircraft carrier" width="183" height="152" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02687172"
+"class_name": "aircraft_carrier"
+"original_filename": "n02687172_97408.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02687172_aircraft_carrier.webp" data-width="183" data-height="152">
+            <noscript><img src="../data/drawings/d_n02687172_aircraft_carrier.webp" alt="drawing of aircraft carrier" width="183" height="152" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:30:03.194416"
+"drawing_end": "2026-02-27T11:30:17.722551"
+"elapsed_seconds": 14.528135</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02776631_bakery">
+      <h2>n02776631_bakery</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02776631_bakery.webp" data-width="495" data-height="366">
+            <noscript><img src="../data/scans/s_n02776631_bakery.webp" alt="scan of bakery" width="495" height="366" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02776631"
+"class_name": "bakery"
+"original_filename": "n02776631_92890.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02776631_bakery.webp" data-width="495" data-height="366">
+            <noscript><img src="../data/drawings/d_n02776631_bakery.webp" alt="drawing of bakery" width="495" height="366" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T10:34:44.904112"
+"drawing_end": "2026-02-24T10:49:27.196602"
+"elapsed_seconds": 882.29249</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02791270_barbershop">
+      <h2>n02791270_barbershop</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02791270_barbershop.webp" data-width="254" data-height="169">
+            <noscript><img src="../data/scans/s_n02791270_barbershop.webp" alt="scan of barbershop" width="254" height="169" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02791270"
+"class_name": "barbershop"
+"original_filename": "n02791270_32724.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02791270_barbershop.webp" data-width="254" data-height="169">
+            <noscript><img src="../data/drawings/d_n02791270_barbershop.webp" alt="drawing of barbershop" width="254" height="169" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:45:44.192451"
+"drawing_end": "2026-03-03T13:45:58.401774"
+"elapsed_seconds": 14.209323</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02837789_bikini">
+      <h2>n02837789_bikini</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02837789_bikini.webp" data-width="177" data-height="124">
+            <noscript><img src="../data/scans/s_n02837789_bikini.webp" alt="scan of bikini" width="177" height="124" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02837789"
+"class_name": "bikini"
+"original_filename": "n02837789_2.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02837789_bikini.webp" data-width="177" data-height="124">
+            <noscript><img src="../data/drawings/d_n02837789_bikini.webp" alt="drawing of bikini" width="177" height="124" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:20:24.069560"
+"drawing_end": "2026-02-27T11:20:36.868946"
+"elapsed_seconds": 12.799386</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02841315_binoculars">
+      <h2>n02841315_binoculars</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02841315_binoculars.webp" data-width="450" data-height="390">
+            <noscript><img src="../data/scans/s_n02841315_binoculars.webp" alt="scan of binoculars" width="450" height="390" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02841315"
+"class_name": "binoculars"
+"original_filename": "n02841315_4455.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02841315_binoculars.webp" data-width="450" data-height="390">
+            <noscript><img src="../data/drawings/d_n02841315_binoculars.webp" alt="drawing of binoculars" width="450" height="390" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T15:45:09.229848"
+"drawing_end": "2026-02-26T15:55:38.066347"
+"elapsed_seconds": 628.836499</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02843684_birdhouse">
+      <h2>n02843684_birdhouse</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02843684_birdhouse.webp" data-width="506" data-height="382">
+            <noscript><img src="../data/scans/s_n02843684_birdhouse.webp" alt="scan of birdhouse" width="506" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02843684"
+"class_name": "birdhouse"
+"original_filename": "n02843684_11324.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02843684_birdhouse.webp" data-width="506" data-height="382">
+            <noscript><img src="../data/drawings/d_n02843684_birdhouse.webp" alt="drawing of birdhouse" width="506" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T12:02:32.809177"
+"drawing_end": "2026-02-10T14:07:52.998910"
+"elapsed_seconds": 7520.189733</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02916936_bulletproof_vest">
+      <h2>n02916936_bulletproof_vest</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02916936_bulletproof_vest.webp" data-width="133" data-height="116">
+            <noscript><img src="../data/scans/s_n02916936_bulletproof_vest.webp" alt="scan of bulletproof vest" width="133" height="116" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02916936"
+"class_name": "bulletproof_vest"
+"original_filename": "n02916936_1304.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02916936_bulletproof_vest.webp" data-width="133" data-height="116">
+            <noscript><img src="../data/drawings/d_n02916936_bulletproof_vest.webp" alt="drawing of bulletproof vest" width="133" height="116" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:43:44.614632"
+"drawing_end": "2026-02-27T12:43:54.327764"
+"elapsed_seconds": 9.713132</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02951585_can_opener">
+      <h2>n02951585_can_opener</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02951585_can_opener.webp" data-width="157" data-height="204">
+            <noscript><img src="../data/scans/s_n02951585_can_opener.webp" alt="scan of can opener" width="157" height="204" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02951585"
+"class_name": "can_opener"
+"original_filename": "n02951585_7213.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02951585_can_opener.webp" data-width="157" data-height="204">
+            <noscript><img src="../data/drawings/d_n02951585_can_opener.webp" alt="drawing of can opener" width="157" height="204" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T10:57:14.078473"
+"drawing_end": "2026-02-27T10:57:40.952915"
+"elapsed_seconds": 26.874442</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02971356_carton">
+      <h2>n02971356_carton</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02971356_carton.webp" data-width="508" data-height="383">
+            <noscript><img src="../data/scans/s_n02971356_carton.webp" alt="scan of carton" width="508" height="383" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02971356"
+"class_name": "carton"
+"original_filename": "n02971356_935.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02971356_carton.webp" data-width="508" data-height="383">
+            <noscript><img src="../data/drawings/d_n02971356_carton.webp" alt="drawing of carton" width="508" height="383" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T18:29:44.754812"
+"drawing_end": "2026-02-22T18:35:02.104463"
+"elapsed_seconds": 317.349651</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02992211_cello">
+      <h2>n02992211_cello</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02992211_cello.webp" data-width="228" data-height="360">
+            <noscript><img src="../data/scans/s_n02992211_cello.webp" alt="scan of cello" width="228" height="360" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02992211"
+"class_name": "cello"
+"original_filename": "n02992211_7455.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02992211_cello.webp" data-width="228" data-height="360">
+            <noscript><img src="../data/drawings/d_n02992211_cello.webp" alt="drawing of cello" width="228" height="360" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:17:31.410718"
+"drawing_end": "2026-02-27T11:18:10.410661"
+"elapsed_seconds": 38.999943</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n02992529_cellular_telephone">
+      <h2>n02992529_cellular_telephone</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n02992529_cellular_telephone.webp" data-width="508" data-height="384">
+            <noscript><img src="../data/scans/s_n02992529_cellular_telephone.webp" alt="scan of cellular telephone" width="508" height="384" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n02992529"
+"class_name": "cellular_telephone"
+"original_filename": "n02992529_18088.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n02992529_cellular_telephone.webp" data-width="508" data-height="384">
+            <noscript><img src="../data/drawings/d_n02992529_cellular_telephone.webp" alt="drawing of cellular telephone" width="508" height="384" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T18:11:59.117731"
+"drawing_end": "2026-02-22T18:28:59.679262"
+"elapsed_seconds": 1020.561531</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03028079_church">
+      <h2>n03028079_church</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03028079_church.webp" data-width="128" data-height="182">
+            <noscript><img src="../data/scans/s_n03028079_church.webp" alt="scan of church" width="128" height="182" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03028079"
+"class_name": "church"
+"original_filename": "n03028079_10328.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03028079_church.webp" data-width="128" data-height="182">
+            <noscript><img src="../data/drawings/d_n03028079_church.webp" alt="drawing of church" width="128" height="182" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:28:47.391160"
+"drawing_end": "2026-02-27T11:28:59.078982"
+"elapsed_seconds": 11.687822</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03133878_Crock_Pot">
+      <h2>n03133878_Crock_Pot</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03133878_Crock_Pot.webp" data-width="430" data-height="528">
+            <noscript><img src="../data/scans/s_n03133878_Crock_Pot.webp" alt="scan of Crock Pot" width="430" height="528" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03133878"
+"class_name": "Crock_Pot"
+"original_filename": "n03133878_10918.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03133878_Crock_Pot.webp" data-width="430" data-height="528">
+            <noscript><img src="../data/drawings/d_n03133878_Crock_Pot.webp" alt="drawing of Crock Pot" width="430" height="528" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T15:08:30.967224"
+"drawing_end": "2026-02-26T15:23:01.714839"
+"elapsed_seconds": 870.747615</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03240683_drilling_platform">
+      <h2>n03240683_drilling_platform</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03240683_drilling_platform.webp" data-width="168" data-height="117">
+            <noscript><img src="../data/scans/s_n03240683_drilling_platform.webp" alt="scan of drilling platform" width="168" height="117" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03240683"
+"class_name": "drilling_platform"
+"original_filename": "n03240683_21642.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03240683_drilling_platform.webp" data-width="168" data-height="117">
+            <noscript><img src="../data/drawings/d_n03240683_drilling_platform.webp" alt="drawing of drilling platform" width="168" height="117" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:03:24.881015"
+"drawing_end": "2026-02-27T11:04:08.709654"
+"elapsed_seconds": 43.828639</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03259280_Dutch_oven">
+      <h2>n03259280_Dutch_oven</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03259280_Dutch_oven.webp" data-width="344" data-height="254">
+            <noscript><img src="../data/scans/s_n03259280_Dutch_oven.webp" alt="scan of Dutch oven" width="344" height="254" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03259280"
+"class_name": "Dutch_oven"
+"original_filename": "n03259280_594.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03259280_Dutch_oven.webp" data-width="344" data-height="254">
+            <noscript><img src="../data/drawings/d_n03259280_Dutch_oven.webp" alt="drawing of Dutch oven" width="344" height="254" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:01:33.512896"
+"drawing_end": "2026-02-27T12:01:39.059229"
+"elapsed_seconds": 5.546333</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03376595_folding_chair">
+      <h2>n03376595_folding_chair</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03376595_folding_chair.webp" data-width="504" data-height="385">
+            <noscript><img src="../data/scans/s_n03376595_folding_chair.webp" alt="scan of folding chair" width="504" height="385" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03376595"
+"class_name": "folding_chair"
+"original_filename": "n03376595_10011.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03376595_folding_chair.webp" data-width="504" data-height="385">
+            <noscript><img src="../data/drawings/d_n03376595_folding_chair.webp" alt="drawing of folding chair" width="504" height="385" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T14:35:08.399935"
+"drawing_end": "2026-02-17T15:09:00.537569"
+"elapsed_seconds": 2032.137634</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03394916_French_horn">
+      <h2>n03394916_French_horn</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03394916_French_horn.webp" data-width="192" data-height="265">
+            <noscript><img src="../data/scans/s_n03394916_French_horn.webp" alt="scan of French horn" width="192" height="265" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03394916"
+"class_name": "French_horn"
+"original_filename": "n03394916_35469.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03394916_French_horn.webp" data-width="192" data-height="265">
+            <noscript><img src="../data/drawings/d_n03394916_French_horn.webp" alt="drawing of French horn" width="192" height="265" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:47:44.558839"
+"drawing_end": "2026-02-27T12:49:14.455027"
+"elapsed_seconds": 89.896188</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03400231_frying_pan">
+      <h2>n03400231_frying_pan</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03400231_frying_pan.webp" data-width="511" data-height="382">
+            <noscript><img src="../data/scans/s_n03400231_frying_pan.webp" alt="scan of frying pan" width="511" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03400231"
+"class_name": "frying_pan"
+"original_filename": "n03400231_2891.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03400231_frying_pan.webp" data-width="511" data-height="382">
+            <noscript><img src="../data/drawings/d_n03400231_frying_pan.webp" alt="drawing of frying pan" width="511" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T16:39:16.153431"
+"drawing_end": "2026-02-17T16:51:31.769255"
+"elapsed_seconds": 735.615824</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03445777_golf_ball">
+      <h2>n03445777_golf_ball</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03445777_golf_ball.webp" data-width="737" data-height="321">
+            <noscript><img src="../data/scans/s_n03445777_golf_ball.webp" alt="scan of golf ball" width="737" height="321" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03445777"
+"class_name": "golf_ball"
+"original_filename": "n03445777_2873.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03445777_golf_ball.webp" data-width="737" data-height="321">
+            <noscript><img src="../data/drawings/d_n03445777_golf_ball.webp" alt="drawing of golf ball" width="737" height="321" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T16:49:15.758824"
+"drawing_end": "2026-02-22T17:31:34.233134"
+"elapsed_seconds": 2538.47431</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03478589_half_track">
+      <h2>n03478589_half_track</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03478589_half_track.webp" data-width="272" data-height="197">
+            <noscript><img src="../data/scans/s_n03478589_half_track.webp" alt="scan of half track" width="272" height="197" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03478589"
+"class_name": "half_track"
+"original_filename": "n03478589_10113.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03478589_half_track.webp" data-width="272" data-height="197">
+            <noscript><img src="../data/drawings/d_n03478589_half_track.webp" alt="drawing of half track" width="272" height="197" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T10:46:41.596650"
+"drawing_end": "2026-02-27T10:47:12.050890"
+"elapsed_seconds": 30.45424</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03498962_hatchet">
+      <h2>n03498962_hatchet</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03498962_hatchet.webp" data-width="377" data-height="568">
+            <noscript><img src="../data/scans/s_n03498962_hatchet.webp" alt="scan of hatchet" width="377" height="568" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03498962"
+"class_name": "hatchet"
+"original_filename": "n03498962_30932.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03498962_hatchet.webp" data-width="377" data-height="568">
+            <noscript><img src="../data/drawings/d_n03498962_hatchet.webp" alt="drawing of hatchet" width="377" height="568" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T21:02:10.506836"
+"drawing_end": "2026-02-22T21:11:37.581235"
+"elapsed_seconds": 567.074399</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03529860_home_theater">
+      <h2>n03529860_home_theater</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03529860_home_theater.webp" data-width="289" data-height="216">
+            <noscript><img src="../data/scans/s_n03529860_home_theater.webp" alt="scan of home theater" width="289" height="216" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03529860"
+"class_name": "home_theater"
+"original_filename": "n03529860_9881.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03529860_home_theater.webp" data-width="289" data-height="216">
+            <noscript><img src="../data/drawings/d_n03529860_home_theater.webp" alt="drawing of home theater" width="289" height="216" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:51:53.217062"
+"drawing_end": "2026-02-27T11:52:01.922211"
+"elapsed_seconds": 8.705149</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03595614_jersey">
+      <h2>n03595614_jersey</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03595614_jersey.webp" data-width="379" data-height="499">
+            <noscript><img src="../data/scans/s_n03595614_jersey.webp" alt="scan of jersey" width="379" height="499" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03595614"
+"class_name": "jersey"
+"original_filename": "n03595614_1002.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03595614_jersey.webp" data-width="379" data-height="499">
+            <noscript><img src="../data/drawings/d_n03595614_jersey.webp" alt="drawing of jersey" width="379" height="499" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T22:11:37.357258"
+"drawing_end": "2026-02-24T22:20:09.704300"
+"elapsed_seconds": 512.347042</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03602883_joystick">
+      <h2>n03602883_joystick</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03602883_joystick.webp" data-width="376" data-height="380">
+            <noscript><img src="../data/scans/s_n03602883_joystick.webp" alt="scan of joystick" width="376" height="380" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03602883"
+"class_name": "joystick"
+"original_filename": "n03602883_4441.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03602883_joystick.webp" data-width="376" data-height="380">
+            <noscript><img src="../data/drawings/d_n03602883_joystick.webp" alt="drawing of joystick" width="376" height="380" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T18:06:21.147201"
+"drawing_end": "2026-02-22T18:11:45.920078"
+"elapsed_seconds": 324.772877</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03676483_lipstick">
+      <h2>n03676483_lipstick</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03676483_lipstick.webp" data-width="278" data-height="179">
+            <noscript><img src="../data/scans/s_n03676483_lipstick.webp" alt="scan of lipstick" width="278" height="179" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03676483"
+"class_name": "lipstick"
+"original_filename": "n03676483_25740.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03676483_lipstick.webp" data-width="278" data-height="179">
+            <noscript><img src="../data/drawings/d_n03676483_lipstick.webp" alt="drawing of lipstick" width="278" height="179" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:31:16.161252"
+"drawing_end": "2026-02-27T11:31:36.962636"
+"elapsed_seconds": 20.801384</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03709823_mailbag">
+      <h2>n03709823_mailbag</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03709823_mailbag.webp" data-width="141" data-height="213">
+            <noscript><img src="../data/scans/s_n03709823_mailbag.webp" alt="scan of mailbag" width="141" height="213" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03709823"
+"class_name": "mailbag"
+"original_filename": "n03709823_7794.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03709823_mailbag.webp" data-width="141" data-height="213">
+            <noscript><img src="../data/drawings/d_n03709823_mailbag.webp" alt="drawing of mailbag" width="141" height="213" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T11:54:23.038506"
+"drawing_end": "2026-03-03T12:04:06.028336"
+"elapsed_seconds": 582.98983</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03761084_microwave">
+      <h2>n03761084_microwave</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03761084_microwave.webp" data-width="551" data-height="383">
+            <noscript><img src="../data/scans/s_n03761084_microwave.webp" alt="scan of microwave" width="551" height="383" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03761084"
+"class_name": "microwave"
+"original_filename": "n03761084_11907.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03761084_microwave.webp" data-width="551" data-height="383">
+            <noscript><img src="../data/drawings/d_n03761084_microwave.webp" alt="drawing of microwave" width="551" height="383" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T17:15:47.071666"
+"drawing_end": "2026-02-10T17:51:51.940115"
+"elapsed_seconds": 2164.868449</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03804744_nail">
+      <h2>n03804744_nail</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03804744_nail.webp" data-width="564" data-height="382">
+            <noscript><img src="../data/scans/s_n03804744_nail.webp" alt="scan of nail" width="564" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03804744"
+"class_name": "nail"
+"original_filename": "n03804744_12884.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03804744_nail.webp" data-width="564" data-height="382">
+            <noscript><img src="../data/drawings/d_n03804744_nail.webp" alt="drawing of nail" width="564" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T10:28:04.929677"
+"drawing_end": "2026-02-24T10:34:08.656588"
+"elapsed_seconds": 363.726911</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03854065_organ">
+      <h2>n03854065_organ</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03854065_organ.webp" data-width="506" data-height="387">
+            <noscript><img src="../data/scans/s_n03854065_organ.webp" alt="scan of organ" width="506" height="387" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03854065"
+"class_name": "organ"
+"original_filename": "n03854065_7757.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03854065_organ.webp" data-width="506" data-height="387">
+            <noscript><img src="../data/drawings/d_n03854065_organ.webp" alt="drawing of organ" width="506" height="387" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T13:56:01.977528"
+"drawing_end": "2026-02-26T14:29:28.812808"
+"elapsed_seconds": 2006.83528</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03876231_paintbrush">
+      <h2>n03876231_paintbrush</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03876231_paintbrush.webp" data-width="651" data-height="434">
+            <noscript><img src="../data/scans/s_n03876231_paintbrush.webp" alt="scan of paintbrush" width="651" height="434" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03876231"
+"class_name": "paintbrush"
+"original_filename": "n03876231_30326.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03876231_paintbrush.webp" data-width="651" data-height="434">
+            <noscript><img src="../data/drawings/d_n03876231_paintbrush.webp" alt="drawing of paintbrush" width="651" height="434" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T12:47:44.129572"
+"drawing_end": "2026-02-26T13:41:36.420262"
+"elapsed_seconds": 3232.29069</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03887697_paper_towel">
+      <h2>n03887697_paper_towel</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03887697_paper_towel.webp" data-width="500" data-height="381">
+            <noscript><img src="../data/scans/s_n03887697_paper_towel.webp" alt="scan of paper towel" width="500" height="381" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03887697"
+"class_name": "paper_towel"
+"original_filename": "n03887697_5758.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03887697_paper_towel.webp" data-width="500" data-height="381">
+            <noscript><img src="../data/drawings/d_n03887697_paper_towel.webp" alt="drawing of paper towel" width="500" height="381" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T10:49:28.573703"
+"drawing_end": "2026-02-24T10:56:12.160469"
+"elapsed_seconds": 403.586766</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03891251_park_bench">
+      <h2>n03891251_park_bench</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03891251_park_bench.webp" data-width="393" data-height="497">
+            <noscript><img src="../data/scans/s_n03891251_park_bench.webp" alt="scan of park bench" width="393" height="497" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03891251"
+"class_name": "park_bench"
+"original_filename": "n03891251_19.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03891251_park_bench.webp" data-width="393" data-height="497">
+            <noscript><img src="../data/drawings/d_n03891251_park_bench.webp" alt="drawing of park bench" width="393" height="497" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T14:07:55.323942"
+"drawing_end": "2026-02-10T15:11:42.680648"
+"elapsed_seconds": 3827.356706</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03891332_parking_meter">
+      <h2>n03891332_parking_meter</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03891332_parking_meter.webp" data-width="422" data-height="286">
+            <noscript><img src="../data/scans/s_n03891332_parking_meter.webp" alt="scan of parking meter" width="422" height="286" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03891332"
+"class_name": "parking_meter"
+"original_filename": "n03891332_6383.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03891332_parking_meter.webp" data-width="422" data-height="286">
+            <noscript><img src="../data/drawings/d_n03891332_parking_meter.webp" alt="drawing of parking meter" width="422" height="286" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:54:17.482915"
+"drawing_end": "2026-03-03T13:55:33.100941"
+"elapsed_seconds": 75.618026</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03930630_pickup">
+      <h2>n03930630_pickup</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03930630_pickup.webp" data-width="181" data-height="148">
+            <noscript><img src="../data/scans/s_n03930630_pickup.webp" alt="scan of pickup" width="181" height="148" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03930630"
+"class_name": "pickup"
+"original_filename": "n03930630_11929.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03930630_pickup.webp" data-width="181" data-height="148">
+            <noscript><img src="../data/drawings/d_n03930630_pickup.webp" alt="drawing of pickup" width="181" height="148" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:42:40.208382"
+"drawing_end": "2026-02-27T12:42:50.914452"
+"elapsed_seconds": 10.70607</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03935335_piggy_bank">
+      <h2>n03935335_piggy_bank</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03935335_piggy_bank.webp" data-width="225" data-height="170">
+            <noscript><img src="../data/scans/s_n03935335_piggy_bank.webp" alt="scan of piggy bank" width="225" height="170" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03935335"
+"class_name": "piggy_bank"
+"original_filename": "n03935335_23318.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03935335_piggy_bank.webp" data-width="225" data-height="170">
+            <noscript><img src="../data/drawings/d_n03935335_piggy_bank.webp" alt="drawing of piggy bank" width="225" height="170" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:07:58.485920"
+"drawing_end": "2026-02-27T11:12:54.201712"
+"elapsed_seconds": 295.715792</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03970156_plunger">
+      <h2>n03970156_plunger</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03970156_plunger.webp" data-width="144" data-height="244">
+            <noscript><img src="../data/scans/s_n03970156_plunger.webp" alt="scan of plunger" width="144" height="244" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03970156"
+"class_name": "plunger"
+"original_filename": "n03970156_20296.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03970156_plunger.webp" data-width="144" data-height="244">
+            <noscript><img src="../data/drawings/d_n03970156_plunger.webp" alt="drawing of plunger" width="144" height="244" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:53:44.765001"
+"drawing_end": "2026-02-27T12:53:57.962912"
+"elapsed_seconds": 13.197911</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n03982430_pool_table">
+      <h2>n03982430_pool_table</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n03982430_pool_table.webp" data-width="434" data-height="373">
+            <noscript><img src="../data/scans/s_n03982430_pool_table.webp" alt="scan of pool table" width="434" height="373" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n03982430"
+"class_name": "pool_table"
+"original_filename": "n03982430_21311.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n03982430_pool_table.webp" data-width="434" data-height="373">
+            <noscript><img src="../data/drawings/d_n03982430_pool_table.webp" alt="drawing of pool table" width="434" height="373" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T21:46:20.336879"
+"drawing_end": "2026-02-24T21:59:15.589607"
+"elapsed_seconds": 775.252728</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04005630_prison">
+      <h2>n04005630_prison</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04005630_prison.webp" data-width="318" data-height="219">
+            <noscript><img src="../data/scans/s_n04005630_prison.webp" alt="scan of prison" width="318" height="219" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04005630"
+"class_name": "prison"
+"original_filename": "n04005630_49537.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04005630_prison.webp" data-width="318" data-height="219">
+            <noscript><img src="../data/drawings/d_n04005630_prison.webp" alt="drawing of prison" width="318" height="219" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:36:51.111767"
+"drawing_end": "2026-02-27T12:37:06.585687"
+"elapsed_seconds": 15.47392</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04037443_racer">
+      <h2>n04037443_racer</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04037443_racer.webp" data-width="545" data-height="378">
+            <noscript><img src="../data/scans/s_n04037443_racer.webp" alt="scan of racer" width="545" height="378" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04037443"
+"class_name": "racer"
+"original_filename": "n04037443_3779.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04037443_racer.webp" data-width="545" data-height="378">
+            <noscript><img src="../data/drawings/d_n04037443_racer.webp" alt="drawing of racer" width="545" height="378" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T14:58:33.762867"
+"drawing_end": "2026-02-22T15:59:25.443986"
+"elapsed_seconds": 3651.681119</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04111531_rotisserie">
+      <h2>n04111531_rotisserie</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04111531_rotisserie.webp" data-width="386" data-height="580">
+            <noscript><img src="../data/scans/s_n04111531_rotisserie.webp" alt="scan of rotisserie" width="386" height="580" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04111531"
+"class_name": "rotisserie"
+"original_filename": "n04111531_7741.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04111531_rotisserie.webp" data-width="386" data-height="580">
+            <noscript><img src="../data/drawings/d_n04111531_rotisserie.webp" alt="drawing of rotisserie" width="386" height="580" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T15:55:47.814100"
+"drawing_end": "2026-02-26T16:06:15.158652"
+"elapsed_seconds": 627.344552</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04118538_rugby_ball">
+      <h2>n04118538_rugby_ball</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04118538_rugby_ball.webp" data-width="368" data-height="290">
+            <noscript><img src="../data/scans/s_n04118538_rugby_ball.webp" alt="scan of rugby ball" width="368" height="290" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04118538"
+"class_name": "rugby_ball"
+"original_filename": "n04118538_7798.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04118538_rugby_ball.webp" data-width="368" data-height="290">
+            <noscript><img src="../data/drawings/d_n04118538_rugby_ball.webp" alt="drawing of rugby ball" width="368" height="290" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:57:27.281240"
+"drawing_end": "2026-03-03T13:57:43.633864"
+"elapsed_seconds": 16.352624</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04204347_shopping_cart">
+      <h2>n04204347_shopping_cart</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04204347_shopping_cart.webp" data-width="497" data-height="366">
+            <noscript><img src="../data/scans/s_n04204347_shopping_cart.webp" alt="scan of shopping cart" width="497" height="366" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04204347"
+"class_name": "shopping_cart"
+"original_filename": "n04204347_1888.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04204347_shopping_cart.webp" data-width="497" data-height="366">
+            <noscript><img src="../data/drawings/d_n04204347_shopping_cart.webp" alt="drawing of shopping cart" width="497" height="366" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T11:10:47.800367"
+"drawing_end": "2026-02-17T12:24:30.909403"
+"elapsed_seconds": 4423.109036</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04235860_sleeping_bag">
+      <h2>n04235860_sleeping_bag</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04235860_sleeping_bag.webp" data-width="425" data-height="375">
+            <noscript><img src="../data/scans/s_n04235860_sleeping_bag.webp" alt="scan of sleeping bag" width="425" height="375" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04235860"
+"class_name": "sleeping_bag"
+"original_filename": "n04235860_2917.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04235860_sleeping_bag.webp" data-width="425" data-height="375">
+            <noscript><img src="../data/drawings/d_n04235860_sleeping_bag.webp" alt="drawing of sleeping bag" width="425" height="375" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T12:28:13.105547"
+"drawing_end": "2026-02-17T12:48:01.891385"
+"elapsed_seconds": 1188.785838</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04264628_space_bar">
+      <h2>n04264628_space_bar</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04264628_space_bar.webp" data-width="498" data-height="385">
+            <noscript><img src="../data/scans/s_n04264628_space_bar.webp" alt="scan of space bar" width="498" height="385" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04264628"
+"class_name": "space_bar"
+"original_filename": "n04264628_5486.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04264628_space_bar.webp" data-width="498" data-height="385">
+            <noscript><img src="../data/drawings/d_n04264628_space_bar.webp" alt="drawing of space bar" width="498" height="385" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T15:27:06.009722"
+"drawing_end": "2026-02-26T15:44:34.944067"
+"elapsed_seconds": 1048.934345</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04336792_stretcher">
+      <h2>n04336792_stretcher</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04336792_stretcher.webp" data-width="520" data-height="389">
+            <noscript><img src="../data/scans/s_n04336792_stretcher.webp" alt="scan of stretcher" width="520" height="389" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04336792"
+"class_name": "stretcher"
+"original_filename": "n04336792_12438.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04336792_stretcher.webp" data-width="520" data-height="389">
+            <noscript><img src="../data/drawings/d_n04336792_stretcher.webp" alt="drawing of stretcher" width="520" height="389" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T10:13:45.147722"
+"drawing_end": "2026-02-10T10:17:17.061361"
+"elapsed_seconds": 211.913639</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04356056_sunglasses">
+      <h2>n04356056_sunglasses</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04356056_sunglasses.webp" data-width="177" data-height="136">
+            <noscript><img src="../data/scans/s_n04356056_sunglasses.webp" alt="scan of sunglasses" width="177" height="136" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04356056"
+"class_name": "sunglasses"
+"original_filename": "n04356056_514.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04356056_sunglasses.webp" data-width="177" data-height="136">
+            <noscript><img src="../data/drawings/d_n04356056_sunglasses.webp" alt="drawing of sunglasses" width="177" height="136" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:06:57.217938"
+"drawing_end": "2026-02-27T11:07:06.651692"
+"elapsed_seconds": 9.433754</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04380533_table_lamp">
+      <h2>n04380533_table_lamp</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04380533_table_lamp.webp" data-width="233" data-height="184">
+            <noscript><img src="../data/scans/s_n04380533_table_lamp.webp" alt="scan of table lamp" width="233" height="184" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04380533"
+"class_name": "table_lamp"
+"original_filename": "n04380533_1883.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04380533_table_lamp.webp" data-width="233" data-height="184">
+            <noscript><img src="../data/drawings/d_n04380533_table_lamp.webp" alt="drawing of table lamp" width="233" height="184" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:48:49.595746"
+"drawing_end": "2026-03-03T13:49:20.891710"
+"elapsed_seconds": 31.295964</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04409515_tennis_ball">
+      <h2>n04409515_tennis_ball</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04409515_tennis_ball.webp" data-width="375" data-height="571">
+            <noscript><img src="../data/scans/s_n04409515_tennis_ball.webp" alt="scan of tennis ball" width="375" height="571" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04409515"
+"class_name": "tennis_ball"
+"original_filename": "n04409515_2899.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04409515_tennis_ball.webp" data-width="375" data-height="571">
+            <noscript><img src="../data/drawings/d_n04409515_tennis_ball.webp" alt="drawing of tennis ball" width="375" height="571" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-16T17:40:43.319219"
+"drawing_end": "2026-02-16T19:12:22.830472"
+"elapsed_seconds": 5499.511253</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04462240_toyshop">
+      <h2>n04462240_toyshop</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04462240_toyshop.webp" data-width="494" data-height="380">
+            <noscript><img src="../data/scans/s_n04462240_toyshop.webp" alt="scan of toyshop" width="494" height="380" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04462240"
+"class_name": "toyshop"
+"original_filename": "n04462240_10243.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04462240_toyshop.webp" data-width="494" data-height="380">
+            <noscript><img src="../data/drawings/d_n04462240_toyshop.webp" alt="drawing of toyshop" width="494" height="380" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T18:59:17.887245"
+"drawing_end": "2026-02-10T20:31:34.108031"
+"elapsed_seconds": 5536.220786</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04479046_trench_coat">
+      <h2>n04479046_trench_coat</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04479046_trench_coat.webp" data-width="422" data-height="575">
+            <noscript><img src="../data/scans/s_n04479046_trench_coat.webp" alt="scan of trench coat" width="422" height="575" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04479046"
+"class_name": "trench_coat"
+"original_filename": "n04479046_8727.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04479046_trench_coat.webp" data-width="422" data-height="575">
+            <noscript><img src="../data/drawings/d_n04479046_trench_coat.webp" alt="drawing of trench coat" width="422" height="575" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-26T14:31:06.867819"
+"drawing_end": "2026-02-26T14:58:54.920459"
+"elapsed_seconds": 1668.05264</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04509417_unicycle">
+      <h2>n04509417_unicycle</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04509417_unicycle.webp" data-width="380" data-height="564">
+            <noscript><img src="../data/scans/s_n04509417_unicycle.webp" alt="scan of unicycle" width="380" height="564" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04509417"
+"class_name": "unicycle"
+"original_filename": "n04509417_666.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04509417_unicycle.webp" data-width="380" data-height="564">
+            <noscript><img src="../data/drawings/d_n04509417_unicycle.webp" alt="drawing of unicycle" width="380" height="564" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-24T22:02:56.218960"
+"drawing_end": "2026-02-24T22:11:33.713568"
+"elapsed_seconds": 517.494608</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04540053_volleyball">
+      <h2>n04540053_volleyball</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04540053_volleyball.webp" data-width="419" data-height="476">
+            <noscript><img src="../data/scans/s_n04540053_volleyball.webp" alt="scan of volleyball" width="419" height="476" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04540053"
+"class_name": "volleyball"
+"original_filename": "n04540053_3243.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04540053_volleyball.webp" data-width="419" data-height="476">
+            <noscript><img src="../data/drawings/d_n04540053_volleyball.webp" alt="drawing of volleyball" width="419" height="476" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T21:40:18.526993"
+"drawing_end": "2026-02-22T21:42:51.629361"
+"elapsed_seconds": 153.102368</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04552348_warplane">
+      <h2>n04552348_warplane</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04552348_warplane.webp" data-width="178" data-height="120">
+            <noscript><img src="../data/scans/s_n04552348_warplane.webp" alt="scan of warplane" width="178" height="120" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04552348"
+"class_name": "warplane"
+"original_filename": "n04552348_9524.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04552348_warplane.webp" data-width="178" data-height="120">
+            <noscript><img src="../data/drawings/d_n04552348_warplane.webp" alt="drawing of warplane" width="178" height="120" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T12:45:31.836347"
+"drawing_end": "2026-02-27T12:45:40.608606"
+"elapsed_seconds": 8.772259</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04560804_water_jug">
+      <h2>n04560804_water_jug</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04560804_water_jug.webp" data-width="568" data-height="388">
+            <noscript><img src="../data/scans/s_n04560804_water_jug.webp" alt="scan of water jug" width="568" height="388" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04560804"
+"class_name": "water_jug"
+"original_filename": "n04560804_15432.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04560804_water_jug.webp" data-width="568" data-height="388">
+            <noscript><img src="../data/drawings/d_n04560804_water_jug.webp" alt="drawing of water jug" width="568" height="388" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-17T13:57:51.820549"
+"drawing_end": "2026-02-17T14:01:55.435060"
+"elapsed_seconds": 243.614511</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04579432_whistle">
+      <h2>n04579432_whistle</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04579432_whistle.webp" data-width="370" data-height="519">
+            <noscript><img src="../data/scans/s_n04579432_whistle.webp" alt="scan of whistle" width="370" height="519" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04579432"
+"class_name": "whistle"
+"original_filename": "n04579432_20230.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04579432_whistle.webp" data-width="370" data-height="519">
+            <noscript><img src="../data/drawings/d_n04579432_whistle.webp" alt="drawing of whistle" width="370" height="519" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T20:18:16.012310"
+"drawing_end": "2026-02-22T20:52:30.050768"
+"elapsed_seconds": 2054.038458</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n04604644_worm_fence">
+      <h2>n04604644_worm_fence</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n04604644_worm_fence.webp" data-width="568" data-height="382">
+            <noscript><img src="../data/scans/s_n04604644_worm_fence.webp" alt="scan of worm fence" width="568" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n04604644"
+"class_name": "worm_fence"
+"original_filename": "n04604644_10887.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n04604644_worm_fence.webp" data-width="568" data-height="382">
+            <noscript><img src="../data/drawings/d_n04604644_worm_fence.webp" alt="drawing of worm fence" width="568" height="382" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-22T19:09:31.489957"
+"drawing_end": "2026-02-22T20:11:51.179427"
+"elapsed_seconds": 3739.68947</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n07697313_cheeseburger">
+      <h2>n07697313_cheeseburger</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n07697313_cheeseburger.webp" data-width="137" data-height="181">
+            <noscript><img src="../data/scans/s_n07697313_cheeseburger.webp" alt="scan of cheeseburger" width="137" height="181" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n07697313"
+"class_name": "cheeseburger"
+"original_filename": "n07697313_2673.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n07697313_cheeseburger.webp" data-width="137" data-height="181">
+            <noscript><img src="../data/drawings/d_n07697313_cheeseburger.webp" alt="drawing of cheeseburger" width="137" height="181" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:02:11.249604"
+"drawing_end": "2026-02-27T11:03:15.104034"
+"elapsed_seconds": 63.85443</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n07711569_mashed_potato">
+      <h2>n07711569_mashed_potato</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n07711569_mashed_potato.webp" data-width="389" data-height="257">
+            <noscript><img src="../data/scans/s_n07711569_mashed_potato.webp" alt="scan of mashed potato" width="389" height="257" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n07711569"
+"class_name": "mashed_potato"
+"original_filename": "n07711569_5928.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n07711569_mashed_potato.webp" data-width="389" data-height="257">
+            <noscript><img src="../data/drawings/d_n07711569_mashed_potato.webp" alt="drawing of mashed potato" width="389" height="257" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T11:50:23.896506"
+"drawing_end": "2026-03-03T11:50:46.090822"
+"elapsed_seconds": 22.194316</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n07717410_acorn_squash">
+      <h2>n07717410_acorn_squash</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n07717410_acorn_squash.webp" data-width="346" data-height="270">
+            <noscript><img src="../data/scans/s_n07717410_acorn_squash.webp" alt="scan of acorn squash" width="346" height="270" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n07717410"
+"class_name": "acorn_squash"
+"original_filename": "n07717410_4887.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n07717410_acorn_squash.webp" data-width="346" data-height="270">
+            <noscript><img src="../data/drawings/d_n07717410_acorn_squash.webp" alt="drawing of acorn squash" width="346" height="270" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-03-03T13:43:13.128393"
+"drawing_end": "2026-03-03T13:44:50.061871"
+"elapsed_seconds": 96.933478</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n07768694_pomegranate">
+      <h2>n07768694_pomegranate</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n07768694_pomegranate.webp" data-width="186" data-height="151">
+            <noscript><img src="../data/scans/s_n07768694_pomegranate.webp" alt="scan of pomegranate" width="186" height="151" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n07768694"
+"class_name": "pomegranate"
+"original_filename": "n07768694_30524.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n07768694_pomegranate.webp" data-width="186" data-height="151">
+            <noscript><img src="../data/drawings/d_n07768694_pomegranate.webp" alt="drawing of pomegranate" width="186" height="151" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-27T11:52:48.847726"
+"drawing_end": "2026-02-27T11:53:06.320844"
+"elapsed_seconds": 17.473118</pre>
+        </div>
+      </div>
+    </section>
+    <section class="entry" id="n10565667_scuba_diver">
+      <h2>n10565667_scuba_diver</h2>
+      <div class="entry-grid">
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/scans/s_n10565667_scuba_diver.webp" data-width="519" data-height="380">
+            <noscript><img src="../data/scans/s_n10565667_scuba_diver.webp" alt="scan of scuba diver" width="519" height="380" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"class_folder": "n10565667"
+"class_name": "scuba_diver"
+"original_filename": "n10565667_9728.JPEG"</pre>
+        </div>
+        <div class="entry-col">
+          <div class="img-wrap lazy" data-src="../data/drawings/d_n10565667_scuba_diver.webp" data-width="519" data-height="380">
+            <noscript><img src="../data/drawings/d_n10565667_scuba_diver.webp" alt="drawing of scuba diver" width="519" height="380" loading="lazy"></noscript>
+          </div>
+          <pre class="caption">"drawing_start": "2026-02-10T20:32:43.101142"
+"drawing_end": "2026-02-10T21:02:42.482592"
+"elapsed_seconds": 1799.38145</pre>
         </div>
       </div>
     </section>
@@ -148,6 +2314,7 @@ nav a:hover { text-decoration: underline; }
     if (!src) return;
     var img = document.createElement('img');
     img.alt = wrap.dataset.alt || '';
+    if (wrap.dataset.width)  img.style.width  = wrap.dataset.width  + 'px';
     img.onload = function () { img.classList.add('loaded'); };
     img.src = src;
     wrap.appendChild(img);

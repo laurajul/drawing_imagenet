@@ -28,42 +28,41 @@ from PIL import Image
 # Colour helpers
 # ---------------------------------------------------------------------------
 
-CORNERS = {
-    'top-left':     lambda a, s: a[0:s,       0:s      ],
-    'top-right':    lambda a, s: a[0:s,       a.shape[1]-s:],
-    'bottom-left':  lambda a, s: a[a.shape[0]-s:, 0:s  ],
-    'bottom-right': lambda a, s: a[a.shape[0]-s:, a.shape[1]-s:],
-}
-
-
 def sample_background_color(
     img_array: np.ndarray,
     sample_size: int = 50,
     corner: str = 'all',
+    corner_inset: int = 0,
 ) -> np.ndarray:
     """
-    Sample canvas colour from one or all four corners.
+    Sample canvas colour from one or more corners.
 
-    corner : 'all' (median of all four — default, robust when any corner may
-             be covered by the photo) or one of 'top-left', 'top-right',
-             'bottom-left', 'bottom-right' (use when a specific corner is
-             always clear canvas, e.g. photos where shade varies per scan).
+    corner      : 'all', a single corner name, or '+'-joined names.
+                  Valid names: 'top-left', 'top-right', 'bottom-left', 'bottom-right'.
+    corner_inset: pixels to step inward from each edge before sampling.
+                  Useful when the very edge of the scan contains scanner artifacts
+                  or dark borders that are not the true canvas colour.
     """
     h, w = img_array.shape[:2]
-    s = min(sample_size, h // 4, w // 4)
+    i = corner_inset
+    s = min(sample_size, (h - 2 * i) // 4, (w - 2 * i) // 4)
     ch = img_array.shape[2]
 
-    if corner == 'all':
-        selected = list(CORNERS.values())
-    else:
-        # Accept a single name or a '+'-joined combination, e.g. 'top-right+bottom-left'
-        names = [c.strip() for c in corner.split('+')]
-        invalid = [n for n in names if n not in CORNERS]
-        if invalid:
-            raise ValueError(f"Unknown corner(s) {invalid}. Valid: {list(CORNERS)}")
-        selected = [CORNERS[n] for n in names]
+    corners = {
+        'top-left':     img_array[i:i+s,       i:i+s      ],
+        'top-right':    img_array[i:i+s,       w-i-s:w-i  ],
+        'bottom-left':  img_array[h-i-s:h-i,   i:i+s      ],
+        'bottom-right': img_array[h-i-s:h-i,   w-i-s:w-i  ],
+    }
 
-    regions = [fn(img_array, s) for fn in selected]
+    if corner == 'all':
+        regions = list(corners.values())
+    else:
+        names = [c.strip() for c in corner.split('+')]
+        invalid = [n for n in names if n not in corners]
+        if invalid:
+            raise ValueError(f"Unknown corner(s) {invalid}. Valid: {list(corners)}")
+        regions = [corners[n] for n in names]
 
     all_pixels = np.concatenate([r.reshape(-1, ch) for r in regions], axis=0)
     return np.median(all_pixels, axis=0)
@@ -153,7 +152,7 @@ def border_connected_background(
     of their colour.  This is what protects orange/canvas-coloured areas
     that appear inside the photo.
 
-    Uses 4-connectivity (up/down/left/right) to match Photoshop behaviour.
+    Uses 8-connectivity to catch canvas pixels only reachable diagonally.
     Requires scipy.
     """
     try:
@@ -280,6 +279,50 @@ def apply_edge_softening(
 
 
 # ---------------------------------------------------------------------------
+# White balance
+# ---------------------------------------------------------------------------
+
+def apply_white_balance(
+    img_array: np.ndarray,
+    alpha: np.ndarray,
+    percentile: float = 97.0,
+) -> np.ndarray:
+    """
+    Auto white balance by setting the brightest area to white, mirroring
+    Photoshop's "Set White Point" in Curves.
+
+    The top `percentile` % of opaque pixels by luminance are sampled to
+    estimate the white point — these are the paper/highlight areas that
+    should be neutral white.  Each RGB channel is then scaled so that
+    white-point value maps to 255.
+
+    percentile : how far into the bright end to sample (default 97).
+                 Higher → only the very brightest pixels set the white point
+                 (more aggressive correction).
+                 Lower  → more pixels influence the white point
+                 (gentler correction).
+    """
+    opaque = alpha > 200
+    if not opaque.any():
+        return img_array
+
+    pixels = img_array[opaque].astype(np.float32)
+    luminance = 0.299 * pixels[:, 0] + 0.587 * pixels[:, 1] + 0.114 * pixels[:, 2]
+
+    thresh = np.percentile(luminance, percentile)
+    bright = pixels[luminance >= thresh]
+    if len(bright) == 0:
+        return img_array
+
+    # Per-channel mean of the brightest pixels → white point
+    white_point = bright.mean(axis=0)          # shape (3,)
+    scale = 255.0 / np.maximum(white_point, 1.0)
+
+    result = img_array.astype(np.float32) * scale[np.newaxis, np.newaxis, :]
+    return np.clip(result, 0, 255).astype(np.uint8)
+
+
+# ---------------------------------------------------------------------------
 # Main processing
 # ---------------------------------------------------------------------------
 
@@ -296,6 +339,8 @@ def remove_background(
     shadow_desaturation: float = 0.0,
     protect_inset: int = 0,
     corner: str = 'all',
+    corner_inset: int = 0,
+    white_balance_percentile: float = 0.0,
 ) -> None:
     """
     Remove canvas background from a scanned photo/drawing and crop to content.
@@ -330,13 +375,18 @@ def remove_background(
         colour-adjacent to the canvas (e.g. an orange face near the edge).
         The strip within this inset of the photo boundary is still left to
         the flood fill so shadow effects work at the true photo edge.
+    white_balance_percentile : float
+        If > 0, apply auto white balance after all other processing.
+        The top (100 - percentile) % brightest opaque pixels are treated as
+        the white point and each channel is scaled to make them neutral white.
+        97 is a good starting value.  0 = disabled (default).
     """
     img = Image.open(input_path).convert('RGB')
     img_array = np.array(img)
     h, w = img_array.shape[:2]
 
     # 1. Identify canvas colour
-    bg_color = sample_background_color(img_array, sample_size, corner=corner)
+    bg_color = sample_background_color(img_array, sample_size, corner=corner, corner_inset=corner_inset)
     print(f"  Canvas colour : RGB({bg_color[0]:.0f}, {bg_color[1]:.0f}, {bg_color[2]:.0f})")
 
     # 2. Colour distance map
@@ -393,25 +443,6 @@ def remove_background(
             protected_interior[pi_top:pi_bottom, pi_left:pi_right] = True
 
     # 5.6. Desaturate the canvas / shadow zone.
-    #
-    #      The desaturation boundary is derived from two signals OR-ed together:
-    #
-    #        alpha < 255   – semi-transparent pixels ARE the shadow/transition
-    #                        zone.  After protect_inset has forced the deep photo
-    #                        interior back to 255, these pixels follow the actual
-    #                        slanted/curved scan edge precisely — no rectangular
-    #                        assumption, no flood-fill bleed inland.
-    #
-    #        border_strip  – a narrow strip (sample_size px) at the physical
-    #                        image edge catches fully-opaque canvas pixels that
-    #                        the flood fill missed (scanner colour variation,
-    #                        glare).  Using the physical edge rather than the
-    #                        content bbox avoids a straight rectangular artefact
-    #                        appearing at the photo boundary when the scan is
-    #                        slightly rotated.
-    #
-    #      protected_interior is always excluded so the deep photo interior can
-    #      never be desaturated regardless of flood-fill or alpha anomalies.
     if shadow_desaturation > 0:
         bs = sample_size  # border strip width == corner sampling zone
         border_strip = np.ones((h, w), dtype=bool)
@@ -437,7 +468,6 @@ def remove_background(
     if edge_width > 0:
         # Clip photo mask to the content bbox so that canvas pixels outside
         # the detected photo area are never treated as a photo boundary.
-        # This prevents edge/desaturation effects from appearing on the canvas.
         photo_mask_for_edge = ~bg_mask
         photo_mask_for_edge[:cx_top,    :] = False
         photo_mask_for_edge[cx_bottom:, :] = False
@@ -459,10 +489,17 @@ def remove_background(
     print(f"  Content area  : ({left}, {top}) → ({right}, {bottom})"
           f"  [{right-left} × {bottom-top} px]")
 
+    img_array = img_array[top:bottom, left:right]
+    alpha     = alpha[top:bottom, left:right]
+
+    # 8. White balance — scale channels so the brightest area becomes white.
+    #    Applied after crop so only actual content pixels influence the estimate.
+    if white_balance_percentile > 0:
+        img_array = apply_white_balance(img_array, alpha, white_balance_percentile)
+
     result = Image.fromarray(np.dstack([img_array, alpha]), 'RGBA')
-    result = result.crop((left, top, right, bottom))
     output_path.parent.mkdir(parents=True, exist_ok=True)
-    result.save(output_path, 'PNG')
+    result.save(output_path)
     print(f"  Saved: {output_path} ({result.width} × {result.height})")
 
 
@@ -479,6 +516,10 @@ def process_folder(
     shadow_desaturation: float = 0.0,
     protect_inset: int = 0,
     corner: str = 'all',
+    corner_inset: int = 0,
+    white_balance_percentile: float = 0.0,
+    prefix: str = '',
+    output_format: str = 'png',
 ) -> None:
     """Process all images in a folder."""
     extensions = {'.jpg', '.jpeg', '.png', '.tiff', '.tif', '.bmp'}
@@ -493,7 +534,7 @@ def process_folder(
         try:
             remove_background(
                 img_path,
-                output_dir / f"{img_path.stem}.png",
+                output_dir / f"{prefix}{img_path.stem}.{output_format}",
                 threshold=threshold,
                 softness=softness,
                 sample_size=sample_size,
@@ -504,6 +545,8 @@ def process_folder(
                 shadow_desaturation=shadow_desaturation,
                 protect_inset=protect_inset,
                 corner=corner,
+                corner_inset=corner_inset,
+                white_balance_percentile=white_balance_percentile,
             )
         except Exception as e:
             print(f"  ERROR: {e}")
@@ -541,27 +584,19 @@ Tuning guide:
     )
     parser.add_argument('input',  type=Path, help='Input image or folder')
     parser.add_argument('output', type=Path, help='Output image (.png) or folder')
-    parser.add_argument('--threshold', type=float, default=30,
-                        help='Colour distance for full transparency (default: 30)')
-    parser.add_argument('--softness', type=float, default=40,
-                        help='Soft-edge / shadow-gradient width (default: 40)')
-    parser.add_argument('--sample-size', type=int, default=50,
-                        help='Corner region size for canvas colour sampling (default: 50)')
-    parser.add_argument('--padding', type=int, default=0,
-                        help='Extra pixels to keep around the crop (default: 0)')
-    parser.add_argument('--edge-width', type=int, default=5,
-                        help='Pixels inward from boundary for desaturation + alpha blur (default: 5, 0=off)')
-    parser.add_argument('--edge-sigma', type=float, default=1.5,
-                        help='Gaussian blur radius for alpha edge smoothing (default: 1.5)')
-    parser.add_argument('--desaturation', type=float, default=1.0,
-                        help='Desaturation strength at the photo edge interior: 1.0=fully grey, 0.0=no change (default: 1.0)')
-    parser.add_argument('--shadow-desaturation', type=float, default=0.0,
-                        help='Desaturation of semi-transparent shadow pixels: 1.0=fully grey, 0.0=no change (default: 0.0)')
-    parser.add_argument('--protect-inset', type=int, default=0,
-                        help='Pixels inside photo rectangle forced opaque to stop flood-fill bleed (default: 0=off)')
-    parser.add_argument('--corner', default='all',
-                        choices=['all', 'top-left', 'top-right', 'bottom-left', 'bottom-right'],
-                        help='Which corner(s) to sample the canvas colour from (default: all)')
+    parser.add_argument('--threshold', type=float, default=30)
+    parser.add_argument('--softness', type=float, default=40)
+    parser.add_argument('--sample-size', type=int, default=50)
+    parser.add_argument('--padding', type=int, default=0)
+    parser.add_argument('--edge-width', type=int, default=5)
+    parser.add_argument('--edge-sigma', type=float, default=1.5)
+    parser.add_argument('--desaturation', type=float, default=1.0)
+    parser.add_argument('--shadow-desaturation', type=float, default=0.0)
+    parser.add_argument('--protect-inset', type=int, default=0)
+    parser.add_argument('--corner', default='all')
+    parser.add_argument('--corner-inset', type=int, default=0)
+    parser.add_argument('--white-balance-percentile', type=float, default=0.0,
+                        help='Percentile for white balance (0=off, 97 is a good value)')
 
     args = parser.parse_args()
     kwargs = dict(
@@ -575,6 +610,8 @@ Tuning guide:
         shadow_desaturation=args.shadow_desaturation,
         protect_inset=args.protect_inset,
         corner=args.corner,
+        corner_inset=args.corner_inset,
+        white_balance_percentile=args.white_balance_percentile,
     )
 
     if args.input.is_dir():

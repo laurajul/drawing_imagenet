@@ -18,7 +18,7 @@ from remove_background import process_folder
 
 ROOT       = Path(__file__).parent.parent
 INPUT_DIR  = ROOT / "data" / "raw" / "photos"
-OUTPUT_DIR = ROOT / "data" / "raw" / "output"
+OUTPUT_DIR = ROOT / "data" / "scans"
 
 process_folder(
     input_dir          = INPUT_DIR,
@@ -31,5 +31,8 @@ process_folder(
     desaturation       = 0.5,
     shadow_desaturation= 1.0,
     protect_inset      = 50,
-    corner             = 'top-right+bottom-left',
+    corner             = 'all',
+    corner_inset       = 50,
+    prefix             = 's_',
+    output_format      = 'webp',
 )

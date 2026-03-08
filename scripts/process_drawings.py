@@ -17,15 +17,18 @@ from remove_background import process_folder
 
 ROOT       = Path(__file__).parent.parent
 INPUT_DIR  = ROOT / "data" / "raw" / "drawings"
-OUTPUT_DIR = ROOT / "data" / "raw" / "output"
+OUTPUT_DIR = ROOT / "data" / "drawings"
 
 process_folder(
-    input_dir    = INPUT_DIR,
-    output_dir   = OUTPUT_DIR,
-    threshold    = 55,
-    softness     = 45,
-    padding      = 30,
-    edge_width   = 5,
-    edge_sigma   = 1.5,
-    desaturation = 0.6,
+    input_dir     = INPUT_DIR,
+    output_dir    = OUTPUT_DIR,
+    threshold     = 55,
+    softness      = 45,
+    padding       = 30,
+    edge_width    = 5,
+    edge_sigma    = 1.5,
+    desaturation             = 0.6,
+    white_balance_percentile = 97.0,
+    prefix                   = 'd_',
+    output_format            = 'webp',
 )
