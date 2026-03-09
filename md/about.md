@@ -26,7 +26,7 @@ Luccioni and Crawford trace what they call the "nine lives" of ImageNet[2]: its 
 
 LAION-5B, the billion-scale dataset behind Stable Diffusion and other text-to-image models, used ImageNet as its quality benchmark during construction.[8] 
 
-## Tracing Cultural the Inscriptions, Charme and Absurdity of ImageNet trough drawing
+## Tracing the Cultural Inscriptions, Charme and Absurdity of ImageNet trough drawing
 
 *Drawing ImageNet* slowly and inefficiently approaches a taxonomy that is meant to be primarily performative, for benchmarking, evaluation, and filtering, with its actual content rarely looked at, apart from data annotators with a specific and imposed task. The experiment is simple: 100 drawings, one per class, each class chosen at random from the 1000-class benchmark, each reference image presented at random from within that class.
 
