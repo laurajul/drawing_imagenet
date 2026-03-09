@@ -121,7 +121,7 @@ The core tool for the drawing practice. On each run it:
 
 **3. Process scans**
 
-After scanning finished drawings and their reference photos on an orange-canvas background:
+After scanning finished drawings and their reference photos on an  colored canvas background:
 
 ```bash
 python scripts/process_drawings.py   # → data/drawings_raw/
