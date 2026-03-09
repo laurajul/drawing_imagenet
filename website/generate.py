@@ -29,7 +29,9 @@ SCANS_DIR = ROOT / "data" / "scans"
 DRAWINGS_DIR = ROOT / "data" / "drawings"
 SELECTION_DIR = ROOT / "data" / "selection"
 DESCRIPTION_FILE = ROOT / "md" / "description.md"
-OUT = Path(__file__).parent / "index.html"
+ABOUT_FILE       = ROOT / "md" / "about.md"
+OUT       = Path(__file__).parent / "index.html"
+ABOUT_OUT = Path(__file__).parent / "about.html"
 
 # Local: index.html lives in website/, images in ../data/
 # Deploy: index.html is at site root, images at data/
@@ -177,6 +179,38 @@ nav a:hover { text-decoration: underline; }
   color: #555;
 }
 
+.description p {
+  margin-bottom: 1em;
+}
+
+.description h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.description em {
+  font-style: italic;
+}
+
+.description .footnotes {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.7;
+}
+
+.description sup {
+  font-size: 0.65rem;
+  vertical-align: super;
+  line-height: 0;
+}
+
 /* ── Entry sections ── */
 .entry {
   width: var(--img-width);
@@ -271,13 +305,25 @@ JS = """\
 """
 
 
+def md_inline(s: str) -> str:
+    """Convert inline markdown to HTML: *italic*, [text](url)."""
+    s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
+    s = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r'<a href="\2">\1</a>', s)
+    return s
+
+
 def load_description() -> str:
     if not DESCRIPTION_FILE.exists():
         return ""
     md_text = DESCRIPTION_FILE.read_text(encoding="utf-8")
-    # Split on blank lines → wrap each block in <p>
-    paragraphs = re.split(r"\n{2,}", md_text.strip())
-    return "\n  ".join(f"<p>{p.strip()}</p>" for p in paragraphs if p.strip())
+    blocks = re.split(r"\n{2,}", md_text.strip())
+    out = []
+    for block in blocks:
+        block = block.strip()
+        if not block or block == "---":
+            continue
+        out.append(f"<p>{md_inline(block)}</p>")
+    return "\n  ".join(out)
 
 
 def generate(entries: list[dict]) -> str:
@@ -297,8 +343,8 @@ def generate(entries: list[dict]) -> str:
 <header>
   <h1>Drawing Imagenet</h1>
   <nav>
-    <a href="#">home</a>
-    <a href="#">about</a>
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
   </nav>
 </header>
 
@@ -316,6 +362,89 @@ def generate(entries: list[dict]) -> str:
 """
 
 
+def load_about() -> str:
+    """Convert md/about.md to HTML for the about page.
+
+    Supported markdown:
+      ## Heading       → <h2>
+      *italic*         → <em>
+      [n]              → <sup>[n]</sup>  (citation markers)
+      blank lines      → paragraph breaks
+      ## Notes section → wrapped in <div class="footnotes">
+    """
+    if not ABOUT_FILE.exists():
+        return ""
+    text = ABOUT_FILE.read_text(encoding="utf-8")
+
+    blocks = re.split(r"\n{2,}", text.strip())
+    lines_out = []
+    in_footnotes = False
+
+    for block in blocks:
+        block = block.strip()
+        if not block:
+            continue
+
+        # Section headings
+        if block.startswith("## "):
+            heading = block[3:].strip()
+            if heading.lower() == "notes":
+                lines_out.append('  <div class="footnotes">')
+                in_footnotes = True
+            else:
+                lines_out.append(f"  <h2>{heading}</h2>")
+            continue
+
+        # Inline transforms shared by paragraphs and footnote lines
+        def inline(s):
+            # *italic*
+            s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
+            # citation markers [n] → superscript (not at line start, to avoid footnote labels)
+            s = re.sub(r"(?<!\n)\[(\d+)\]", r"<sup>[\1]</sup>", s)
+            # & → &amp; only when not already an entity
+            s = re.sub(r"&(?!amp;|lt;|gt;|#)", "&amp;", s)
+            return s
+
+        if in_footnotes:
+            lines_out.append(f"    <p>{inline(block)}</p>")
+        else:
+            lines_out.append(f"  <p>{inline(block)}</p>")
+
+    if in_footnotes:
+        lines_out.append("  </div>")
+
+    return "\n".join(lines_out) + "\n"
+
+
+def generate_about() -> str:
+    about_html = load_about()
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Drawing Imagenet — About</title>
+  <style>
+{CSS}  </style>
+</head>
+<body>
+
+<header>
+  <h1>Drawing Imagenet</h1>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
+  </nav>
+</header>
+
+<div class="description">
+{about_html}</div>
+
+</body>
+</html>
+"""
+
+
 if __name__ == "__main__":
     entries = collect_entries()
     html = generate(entries)
@@ -325,3 +454,7 @@ if __name__ == "__main__":
         print(f"  {e['class_id']}_{e['class_name']}  "
               f"scan={e['scan_w']}×{e['scan_h']}  "
               f"drawing={e['draw_w']}×{e['draw_h']}")
+
+    about_html = generate_about()
+    ABOUT_OUT.write_text(about_html, encoding="utf-8")
+    print(f"Generated {ABOUT_OUT}.")

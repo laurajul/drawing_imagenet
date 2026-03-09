@@ -56,6 +56,38 @@ nav a:hover { text-decoration: underline; }
   color: #555;
 }
 
+.description p {
+  margin-bottom: 1em;
+}
+
+.description h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.description em {
+  font-style: italic;
+}
+
+.description .footnotes {
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.7;
+}
+
+.description sup {
+  font-size: 0.65rem;
+  vertical-align: super;
+  line-height: 0;
+}
+
 /* ── Entry sections ── */
 .entry {
   width: var(--img-width);
@@ -74,6 +106,13 @@ nav a:hover { text-decoration: underline; }
   gap: var(--gap);
   align-items: flex-start;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .entry-grid {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 /* ── Image wrapper ── */
@@ -109,13 +148,16 @@ nav a:hover { text-decoration: underline; }
 <header>
   <h1>Drawing Imagenet</h1>
   <nav>
-    <a href="#">home</a>
-    <a href="#">about</a>
+    <a href="index.html">home</a>
+    <a href="about.html">about</a>
   </nav>
 </header>
 
 <div class="description">
-  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+  <p>Assembled at a specific historical moment by a situated group of contributors and filtered through the infrastructure and aesthetics of Web 2.0, ImageNet is one of the most consequential taxonomies produced by computational culture. Its 1000-class benchmark helped shape the field of computer vision and continues to influence how datasets are filtered, how computer vision tasks are posed and how models are trained, evaluated, and benchmarked. More than a technical dataset, ImageNet is also an ethnographic artefact of a mainly WEIRD society at a specific point in history, capturing a world frozen in time. The particular algorithmic lens emerging from this dataset, continues to shape contemporary computer vision, and its cultural inscription persists in the generative AI systems that inherit and reproduce it.</p>
+  <p>Alongside an emphasis on prosaic everyday objects, frequently rooted in Americana, such as football, fishing gear, barbecue equipment, and pickup trucks, ImageNet contains a myriad of classes referencing the natural world. Yet this world appears through a distinctly human lens: among its many animal categories, nearly half are different dog breeds. Rather than simply representing nature, the dataset characterizes a culturally specific human relationship to it.</p>
+  <p><em>Drawing ImageNet</em> slowly and inefficiently approaches a taxonomy that is meant to be primarily performative, for benchmarking, evaluation, and filtering, with its actual content rarely looked at, apart from data annotators with a specific and imposed task. As an exercise, <em>Drawing ImageNet</em> coaxes out situatedness and cultural assumptions embedded in individual images through a human lens. A script randomly selects an unvisited class from the benchmark dataset and presents a random image from within it as a drawing reference; the selection and timing spent drawing are logged, and the class is retired. One hundred classes were randomly selected an drawn this way.</p>
+  <p>The resulting drawings characterize ImageNet itself. They reveal the dataset as both systematic and idiosyncratic: sometimes absurd, sometimes charming and shaped by a distinctly narrow cultural lens. By translating algorithmic taxonomy into slow, analogue drawings, the project stages an encounter between two fundamentally different worldviews: the human tradition of art as an intentional, context-driven act, and the computational paradigm that treats visual culture as measurable, optimizable data.</p>
 </div>
 
 <main>
@@ -134,9 +176,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01440764_tench.webp" data-width="403" data-height="302">
             <noscript><img src="../data/drawings/d_n01440764_tench.webp" alt="drawing of tench" width="403" height="302" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:16:54.356701"
-"drawing_end": "2026-02-27T12:16:59.177401"
-"elapsed_seconds": 4.8207</pre>
+          <pre class="caption">"drawing_start": "2026-02-18T13:31:14.218690"
+"drawing_end": "2026-02-18T13:43:23.657490"
+"elapsed_seconds": 729.4388</pre>
         </div>
       </div>
     </section>
@@ -155,9 +197,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01537544_indigo_bunting.webp" data-width="542" data-height="350">
             <noscript><img src="../data/drawings/d_n01537544_indigo_bunting.webp" alt="drawing of indigo bunting" width="542" height="350" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T17:52:00.333750"
-"drawing_end": "2026-02-10T18:01:38.205019"
-"elapsed_seconds": 577.871269</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T16:35:42.720684"
+"drawing_end": "2026-02-23T16:50:33.444184"
+"elapsed_seconds": 890.7235</pre>
         </div>
       </div>
     </section>
@@ -176,9 +218,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01629819_European_fire_salamander.webp" data-width="592" data-height="416">
             <noscript><img src="../data/drawings/d_n01629819_European_fire_salamander.webp" alt="drawing of European fire salamander" width="592" height="416" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T17:34:52.463063"
-"drawing_end": "2026-02-22T18:03:46.520380"
-"elapsed_seconds": 1734.057317</pre>
+          <pre class="caption">"drawing_start": "2026-03-06T18:16:58.211205"
+"drawing_end": "2026-03-06T18:30:29.525605"
+"elapsed_seconds": 811.3144</pre>
         </div>
       </div>
     </section>
@@ -197,9 +239,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01751748_sea_snake.webp" data-width="669" data-height="404">
             <noscript><img src="../data/drawings/d_n01751748_sea_snake.webp" alt="drawing of sea snake" width="669" height="404" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-16T22:40:59.511150"
-"drawing_end": "2026-02-17T11:06:28.349727"
-"elapsed_seconds": 44728.838577</pre>
+          <pre class="caption">"drawing_start": "2026-02-17T15:48:13.711467"
+"drawing_end": "2026-02-17T16:08:13.711467"
+"elapsed_seconds": 1200</pre>
         </div>
       </div>
     </section>
@@ -218,9 +260,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01770081_harvestman.webp" data-width="190" data-height="148">
             <noscript><img src="../data/drawings/d_n01770081_harvestman.webp" alt="drawing of harvestman" width="190" height="148" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:47:30.556778"
-"drawing_end": "2026-02-27T12:47:39.257275"
-"elapsed_seconds": 8.700497</pre>
+          <pre class="caption">"drawing_start": "2026-02-22T19:51:33.696767"
+"drawing_end": "2026-02-22T19:56:30.431967"
+"elapsed_seconds": 296.7352</pre>
         </div>
       </div>
     </section>
@@ -239,9 +281,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01770393_scorpion.webp" data-width="178" data-height="118">
             <noscript><img src="../data/drawings/d_n01770393_scorpion.webp" alt="drawing of scorpion" width="178" height="118" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:54:15.961787"
-"drawing_end": "2026-02-27T11:54:50.601718"
-"elapsed_seconds": 34.639931</pre>
+          <pre class="caption">"drawing_start": "2026-03-02T11:40:00.000000"
+"drawing_end": "2026-03-02T11:46:00.386900"
+"elapsed_seconds": 360.3869</pre>
         </div>
       </div>
     </section>
@@ -260,9 +302,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01828970_bee_eater.webp" data-width="388" data-height="602">
             <noscript><img src="../data/drawings/d_n01828970_bee_eater.webp" alt="drawing of bee eater" width="388" height="602" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T16:13:10.040341"
-"drawing_end": "2026-02-22T16:24:19.081411"
-"elapsed_seconds": 669.04107</pre>
+          <pre class="caption">"drawing_start": "2026-02-17T15:22:11.907498"
+"drawing_end": "2026-02-17T15:40:04.637098"
+"elapsed_seconds": 1072.7296</pre>
         </div>
       </div>
     </section>
@@ -281,9 +323,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n01860187_black_swan.webp" data-width="186" data-height="143">
             <noscript><img src="../data/drawings/d_n01860187_black_swan.webp" alt="drawing of black swan" width="186" height="143" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:45:03.323817"
-"drawing_end": "2026-02-27T11:45:12.438344"
-"elapsed_seconds": 9.114527</pre>
+          <pre class="caption">"drawing_start": "2026-02-21T20:51:59.720170"
+"drawing_end": "2026-02-21T20:58:34.057770"
+"elapsed_seconds": 394.3376</pre>
         </div>
       </div>
     </section>
@@ -302,9 +344,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02002556_white_stork.webp" data-width="661" data-height="439">
             <noscript><img src="../data/drawings/d_n02002556_white_stork.webp" alt="drawing of white stork" width="661" height="439" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T14:28:44.072490"
-"drawing_end": "2026-02-17T14:34:50.621000"
-"elapsed_seconds": 366.54851</pre>
+          <pre class="caption">"drawing_start": "2026-03-05T13:59:00.000000"
+"drawing_end": "2026-03-05T14:19:00.000000"
+"elapsed_seconds": 1200</pre>
         </div>
       </div>
     </section>
@@ -323,9 +365,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02037110_oystercatcher.webp" data-width="274" data-height="185">
             <noscript><img src="../data/drawings/d_n02037110_oystercatcher.webp" alt="drawing of oystercatcher" width="274" height="185" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:30:21.171634"
-"drawing_end": "2026-02-27T11:30:35.637266"
-"elapsed_seconds": 14.465632</pre>
+          <pre class="caption">"drawing_start": "2026-02-14T18:08:21.728406"
+"drawing_end": "2026-02-14T18:17:16.273906"
+"elapsed_seconds": 534.5455</pre>
         </div>
       </div>
     </section>
@@ -344,9 +386,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02056570_king_penguin.webp" data-width="498" data-height="443">
             <noscript><img src="../data/drawings/d_n02056570_king_penguin.webp" alt="drawing of king penguin" width="498" height="443" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-16T21:17:27.219413"
-"drawing_end": "2026-02-16T21:58:37.435051"
-"elapsed_seconds": 2470.215638</pre>
+          <pre class="caption">"drawing_start": "2026-03-06T16:51:00.401133"
+"drawing_end": "2026-03-06T17:06:38.034333"
+"elapsed_seconds": 937.6332</pre>
         </div>
       </div>
     </section>
@@ -365,9 +407,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02066245_grey_whale.webp" data-width="214" data-height="165">
             <noscript><img src="../data/drawings/d_n02066245_grey_whale.webp" alt="drawing of grey whale" width="214" height="165" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:52:34.532826"
-"drawing_end": "2026-03-03T13:52:59.806622"
-"elapsed_seconds": 25.273796</pre>
+          <pre class="caption">"drawing_start": "2026-02-16T18:18:40.550060"
+"drawing_end": "2026-02-16T18:26:16.663260"
+"elapsed_seconds": 456.1132</pre>
         </div>
       </div>
     </section>
@@ -386,9 +428,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02085782_Japanese_spaniel.webp" data-width="31" data-height="32">
             <noscript><img src="../data/drawings/d_n02085782_Japanese_spaniel.webp" alt="drawing of Japanese spaniel" width="31" height="32" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:01:18.176333"
-"drawing_end": "2026-02-27T11:01:37.590386"
-"elapsed_seconds": 19.414053</pre>
+          <pre class="caption">"drawing_start": "2026-02-14T19:55:02.688825"
+"drawing_end": "2026-02-14T19:58:02.688825"
+"elapsed_seconds": 180</pre>
         </div>
       </div>
     </section>
@@ -407,9 +449,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02085936_Maltese_dog.webp" data-width="595" data-height="442">
             <noscript><img src="../data/drawings/d_n02085936_Maltese_dog.webp" alt="drawing of Maltese dog" width="595" height="442" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T18:55:26.619346"
-"drawing_end": "2026-02-22T19:09:01.562329"
-"elapsed_seconds": 814.942983</pre>
+          <pre class="caption">"drawing_start": "2026-02-22T19:32:01.056431"
+"drawing_end": "2026-02-22T19:51:44.553031"
+"elapsed_seconds": 1183.4966</pre>
         </div>
       </div>
     </section>
@@ -428,9 +470,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02086646_Blenheim_spaniel.webp" data-width="453" data-height="594">
             <noscript><img src="../data/drawings/d_n02086646_Blenheim_spaniel.webp" alt="drawing of Blenheim spaniel" width="453" height="594" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-16T21:59:26.606611"
-"drawing_end": "2026-02-16T22:24:37.157002"
-"elapsed_seconds": 1510.550391</pre>
+          <pre class="caption">"drawing_start": "2026-02-26T19:25:17.091263"
+"drawing_end": "2026-02-26T19:45:17.091263"
+"elapsed_seconds": 1200</pre>
         </div>
       </div>
     </section>
@@ -449,9 +491,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02088364_beagle.webp" data-width="519" data-height="387">
             <noscript><img src="../data/drawings/d_n02088364_beagle.webp" alt="drawing of beagle" width="519" height="387" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T16:26:57.107907"
-"drawing_end": "2026-02-10T16:49:56.087406"
-"elapsed_seconds": 1378.979499</pre>
+          <pre class="caption">"drawing_start": "2026-03-05T14:27:14.152330"
+"drawing_end": "2026-03-05T14:40:30.853730"
+"elapsed_seconds": 796.7014</pre>
         </div>
       </div>
     </section>
@@ -470,9 +512,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02091134_whippet.webp" data-width="493" data-height="395">
             <noscript><img src="../data/drawings/d_n02091134_whippet.webp" alt="drawing of whippet" width="493" height="395" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T18:03:39.132498"
-"drawing_end": "2026-02-10T18:21:16.823028"
-"elapsed_seconds": 1057.69053</pre>
+          <pre class="caption">"drawing_start": "2026-03-06T16:17:00.000000"
+"drawing_end": "2026-03-06T16:28:43.492300"
+"elapsed_seconds": 703.4923</pre>
         </div>
       </div>
     </section>
@@ -491,9 +533,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02091635_otterhound.webp" data-width="417" data-height="614">
             <noscript><img src="../data/drawings/d_n02091635_otterhound.webp" alt="drawing of otterhound" width="417" height="614" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T22:20:16.358318"
-"drawing_end": "2026-02-24T22:27:54.181204"
-"elapsed_seconds": 457.822886</pre>
+          <pre class="caption">"drawing_start": "2026-02-25T17:47:22.795607"
+"drawing_end": "2026-02-25T18:03:37.225207"
+"elapsed_seconds": 974.4296</pre>
         </div>
       </div>
     </section>
@@ -512,9 +554,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02092002_Scottish_deerhound.webp" data-width="415" data-height="404">
             <noscript><img src="../data/drawings/d_n02092002_Scottish_deerhound.webp" alt="drawing of Scottish deerhound" width="415" height="404" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T15:11:46.582992"
-"drawing_end": "2026-02-10T16:25:48.297652"
-"elapsed_seconds": 4441.71466</pre>
+          <pre class="caption">"drawing_start": "2026-03-02T12:09:20.031092"
+"drawing_end": "2026-03-02T12:24:36.316692"
+"elapsed_seconds": 916.2856</pre>
         </div>
       </div>
     </section>
@@ -533,9 +575,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02093256_Staffordshire_bullterrier.webp" data-width="368" data-height="282">
             <noscript><img src="../data/drawings/d_n02093256_Staffordshire_bullterrier.webp" alt="drawing of Staffordshire bullterrier" width="368" height="282" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:41:28.638300"
-"drawing_end": "2026-02-27T12:41:45.849789"
-"elapsed_seconds": 17.211489</pre>
+          <pre class="caption">"drawing_start": "2026-02-18T12:41:58.670668"
+"drawing_end": "2026-02-18T12:51:52.797468"
+"elapsed_seconds": 594.1268</pre>
         </div>
       </div>
     </section>
@@ -554,9 +596,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02093647_Bedlington_terrier.webp" data-width="695" data-height="484">
             <noscript><img src="../data/drawings/d_n02093647_Bedlington_terrier.webp" alt="drawing of Bedlington terrier" width="695" height="484" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T21:11:45.472496"
-"drawing_end": "2026-02-22T21:38:57.251374"
-"elapsed_seconds": 1631.778878</pre>
+          <pre class="caption">"drawing_start": "2026-02-14T18:36:43.771692"
+"drawing_end": "2026-02-14T18:56:43.771692"
+"elapsed_seconds": 1200</pre>
         </div>
       </div>
     </section>
@@ -575,9 +617,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02096585_Boston_bull.webp" data-width="246" data-height="221">
             <noscript><img src="../data/drawings/d_n02096585_Boston_bull.webp" alt="drawing of Boston bull" width="246" height="221" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:03:26.992866"
-"drawing_end": "2026-02-27T12:03:34.851615"
-"elapsed_seconds": 7.858749</pre>
+          <pre class="caption">"drawing_start": "2026-02-25T16:39:12.391020"
+"drawing_end": "2026-02-25T16:48:06.948720"
+"elapsed_seconds": 534.5577</pre>
         </div>
       </div>
     </section>
@@ -596,9 +638,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02097209_standard_schnauzer.webp" data-width="442" data-height="351">
             <noscript><img src="../data/drawings/d_n02097209_standard_schnauzer.webp" alt="drawing of standard schnauzer" width="442" height="351" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T16:15:17.903992"
-"drawing_end": "2026-02-26T16:25:34.566984"
-"elapsed_seconds": 616.662992</pre>
+          <pre class="caption">"drawing_start": "2026-03-07T11:14:56.420433"
+"drawing_end": "2026-03-07T11:25:57.226633"
+"elapsed_seconds": 660.8062</pre>
         </div>
       </div>
     </section>
@@ -617,9 +659,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02099601_golden_retriever.webp" data-width="228" data-height="202">
             <noscript><img src="../data/drawings/d_n02099601_golden_retriever.webp" alt="drawing of golden retriever" width="228" height="202" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:59:43.525264"
-"drawing_end": "2026-02-27T11:59:59.894966"
-"elapsed_seconds": 16.369702</pre>
+          <pre class="caption">"drawing_start": "2026-02-24T19:57:26.594676"
+"drawing_end": "2026-02-24T20:03:18.801376"
+"elapsed_seconds": 352.2067</pre>
         </div>
       </div>
     </section>
@@ -638,9 +680,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02099712_Labrador_retriever.webp" data-width="433" data-height="397">
             <noscript><img src="../data/drawings/d_n02099712_Labrador_retriever.webp" alt="drawing of Labrador retriever" width="433" height="397" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T18:25:21.695118"
-"drawing_end": "2026-02-10T18:56:26.525006"
-"elapsed_seconds": 1864.829888</pre>
+          <pre class="caption">"drawing_start": "2026-03-02T13:30:08.800030"
+"drawing_end": "2026-03-02T13:42:02.004530"
+"elapsed_seconds": 713.2045</pre>
         </div>
       </div>
     </section>
@@ -659,9 +701,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02099849_Chesapeake_Bay_retriever.webp" data-width="183" data-height="138">
             <noscript><img src="../data/drawings/d_n02099849_Chesapeake_Bay_retriever.webp" alt="drawing of Chesapeake Bay retriever" width="183" height="138" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T10:42:53.184896"
-"drawing_end": "2026-02-27T10:43:03.940944"
-"elapsed_seconds": 10.756048</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T16:01:00.000000"
+"drawing_end": "2026-02-23T16:05:34.215900"
+"elapsed_seconds": 274.2159</pre>
         </div>
       </div>
     </section>
@@ -680,9 +722,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02101006_Gordon_setter.webp" data-width="388" data-height="414">
             <noscript><img src="../data/drawings/d_n02101006_Gordon_setter.webp" alt="drawing of Gordon setter" width="388" height="414" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T16:51:11.540730"
-"drawing_end": "2026-02-10T17:13:54.257318"
-"elapsed_seconds": 1362.716588</pre>
+          <pre class="caption">"drawing_start": "2026-03-04T20:45:26.053235"
+"drawing_end": "2026-03-04T20:57:36.445935"
+"elapsed_seconds": 730.3927</pre>
         </div>
       </div>
     </section>
@@ -701,9 +743,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02105412_kelpie.webp" data-width="165" data-height="169">
             <noscript><img src="../data/drawings/d_n02105412_kelpie.webp" alt="drawing of kelpie" width="165" height="169" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:39:49.559876"
-"drawing_end": "2026-02-27T12:40:07.836641"
-"elapsed_seconds": 18.276765</pre>
+          <pre class="caption">"drawing_start": "2026-03-06T17:45:32.845965"
+"drawing_end": "2026-03-06T17:52:27.046065"
+"elapsed_seconds": 414.2001</pre>
         </div>
       </div>
     </section>
@@ -722,9 +764,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02105855_Shetland_sheepdog.webp" data-width="186" data-height="267">
             <noscript><img src="../data/drawings/d_n02105855_Shetland_sheepdog.webp" alt="drawing of Shetland sheepdog" width="186" height="267" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:52:27.196609"
-"drawing_end": "2026-02-27T11:52:39.003033"
-"elapsed_seconds": 11.806424</pre>
+          <pre class="caption">"drawing_start": "2026-02-24T21:41:17.019906"
+"drawing_end": "2026-02-24T21:47:59.310606"
+"elapsed_seconds": 402.2907</pre>
         </div>
       </div>
     </section>
@@ -743,9 +785,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02107574_Greater_Swiss_Mountain_dog.webp" data-width="183" data-height="127">
             <noscript><img src="../data/drawings/d_n02107574_Greater_Swiss_Mountain_dog.webp" alt="drawing of Greater Swiss Mountain dog" width="183" height="127" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:22:24.903985"
-"drawing_end": "2026-02-27T12:22:47.424418"
-"elapsed_seconds": 22.520433</pre>
+          <pre class="caption">"drawing_start": "2026-02-16T20:21:18.652526"
+"drawing_end": "2026-02-16T20:26:24.013326"
+"elapsed_seconds": 305.3608</pre>
         </div>
       </div>
     </section>
@@ -764,9 +806,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02110627_affenpinscher.webp" data-width="45" data-height="51">
             <noscript><img src="../data/drawings/d_n02110627_affenpinscher.webp" alt="drawing of affenpinscher" width="45" height="51" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T10:30:28.203196"
-"drawing_end": "2026-02-27T10:41:45.098922"
-"elapsed_seconds": 676.895726</pre>
+          <pre class="caption">"drawing_start": "2026-02-27T19:43:27.033381"
+"drawing_end": "2026-02-27T19:46:54.050481"
+"elapsed_seconds": 207.0171</pre>
         </div>
       </div>
     </section>
@@ -785,9 +827,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02111129_Leonberg.webp" data-width="395" data-height="362">
             <noscript><img src="../data/drawings/d_n02111129_Leonberg.webp" alt="drawing of Leonberg" width="395" height="362" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:05:19.296440"
-"drawing_end": "2026-02-27T11:05:30.488199"
-"elapsed_seconds": 11.191759</pre>
+          <pre class="caption">"drawing_start": "2026-02-19T16:27:00.000000"
+"drawing_end": "2026-02-19T16:39:55.265800"
+"elapsed_seconds": 775.2658</pre>
         </div>
       </div>
     </section>
@@ -806,9 +848,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02123045_tabby.webp" data-width="455" data-height="426">
             <noscript><img src="../data/drawings/d_n02123045_tabby.webp" alt="drawing of tabby" width="455" height="426" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T21:27:04.236251"
-"drawing_end": "2026-02-24T21:44:56.356152"
-"elapsed_seconds": 1072.119901</pre>
+          <pre class="caption">"drawing_start": "2026-03-02T14:03:07.401231"
+"drawing_end": "2026-03-02T14:18:42.290831"
+"elapsed_seconds": 934.8896</pre>
         </div>
       </div>
     </section>
@@ -827,9 +869,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02123394_Persian_cat.webp" data-width="206" data-height="269">
             <noscript><img src="../data/drawings/d_n02123394_Persian_cat.webp" alt="drawing of Persian cat" width="206" height="269" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:04:35.480942"
-"drawing_end": "2026-02-27T12:04:41.320647"
-"elapsed_seconds": 5.839705</pre>
+          <pre class="caption">"drawing_start": "2026-02-17T16:32:36.194620"
+"drawing_end": "2026-02-17T16:39:52.241020"
+"elapsed_seconds": 436.0464</pre>
         </div>
       </div>
     </section>
@@ -848,9 +890,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02124075_Egyptian_cat.webp" data-width="384" data-height="379">
             <noscript><img src="../data/drawings/d_n02124075_Egyptian_cat.webp" alt="drawing of Egyptian cat" width="384" height="379" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T22:32:12.834129"
-"drawing_end": "2026-02-24T22:34:47.302033"
-"elapsed_seconds": 154.467904</pre>
+          <pre class="caption">"drawing_start": "2026-02-18T14:32:20.528028"
+"drawing_end": "2026-02-18T14:45:50.714128"
+"elapsed_seconds": 810.1861</pre>
         </div>
       </div>
     </section>
@@ -869,9 +911,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02138441_meerkat.webp" data-width="394" data-height="518">
             <noscript><img src="../data/drawings/d_n02138441_meerkat.webp" alt="drawing of meerkat" width="394" height="518" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T17:01:46.424898"
-"drawing_end": "2026-02-17T17:30:34.880218"
-"elapsed_seconds": 1728.45532</pre>
+          <pre class="caption">"drawing_start": "2026-02-21T19:58:14.187901"
+"drawing_end": "2026-02-21T20:13:48.808101"
+"elapsed_seconds": 934.6202</pre>
         </div>
       </div>
     </section>
@@ -890,9 +932,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02174001_rhinoceros_beetle.webp" data-width="610" data-height="436">
             <noscript><img src="../data/drawings/d_n02174001_rhinoceros_beetle.webp" alt="drawing of rhinoceros beetle" width="610" height="436" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T15:48:13.704465"
-"drawing_end": "2026-02-17T16:34:14.682819"
-"elapsed_seconds": 2760.978354</pre>
+          <pre class="caption">"drawing_start": "2026-02-25T19:08:54.235239"
+"drawing_end": "2026-02-25T19:28:54.235239"
+"elapsed_seconds": 1200</pre>
         </div>
       </div>
     </section>
@@ -911,9 +953,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02281406_sulphur_butterfly.webp" data-width="165" data-height="115">
             <noscript><img src="../data/drawings/d_n02281406_sulphur_butterfly.webp" alt="drawing of sulphur butterfly" width="165" height="115" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:41:23.987456"
-"drawing_end": "2026-02-27T11:41:36.864248"
-"elapsed_seconds": 12.876792</pre>
+          <pre class="caption">"drawing_start": "2026-02-18T16:00:15.974845"
+"drawing_end": "2026-02-18T16:06:12.077445"
+"elapsed_seconds": 356.1026</pre>
         </div>
       </div>
     </section>
@@ -932,9 +974,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02389026_sorrel.webp" data-width="518" data-height="382">
             <noscript><img src="../data/drawings/d_n02389026_sorrel.webp" alt="drawing of sorrel" width="518" height="382" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T10:05:49.656714"
-"drawing_end": "2026-02-24T10:27:13.819145"
-"elapsed_seconds": 1284.162431</pre>
+          <pre class="caption">"drawing_start": "2026-02-18T15:02:23.365624"
+"drawing_end": "2026-02-18T15:16:38.009724"
+"elapsed_seconds": 854.6441</pre>
         </div>
       </div>
     </section>
@@ -953,9 +995,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02398521_hippopotamus.webp" data-width="582" data-height="380">
             <noscript><img src="../data/drawings/d_n02398521_hippopotamus.webp" alt="drawing of hippopotamus" width="582" height="380" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T15:21:38.315886"
-"drawing_end": "2026-02-17T15:33:29.641928"
-"elapsed_seconds": 711.326042</pre>
+          <pre class="caption">"drawing_start": "2026-02-14T17:18:52.963004"
+"drawing_end": "2026-02-14T17:36:36.889604"
+"elapsed_seconds": 1063.9266</pre>
         </div>
       </div>
     </section>
@@ -974,9 +1016,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02423022_gazelle.webp" data-width="377" data-height="380">
             <noscript><img src="../data/drawings/d_n02423022_gazelle.webp" alt="drawing of gazelle" width="377" height="380" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T16:36:17.872851"
-"drawing_end": "2026-02-22T16:48:27.458782"
-"elapsed_seconds": 729.585931</pre>
+          <pre class="caption">"drawing_start": "2026-02-22T17:35:00.000000"
+"drawing_end": "2026-02-22T17:49:18.586900"
+"elapsed_seconds": 858.5869</pre>
         </div>
       </div>
     </section>
@@ -995,9 +1037,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02442845_mink.webp" data-width="526" data-height="393">
             <noscript><img src="../data/drawings/d_n02442845_mink.webp" alt="drawing of mink" width="526" height="393" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T16:00:02.045886"
-"drawing_end": "2026-02-22T16:12:27.019164"
-"elapsed_seconds": 744.973278</pre>
+          <pre class="caption">"drawing_start": "2026-02-18T13:58:20.070679"
+"drawing_end": "2026-02-18T14:13:21.854679"
+"elapsed_seconds": 901.784</pre>
         </div>
       </div>
     </section>
@@ -1016,9 +1058,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02490219_marmoset.webp" data-width="218" data-height="123">
             <noscript><img src="../data/drawings/d_n02490219_marmoset.webp" alt="drawing of marmoset" width="218" height="123" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:57:54.553064"
-"drawing_end": "2026-03-03T13:58:05.487009"
-"elapsed_seconds": 10.933945</pre>
+          <pre class="caption">"drawing_start": "2026-02-14T19:06:19.450124"
+"drawing_end": "2026-02-14T19:12:38.800724"
+"elapsed_seconds": 379.3506</pre>
         </div>
       </div>
     </section>
@@ -1037,9 +1079,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02607072_anemone_fish.webp" data-width="351" data-height="257">
             <noscript><img src="../data/drawings/d_n02607072_anemone_fish.webp" alt="drawing of anemone fish" width="351" height="257" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:53:20.826697"
-"drawing_end": "2026-03-03T13:53:32.355994"
-"elapsed_seconds": 11.529297</pre>
+          <pre class="caption">"drawing_start": "2026-02-17T17:29:25.819217"
+"drawing_end": "2026-02-17T17:39:41.503317"
+"elapsed_seconds": 615.6841</pre>
         </div>
       </div>
     </section>
@@ -1058,9 +1100,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02687172_aircraft_carrier.webp" data-width="188" data-height="156">
             <noscript><img src="../data/drawings/d_n02687172_aircraft_carrier.webp" alt="drawing of aircraft carrier" width="188" height="156" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:30:03.194416"
-"drawing_end": "2026-02-27T11:30:17.722551"
-"elapsed_seconds": 14.528135</pre>
+          <pre class="caption">"drawing_start": "2026-02-21T20:29:42.823223"
+"drawing_end": "2026-02-21T20:35:33.457423"
+"elapsed_seconds": 350.6342</pre>
         </div>
       </div>
     </section>
@@ -1079,9 +1121,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02776631_bakery.webp" data-width="506" data-height="374">
             <noscript><img src="../data/drawings/d_n02776631_bakery.webp" alt="drawing of bakery" width="506" height="374" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T10:34:44.904112"
-"drawing_end": "2026-02-24T10:49:27.196602"
-"elapsed_seconds": 882.29249</pre>
+          <pre class="caption">"drawing_start": "2026-03-03T17:11:39.358047"
+"drawing_end": "2026-03-03T17:27:14.384647"
+"elapsed_seconds": 935.0266</pre>
         </div>
       </div>
     </section>
@@ -1100,9 +1142,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02791270_barbershop.webp" data-width="261" data-height="173">
             <noscript><img src="../data/drawings/d_n02791270_barbershop.webp" alt="drawing of barbershop" width="261" height="173" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:45:44.192451"
-"drawing_end": "2026-03-03T13:45:58.401774"
-"elapsed_seconds": 14.209323</pre>
+          <pre class="caption">"drawing_start": "2026-02-17T15:06:00.000000"
+"drawing_end": "2026-02-17T15:12:52.694800"
+"elapsed_seconds": 412.6948</pre>
         </div>
       </div>
     </section>
@@ -1121,9 +1163,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02837789_bikini.webp" data-width="184" data-height="130">
             <noscript><img src="../data/drawings/d_n02837789_bikini.webp" alt="drawing of bikini" width="184" height="130" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:20:24.069560"
-"drawing_end": "2026-02-27T11:20:36.868946"
-"elapsed_seconds": 12.799386</pre>
+          <pre class="caption">"drawing_start": "2026-02-22T18:59:06.602476"
+"drawing_end": "2026-02-22T19:04:24.056676"
+"elapsed_seconds": 317.4542</pre>
         </div>
       </div>
     </section>
@@ -1142,9 +1184,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02841315_binoculars.webp" data-width="457" data-height="395">
             <noscript><img src="../data/drawings/d_n02841315_binoculars.webp" alt="drawing of binoculars" width="457" height="395" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T15:45:09.229848"
-"drawing_end": "2026-02-26T15:55:38.066347"
-"elapsed_seconds": 628.836499</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T17:47:52.515995"
+"drawing_end": "2026-02-23T18:01:52.836695"
+"elapsed_seconds": 840.3207</pre>
         </div>
       </div>
     </section>
@@ -1163,9 +1205,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02843684_birdhouse.webp" data-width="517" data-height="390">
             <noscript><img src="../data/drawings/d_n02843684_birdhouse.webp" alt="drawing of birdhouse" width="517" height="390" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T12:02:32.809177"
-"drawing_end": "2026-02-10T14:07:52.998910"
-"elapsed_seconds": 7520.189733</pre>
+          <pre class="caption">"drawing_start": "2026-02-18T15:25:32.176812"
+"drawing_end": "2026-02-18T15:39:18.404812"
+"elapsed_seconds": 826.228</pre>
         </div>
       </div>
     </section>
@@ -1184,9 +1226,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02916936_bulletproof_vest.webp" data-width="139" data-height="122">
             <noscript><img src="../data/drawings/d_n02916936_bulletproof_vest.webp" alt="drawing of bulletproof vest" width="139" height="122" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:43:44.614632"
-"drawing_end": "2026-02-27T12:43:54.327764"
-"elapsed_seconds": 9.713132</pre>
+          <pre class="caption">"drawing_start": "2026-02-24T21:11:36.436901"
+"drawing_end": "2026-02-24T21:16:46.756301"
+"elapsed_seconds": 310.3194</pre>
         </div>
       </div>
     </section>
@@ -1205,9 +1247,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02951585_can_opener.webp" data-width="163" data-height="212">
             <noscript><img src="../data/drawings/d_n02951585_can_opener.webp" alt="drawing of can opener" width="163" height="212" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T10:57:14.078473"
-"drawing_end": "2026-02-27T10:57:40.952915"
-"elapsed_seconds": 26.874442</pre>
+          <pre class="caption">"drawing_start": "2026-02-27T15:54:00.000000"
+"drawing_end": "2026-02-27T16:00:05.559900"
+"elapsed_seconds": 365.5599</pre>
         </div>
       </div>
     </section>
@@ -1226,9 +1268,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02971356_carton.webp" data-width="519" data-height="391">
             <noscript><img src="../data/drawings/d_n02971356_carton.webp" alt="drawing of carton" width="519" height="391" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T18:29:44.754812"
-"drawing_end": "2026-02-22T18:35:02.104463"
-"elapsed_seconds": 317.349651</pre>
+          <pre class="caption">"drawing_start": "2026-03-06T19:23:34.468485"
+"drawing_end": "2026-03-06T19:38:53.409085"
+"elapsed_seconds": 918.9406</pre>
         </div>
       </div>
     </section>
@@ -1247,9 +1289,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02992211_cello.webp" data-width="234" data-height="369">
             <noscript><img src="../data/drawings/d_n02992211_cello.webp" alt="drawing of cello" width="234" height="369" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:17:31.410718"
-"drawing_end": "2026-02-27T11:18:10.410661"
-"elapsed_seconds": 38.999943</pre>
+          <pre class="caption">"drawing_start": "2026-03-05T14:59:32.919960"
+"drawing_end": "2026-03-05T15:09:04.117060"
+"elapsed_seconds": 571.1971</pre>
         </div>
       </div>
     </section>
@@ -1268,9 +1310,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n02992529_cellular_telephone.webp" data-width="519" data-height="392">
             <noscript><img src="../data/drawings/d_n02992529_cellular_telephone.webp" alt="drawing of cellular telephone" width="519" height="392" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T18:11:59.117731"
-"drawing_end": "2026-02-22T18:28:59.679262"
-"elapsed_seconds": 1020.561531</pre>
+          <pre class="caption">"drawing_start": "2026-02-27T20:13:00.248860"
+"drawing_end": "2026-02-27T20:25:23.207360"
+"elapsed_seconds": 742.9585</pre>
         </div>
       </div>
     </section>
@@ -1289,9 +1331,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03028079_church.webp" data-width="132" data-height="187">
             <noscript><img src="../data/drawings/d_n03028079_church.webp" alt="drawing of church" width="132" height="187" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:28:47.391160"
-"drawing_end": "2026-02-27T11:28:59.078982"
-"elapsed_seconds": 11.687822</pre>
+          <pre class="caption">"drawing_start": "2026-02-16T19:09:18.291415"
+"drawing_end": "2026-02-16T19:14:20.608115"
+"elapsed_seconds": 302.3167</pre>
         </div>
       </div>
     </section>
@@ -1310,9 +1352,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03133878_Crock_Pot.webp" data-width="439" data-height="540">
             <noscript><img src="../data/drawings/d_n03133878_Crock_Pot.webp" alt="drawing of Crock Pot" width="439" height="540" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T15:08:30.967224"
-"drawing_end": "2026-02-26T15:23:01.714839"
-"elapsed_seconds": 870.747615</pre>
+          <pre class="caption">"drawing_start": "2026-03-03T17:38:42.215287"
+"drawing_end": "2026-03-03T17:53:00.891887"
+"elapsed_seconds": 858.6766</pre>
         </div>
       </div>
     </section>
@@ -1331,9 +1373,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03240683_drilling_platform.webp" data-width="175" data-height="122">
             <noscript><img src="../data/drawings/d_n03240683_drilling_platform.webp" alt="drawing of drilling platform" width="175" height="122" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:03:24.881015"
-"drawing_end": "2026-02-27T11:04:08.709654"
-"elapsed_seconds": 43.828639</pre>
+          <pre class="caption">"drawing_start": "2026-03-07T09:44:00.000000"
+"drawing_end": "2026-03-07T09:49:47.757100"
+"elapsed_seconds": 347.7571</pre>
         </div>
       </div>
     </section>
@@ -1352,9 +1394,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03259280_Dutch_oven.webp" data-width="354" data-height="261">
             <noscript><img src="../data/drawings/d_n03259280_Dutch_oven.webp" alt="drawing of Dutch oven" width="354" height="261" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:01:33.512896"
-"drawing_end": "2026-02-27T12:01:39.059229"
-"elapsed_seconds": 5.546333</pre>
+          <pre class="caption">"drawing_start": "2026-02-20T10:12:16.457049"
+"drawing_end": "2026-02-20T10:22:41.099249"
+"elapsed_seconds": 624.6422</pre>
         </div>
       </div>
     </section>
@@ -1373,9 +1415,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03376595_folding_chair.webp" data-width="513" data-height="391">
             <noscript><img src="../data/drawings/d_n03376595_folding_chair.webp" alt="drawing of folding chair" width="513" height="391" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T14:35:08.399935"
-"drawing_end": "2026-02-17T15:09:00.537569"
-"elapsed_seconds": 2032.137634</pre>
+          <pre class="caption">"drawing_start": "2026-03-02T12:48:53.843303"
+"drawing_end": "2026-03-02T13:02:55.545103"
+"elapsed_seconds": 841.7018</pre>
         </div>
       </div>
     </section>
@@ -1394,9 +1436,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03394916_French_horn.webp" data-width="197" data-height="272">
             <noscript><img src="../data/drawings/d_n03394916_French_horn.webp" alt="drawing of French horn" width="197" height="272" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:47:44.558839"
-"drawing_end": "2026-02-27T12:49:14.455027"
-"elapsed_seconds": 89.896188</pre>
+          <pre class="caption">"drawing_start": "2026-03-03T16:52:51.991655"
+"drawing_end": "2026-03-03T17:00:02.704355"
+"elapsed_seconds": 430.7127</pre>
         </div>
       </div>
     </section>
@@ -1415,9 +1457,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03400231_frying_pan.webp" data-width="522" data-height="389">
             <noscript><img src="../data/drawings/d_n03400231_frying_pan.webp" alt="drawing of frying pan" width="522" height="389" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T16:39:16.153431"
-"drawing_end": "2026-02-17T16:51:31.769255"
-"elapsed_seconds": 735.615824</pre>
+          <pre class="caption">"drawing_start": "2026-02-24T19:25:00.000000"
+"drawing_end": "2026-02-24T19:41:56.216400"
+"elapsed_seconds": 1016.2164</pre>
         </div>
       </div>
     </section>
@@ -1436,9 +1478,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03445777_golf_ball.webp" data-width="750" data-height="328">
             <noscript><img src="../data/drawings/d_n03445777_golf_ball.webp" alt="drawing of golf ball" width="750" height="328" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T16:49:15.758824"
-"drawing_end": "2026-02-22T17:31:34.233134"
-"elapsed_seconds": 2538.47431</pre>
+          <pre class="caption">"drawing_start": "2026-02-27T17:33:01.635789"
+"drawing_end": "2026-02-27T17:52:46.862989"
+"elapsed_seconds": 1185.2272</pre>
         </div>
       </div>
     </section>
@@ -1457,9 +1499,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03478589_half_track.webp" data-width="279" data-height="203">
             <noscript><img src="../data/drawings/d_n03478589_half_track.webp" alt="drawing of half track" width="279" height="203" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T10:46:41.596650"
-"drawing_end": "2026-02-27T10:47:12.050890"
-"elapsed_seconds": 30.45424</pre>
+          <pre class="caption">"drawing_start": "2026-02-21T19:03:00.000000"
+"drawing_end": "2026-02-21T19:09:50.630000"
+"elapsed_seconds": 410.63</pre>
         </div>
       </div>
     </section>
@@ -1478,9 +1520,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03498962_hatchet.webp" data-width="384" data-height="579">
             <noscript><img src="../data/drawings/d_n03498962_hatchet.webp" alt="drawing of hatchet" width="384" height="579" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T21:02:10.506836"
-"drawing_end": "2026-02-22T21:11:37.581235"
-"elapsed_seconds": 567.074399</pre>
+          <pre class="caption">"drawing_start": "2026-02-28T16:52:30.812113"
+"drawing_end": "2026-02-28T17:06:50.450413"
+"elapsed_seconds": 859.6383</pre>
         </div>
       </div>
     </section>
@@ -1499,9 +1541,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03529860_home_theater.webp" data-width="294" data-height="220">
             <noscript><img src="../data/drawings/d_n03529860_home_theater.webp" alt="drawing of home theater" width="294" height="220" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:51:53.217062"
-"drawing_end": "2026-02-27T11:52:01.922211"
-"elapsed_seconds": 8.705149</pre>
+          <pre class="caption">"drawing_start": "2026-02-28T16:29:00.000000"
+"drawing_end": "2026-02-28T16:38:12.270500"
+"elapsed_seconds": 552.2705</pre>
         </div>
       </div>
     </section>
@@ -1520,9 +1562,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03595614_jersey.webp" data-width="387" data-height="510">
             <noscript><img src="../data/drawings/d_n03595614_jersey.webp" alt="drawing of jersey" width="387" height="510" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T22:11:37.357258"
-"drawing_end": "2026-02-24T22:20:09.704300"
-"elapsed_seconds": 512.347042</pre>
+          <pre class="caption">"drawing_start": "2026-02-17T16:58:14.366077"
+"drawing_end": "2026-02-17T17:14:46.882477"
+"elapsed_seconds": 992.5164</pre>
         </div>
       </div>
     </section>
@@ -1541,9 +1583,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03602883_joystick.webp" data-width="386" data-height="390">
             <noscript><img src="../data/drawings/d_n03602883_joystick.webp" alt="drawing of joystick" width="386" height="390" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T18:06:21.147201"
-"drawing_end": "2026-02-22T18:11:45.920078"
-"elapsed_seconds": 324.772877</pre>
+          <pre class="caption">"drawing_start": "2026-02-27T19:20:36.144629"
+"drawing_end": "2026-02-27T19:31:39.450429"
+"elapsed_seconds": 663.3058</pre>
         </div>
       </div>
     </section>
@@ -1562,9 +1604,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03676483_lipstick.webp" data-width="286" data-height="184">
             <noscript><img src="../data/drawings/d_n03676483_lipstick.webp" alt="drawing of lipstick" width="286" height="184" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:31:16.161252"
-"drawing_end": "2026-02-27T11:31:36.962636"
-"elapsed_seconds": 20.801384</pre>
+          <pre class="caption">"drawing_start": "2026-02-12T16:56:04.324375"
+"drawing_end": "2026-02-12T17:03:42.192675"
+"elapsed_seconds": 457.8683</pre>
         </div>
       </div>
     </section>
@@ -1583,9 +1625,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03709823_mailbag.webp" data-width="147" data-height="221">
             <noscript><img src="../data/drawings/d_n03709823_mailbag.webp" alt="drawing of mailbag" width="147" height="221" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T11:54:23.038506"
-"drawing_end": "2026-03-03T12:04:06.028336"
-"elapsed_seconds": 582.98983</pre>
+          <pre class="caption">"drawing_start": "2026-02-19T17:36:05.215564"
+"drawing_end": "2026-02-19T17:43:31.475564"
+"elapsed_seconds": 446.26</pre>
         </div>
       </div>
     </section>
@@ -1604,9 +1646,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03761084_microwave.webp" data-width="563" data-height="391">
             <noscript><img src="../data/drawings/d_n03761084_microwave.webp" alt="drawing of microwave" width="563" height="391" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T17:15:47.071666"
-"drawing_end": "2026-02-10T17:51:51.940115"
-"elapsed_seconds": 2164.868449</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T19:39:22.911905"
+"drawing_end": "2026-02-23T19:54:14.357705"
+"elapsed_seconds": 891.4458</pre>
         </div>
       </div>
     </section>
@@ -1625,9 +1667,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03804744_nail.webp" data-width="577" data-height="390">
             <noscript><img src="../data/drawings/d_n03804744_nail.webp" alt="drawing of nail" width="577" height="390" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T10:28:04.929677"
-"drawing_end": "2026-02-24T10:34:08.656588"
-"elapsed_seconds": 363.726911</pre>
+          <pre class="caption">"drawing_start": "2026-03-04T22:04:15.843712"
+"drawing_end": "2026-03-04T22:19:40.340212"
+"elapsed_seconds": 924.4965</pre>
         </div>
       </div>
     </section>
@@ -1646,9 +1688,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03854065_organ.webp" data-width="514" data-height="392">
             <noscript><img src="../data/drawings/d_n03854065_organ.webp" alt="drawing of organ" width="514" height="392" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T13:56:01.977528"
-"drawing_end": "2026-02-26T14:29:28.812808"
-"elapsed_seconds": 2006.83528</pre>
+          <pre class="caption">"drawing_start": "2026-03-04T20:15:00.000000"
+"drawing_end": "2026-03-04T20:32:32.396600"
+"elapsed_seconds": 1052.3966</pre>
         </div>
       </div>
     </section>
@@ -1667,9 +1709,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03876231_paintbrush.webp" data-width="662" data-height="441">
             <noscript><img src="../data/drawings/d_n03876231_paintbrush.webp" alt="drawing of paintbrush" width="662" height="441" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T12:47:44.129572"
-"drawing_end": "2026-02-26T13:41:36.420262"
-"elapsed_seconds": 3232.29069</pre>
+          <pre class="caption">"drawing_start": "2026-02-21T21:49:11.362823"
+"drawing_end": "2026-02-21T22:06:56.573623"
+"elapsed_seconds": 1065.2108</pre>
         </div>
       </div>
     </section>
@@ -1688,9 +1730,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03887697_paper_towel.webp" data-width="512" data-height="390">
             <noscript><img src="../data/drawings/d_n03887697_paper_towel.webp" alt="drawing of paper towel" width="512" height="390" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T10:49:28.573703"
-"drawing_end": "2026-02-24T10:56:12.160469"
-"elapsed_seconds": 403.586766</pre>
+          <pre class="caption">"drawing_start": "2026-02-11T15:19:35.592411"
+"drawing_end": "2026-02-11T15:33:30.308711"
+"elapsed_seconds": 834.7163</pre>
         </div>
       </div>
     </section>
@@ -1709,9 +1751,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03891251_park_bench.webp" data-width="400" data-height="505">
             <noscript><img src="../data/drawings/d_n03891251_park_bench.webp" alt="drawing of park bench" width="400" height="505" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T14:07:55.323942"
-"drawing_end": "2026-02-10T15:11:42.680648"
-"elapsed_seconds": 3827.356706</pre>
+          <pre class="caption">"drawing_start": "2026-02-24T22:39:54.565341"
+"drawing_end": "2026-02-24T22:57:21.857641"
+"elapsed_seconds": 1047.2923</pre>
         </div>
       </div>
     </section>
@@ -1730,9 +1772,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03891332_parking_meter.webp" data-width="433" data-height="294">
             <noscript><img src="../data/drawings/d_n03891332_parking_meter.webp" alt="drawing of parking meter" width="433" height="294" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:54:17.482915"
-"drawing_end": "2026-03-03T13:55:33.100941"
-"elapsed_seconds": 75.618026</pre>
+          <pre class="caption">"drawing_start": "2026-03-05T15:22:59.683106"
+"drawing_end": "2026-03-05T15:32:32.085606"
+"elapsed_seconds": 572.4025</pre>
         </div>
       </div>
     </section>
@@ -1751,9 +1793,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03930630_pickup.webp" data-width="188" data-height="153">
             <noscript><img src="../data/drawings/d_n03930630_pickup.webp" alt="drawing of pickup" width="188" height="153" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:42:40.208382"
-"drawing_end": "2026-02-27T12:42:50.914452"
-"elapsed_seconds": 10.70607</pre>
+          <pre class="caption">"drawing_start": "2026-02-19T16:56:35.718296"
+"drawing_end": "2026-02-19T17:03:20.404696"
+"elapsed_seconds": 404.6864</pre>
         </div>
       </div>
     </section>
@@ -1772,9 +1814,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03935335_piggy_bank.webp" data-width="234" data-height="177">
             <noscript><img src="../data/drawings/d_n03935335_piggy_bank.webp" alt="drawing of piggy bank" width="234" height="177" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:07:58.485920"
-"drawing_end": "2026-02-27T11:12:54.201712"
-"elapsed_seconds": 295.715792</pre>
+          <pre class="caption">"drawing_start": "2026-02-26T18:54:53.365569"
+"drawing_end": "2026-02-26T19:01:42.682769"
+"elapsed_seconds": 409.3172</pre>
         </div>
       </div>
     </section>
@@ -1793,9 +1835,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03970156_plunger.webp" data-width="147" data-height="251">
             <noscript><img src="../data/drawings/d_n03970156_plunger.webp" alt="drawing of plunger" width="147" height="251" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:53:44.765001"
-"drawing_end": "2026-02-27T12:53:57.962912"
-"elapsed_seconds": 13.197911</pre>
+          <pre class="caption">"drawing_start": "2026-02-19T17:23:35.766736"
+"drawing_end": "2026-02-19T17:29:43.952136"
+"elapsed_seconds": 368.1854</pre>
         </div>
       </div>
     </section>
@@ -1814,9 +1856,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n03982430_pool_table.webp" data-width="444" data-height="382">
             <noscript><img src="../data/drawings/d_n03982430_pool_table.webp" alt="drawing of pool table" width="444" height="382" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T21:46:20.336879"
-"drawing_end": "2026-02-24T21:59:15.589607"
-"elapsed_seconds": 775.252728</pre>
+          <pre class="caption">"drawing_start": "2026-03-07T10:37:50.380788"
+"drawing_end": "2026-03-07T10:51:41.178288"
+"elapsed_seconds": 830.7975</pre>
         </div>
       </div>
     </section>
@@ -1835,9 +1877,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04005630_prison.webp" data-width="327" data-height="224">
             <noscript><img src="../data/drawings/d_n04005630_prison.webp" alt="drawing of prison" width="327" height="224" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:36:51.111767"
-"drawing_end": "2026-02-27T12:37:06.585687"
-"elapsed_seconds": 15.47392</pre>
+          <pre class="caption">"drawing_start": "2026-02-11T13:51:00.000000"
+"drawing_end": "2026-02-11T13:59:58.511900"
+"elapsed_seconds": 538.5119</pre>
         </div>
       </div>
     </section>
@@ -1856,9 +1898,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04037443_racer.webp" data-width="556" data-height="385">
             <noscript><img src="../data/drawings/d_n04037443_racer.webp" alt="drawing of racer" width="556" height="385" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T14:58:33.762867"
-"drawing_end": "2026-02-22T15:59:25.443986"
-"elapsed_seconds": 3651.681119</pre>
+          <pre class="caption">"drawing_start": "2026-02-20T09:35:00.000000"
+"drawing_end": "2026-02-20T09:48:27.589100"
+"elapsed_seconds": 807.5891</pre>
         </div>
       </div>
     </section>
@@ -1877,9 +1919,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04111531_rotisserie.webp" data-width="394" data-height="592">
             <noscript><img src="../data/drawings/d_n04111531_rotisserie.webp" alt="drawing of rotisserie" width="394" height="592" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T15:55:47.814100"
-"drawing_end": "2026-02-26T16:06:15.158652"
-"elapsed_seconds": 627.344552</pre>
+          <pre class="caption">"drawing_start": "2026-02-27T18:00:42.371914"
+"drawing_end": "2026-02-27T18:15:50.537014"
+"elapsed_seconds": 908.1651</pre>
         </div>
       </div>
     </section>
@@ -1898,9 +1940,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04118538_rugby_ball.webp" data-width="650" data-height="513">
             <noscript><img src="../data/drawings/d_n04118538_rugby_ball.webp" alt="drawing of rugby ball" width="650" height="513" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:57:27.281240"
-"drawing_end": "2026-03-03T13:57:43.633864"
-"elapsed_seconds": 16.352624</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T18:06:09.530098"
+"drawing_end": "2026-02-23T18:22:42.340298"
+"elapsed_seconds": 992.8102</pre>
         </div>
       </div>
     </section>
@@ -1919,9 +1961,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04204347_shopping_cart.webp" data-width="507" data-height="373">
             <noscript><img src="../data/drawings/d_n04204347_shopping_cart.webp" alt="drawing of shopping cart" width="507" height="373" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T11:10:47.800367"
-"drawing_end": "2026-02-17T12:24:30.909403"
-"elapsed_seconds": 4423.109036</pre>
+          <pre class="caption">"drawing_start": "2026-02-28T17:31:58.037167"
+"drawing_end": "2026-02-28T17:43:52.942567"
+"elapsed_seconds": 714.9054</pre>
         </div>
       </div>
     </section>
@@ -1940,9 +1982,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04235860_sleeping_bag.webp" data-width="434" data-height="382">
             <noscript><img src="../data/drawings/d_n04235860_sleeping_bag.webp" alt="drawing of sleeping bag" width="434" height="382" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T12:28:13.105547"
-"drawing_end": "2026-02-17T12:48:01.891385"
-"elapsed_seconds": 1188.785838</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T18:57:14.269109"
+"drawing_end": "2026-02-23T19:12:00.058309"
+"elapsed_seconds": 885.7892</pre>
         </div>
       </div>
     </section>
@@ -1961,9 +2003,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04264628_space_bar.webp" data-width="509" data-height="394">
             <noscript><img src="../data/drawings/d_n04264628_space_bar.webp" alt="drawing of space bar" width="509" height="394" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T15:27:06.009722"
-"drawing_end": "2026-02-26T15:44:34.944067"
-"elapsed_seconds": 1048.934345</pre>
+          <pre class="caption">"drawing_start": "2026-03-06T17:31:54.198331"
+"drawing_end": "2026-03-06T17:46:39.209331"
+"elapsed_seconds": 885.011</pre>
         </div>
       </div>
     </section>
@@ -1982,9 +2024,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04336792_stretcher.webp" data-width="528" data-height="396">
             <noscript><img src="../data/drawings/d_n04336792_stretcher.webp" alt="drawing of stretcher" width="528" height="396" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T10:13:45.147722"
-"drawing_end": "2026-02-10T10:17:17.061361"
-"elapsed_seconds": 211.913639</pre>
+          <pre class="caption">"drawing_start": "2026-02-25T18:25:04.422155"
+"drawing_end": "2026-02-25T18:40:37.004955"
+"elapsed_seconds": 932.5828</pre>
         </div>
       </div>
     </section>
@@ -2003,9 +2045,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04356056_sunglasses.webp" data-width="184" data-height="142">
             <noscript><img src="../data/drawings/d_n04356056_sunglasses.webp" alt="drawing of sunglasses" width="184" height="142" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:06:57.217938"
-"drawing_end": "2026-02-27T11:07:06.651692"
-"elapsed_seconds": 9.433754</pre>
+          <pre class="caption">"drawing_start": "2026-02-16T17:49:00.000000"
+"drawing_end": "2026-02-16T17:55:07.256800"
+"elapsed_seconds": 367.2568</pre>
         </div>
       </div>
     </section>
@@ -2024,9 +2066,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04380533_table_lamp.webp" data-width="241" data-height="190">
             <noscript><img src="../data/drawings/d_n04380533_table_lamp.webp" alt="drawing of table lamp" width="241" height="190" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:48:49.595746"
-"drawing_end": "2026-03-03T13:49:20.891710"
-"elapsed_seconds": 31.295964</pre>
+          <pre class="caption">"drawing_start": "2026-03-04T21:13:19.368926"
+"drawing_end": "2026-03-04T21:20:36.775526"
+"elapsed_seconds": 437.4066</pre>
         </div>
       </div>
     </section>
@@ -2045,9 +2087,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04409515_tennis_ball.webp" data-width="380" data-height="579">
             <noscript><img src="../data/drawings/d_n04409515_tennis_ball.webp" alt="drawing of tennis ball" width="380" height="579" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-16T17:40:43.319219"
-"drawing_end": "2026-02-16T19:12:22.830472"
-"elapsed_seconds": 5499.511253</pre>
+          <pre class="caption">"drawing_start": "2026-03-03T16:20:00.000000"
+"drawing_end": "2026-03-03T16:35:10.032400"
+"elapsed_seconds": 910.0324</pre>
         </div>
       </div>
     </section>
@@ -2066,9 +2108,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04462240_toyshop.webp" data-width="505" data-height="388">
             <noscript><img src="../data/drawings/d_n04462240_toyshop.webp" alt="drawing of toyshop" width="505" height="388" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T18:59:17.887245"
-"drawing_end": "2026-02-10T20:31:34.108031"
-"elapsed_seconds": 5536.220786</pre>
+          <pre class="caption">"drawing_start": "2026-02-11T15:52:55.916230"
+"drawing_end": "2026-02-11T16:06:46.945330"
+"elapsed_seconds": 831.0291</pre>
         </div>
       </div>
     </section>
@@ -2087,9 +2129,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04479046_trench_coat.webp" data-width="431" data-height="586">
             <noscript><img src="../data/drawings/d_n04479046_trench_coat.webp" alt="drawing of trench coat" width="431" height="586" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-26T14:31:06.867819"
-"drawing_end": "2026-02-26T14:58:54.920459"
-"elapsed_seconds": 1668.05264</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T19:23:11.857065"
+"drawing_end": "2026-02-23T19:43:11.857065"
+"elapsed_seconds": 1200</pre>
         </div>
       </div>
     </section>
@@ -2108,9 +2150,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04509417_unicycle.webp" data-width="389" data-height="577">
             <noscript><img src="../data/drawings/d_n04509417_unicycle.webp" alt="drawing of unicycle" width="389" height="577" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-24T22:02:56.218960"
-"drawing_end": "2026-02-24T22:11:33.713568"
-"elapsed_seconds": 517.494608</pre>
+          <pre class="caption">"drawing_start": "2026-02-26T20:05:55.573827"
+"drawing_end": "2026-02-26T20:20:45.150427"
+"elapsed_seconds": 889.5766</pre>
         </div>
       </div>
     </section>
@@ -2129,9 +2171,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04540053_volleyball.webp" data-width="425" data-height="484">
             <noscript><img src="../data/drawings/d_n04540053_volleyball.webp" alt="drawing of volleyball" width="425" height="484" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T21:40:18.526993"
-"drawing_end": "2026-02-22T21:42:51.629361"
-"elapsed_seconds": 153.102368</pre>
+          <pre class="caption">"drawing_start": "2026-02-15T11:00:00.000000"
+"drawing_end": "2026-02-15T11:17:51.637900"
+"elapsed_seconds": 1071.6379</pre>
         </div>
       </div>
     </section>
@@ -2150,9 +2192,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04552348_warplane.webp" data-width="186" data-height="126">
             <noscript><img src="../data/drawings/d_n04552348_warplane.webp" alt="drawing of warplane" width="186" height="126" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T12:45:31.836347"
-"drawing_end": "2026-02-27T12:45:40.608606"
-"elapsed_seconds": 8.772259</pre>
+          <pre class="caption">"drawing_start": "2026-02-12T16:23:00.000000"
+"drawing_end": "2026-02-12T16:27:36.514100"
+"elapsed_seconds": 276.5141</pre>
         </div>
       </div>
     </section>
@@ -2171,9 +2213,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04560804_water_jug.webp" data-width="579" data-height="396">
             <noscript><img src="../data/drawings/d_n04560804_water_jug.webp" alt="drawing of water jug" width="579" height="396" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-17T13:57:51.820549"
-"drawing_end": "2026-02-17T14:01:55.435060"
-"elapsed_seconds": 243.614511</pre>
+          <pre class="caption">"drawing_start": "2026-02-17T16:02:12.219137"
+"drawing_end": "2026-02-17T16:18:36.145337"
+"elapsed_seconds": 983.9262</pre>
         </div>
       </div>
     </section>
@@ -2192,9 +2234,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04579432_whistle.webp" data-width="378" data-height="530">
             <noscript><img src="../data/drawings/d_n04579432_whistle.webp" alt="drawing of whistle" width="378" height="530" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T20:18:16.012310"
-"drawing_end": "2026-02-22T20:52:30.050768"
-"elapsed_seconds": 2054.038458</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T17:09:27.090473"
+"drawing_end": "2026-02-23T17:24:44.615873"
+"elapsed_seconds": 917.5254</pre>
         </div>
       </div>
     </section>
@@ -2213,9 +2255,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n04604644_worm_fence.webp" data-width="579" data-height="390">
             <noscript><img src="../data/drawings/d_n04604644_worm_fence.webp" alt="drawing of worm fence" width="579" height="390" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-22T19:09:31.489957"
-"drawing_end": "2026-02-22T20:11:51.179427"
-"elapsed_seconds": 3739.68947</pre>
+          <pre class="caption">"drawing_start": "2026-02-25T17:15:53.902499"
+"drawing_end": "2026-02-25T17:28:44.705099"
+"elapsed_seconds": 770.8026</pre>
         </div>
       </div>
     </section>
@@ -2234,9 +2276,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n07697313_cheeseburger.webp" data-width="141" data-height="186">
             <noscript><img src="../data/drawings/d_n07697313_cheeseburger.webp" alt="drawing of cheeseburger" width="141" height="186" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:02:11.249604"
-"drawing_end": "2026-02-27T11:03:15.104034"
-"elapsed_seconds": 63.85443</pre>
+          <pre class="caption">"drawing_start": "2026-03-04T22:35:35.843123"
+"drawing_end": "2026-03-04T22:41:46.009223"
+"elapsed_seconds": 370.1661</pre>
         </div>
       </div>
     </section>
@@ -2255,9 +2297,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n07711569_mashed_potato.webp" data-width="398" data-height="263">
             <noscript><img src="../data/drawings/d_n07711569_mashed_potato.webp" alt="drawing of mashed potato" width="398" height="263" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T11:50:23.896506"
-"drawing_end": "2026-03-03T11:50:46.090822"
-"elapsed_seconds": 22.194316</pre>
+          <pre class="caption">"drawing_start": "2026-02-19T18:57:54.475624"
+"drawing_end": "2026-02-19T19:09:21.246624"
+"elapsed_seconds": 686.771</pre>
         </div>
       </div>
     </section>
@@ -2276,9 +2318,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n07717410_acorn_squash.webp" data-width="353" data-height="274">
             <noscript><img src="../data/drawings/d_n07717410_acorn_squash.webp" alt="drawing of acorn squash" width="353" height="274" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-03-03T13:43:13.128393"
-"drawing_end": "2026-03-03T13:44:50.061871"
-"elapsed_seconds": 96.933478</pre>
+          <pre class="caption">"drawing_start": "2026-02-23T20:16:52.871781"
+"drawing_end": "2026-02-23T20:27:17.655981"
+"elapsed_seconds": 624.7842</pre>
         </div>
       </div>
     </section>
@@ -2297,9 +2339,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n07768694_pomegranate.webp" data-width="194" data-height="159">
             <noscript><img src="../data/drawings/d_n07768694_pomegranate.webp" alt="drawing of pomegranate" width="194" height="159" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-27T11:52:48.847726"
-"drawing_end": "2026-02-27T11:53:06.320844"
-"elapsed_seconds": 17.473118</pre>
+          <pre class="caption">"drawing_start": "2026-02-14T19:39:23.338434"
+"drawing_end": "2026-02-14T19:45:24.870834"
+"elapsed_seconds": 361.5324</pre>
         </div>
       </div>
     </section>
@@ -2318,9 +2360,9 @@ nav a:hover { text-decoration: underline; }
           <div class="img-wrap lazy" data-src="../data/drawings/d_n10565667_scuba_diver.webp" data-width="528" data-height="387">
             <noscript><img src="../data/drawings/d_n10565667_scuba_diver.webp" alt="drawing of scuba diver" width="528" height="387" loading="lazy"></noscript>
           </div>
-          <pre class="caption">"drawing_start": "2026-02-10T20:32:43.101142"
-"drawing_end": "2026-02-10T21:02:42.482592"
-"elapsed_seconds": 1799.38145</pre>
+          <pre class="caption">"drawing_start": "2026-03-06T20:08:25.571190"
+"drawing_end": "2026-03-06T20:24:57.824890"
+"elapsed_seconds": 992.2537</pre>
         </div>
       </div>
     </section>
