@@ -9,7 +9,7 @@
 
 :root {
   --img-width: 90%;
-  --text-width: 70%;
+  --text-width: 60%;
   --gap: 2.5rem;
   --mono: 'Courier New', Courier, monospace;
 }
@@ -58,6 +58,7 @@ nav a:hover { text-decoration: underline; }
 
 .description p {
   margin-bottom: 1em;
+  text-align: justify;
 }
 
 .description h2 {
@@ -86,6 +87,85 @@ nav a:hover { text-decoration: underline; }
   font-size: 0.65rem;
   vertical-align: super;
   line-height: 0;
+}
+
+/* ── About page layout ── */
+.about-intro {
+  width: var(--text-width);
+  margin: 0 auto 3rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.about-intro p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.about-intro h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.about-intro em { font-style: italic; }
+
+.about-body {
+  width: 85%;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  columns: 2;
+  column-gap: 3.5rem;
+}
+
+.about-body h2 {
+  column-span: all;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.about-body p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.about-body em { font-style: italic; }
+
+.about-body sup {
+  font-size: 0.65rem;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.about-body .footnotes {
+  column-span: all;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .about-intro,
+  .about-body {
+    width: 90%;
+  }
+  .about-body {
+    columns: 1;
+  }
 }
 
 /* ── Entry sections ── */

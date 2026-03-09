@@ -132,7 +132,7 @@ CSS = """\
 
 :root {
   --img-width: 90%;
-  --text-width: 70%;
+  --text-width: 60%;
   --gap: 2.5rem;
   --mono: 'Courier New', Courier, monospace;
 }
@@ -181,6 +181,7 @@ nav a:hover { text-decoration: underline; }
 
 .description p {
   margin-bottom: 1em;
+  text-align: justify;
 }
 
 .description h2 {
@@ -209,6 +210,85 @@ nav a:hover { text-decoration: underline; }
   font-size: 0.65rem;
   vertical-align: super;
   line-height: 0;
+}
+
+/* ── About page layout ── */
+.about-intro {
+  width: var(--text-width);
+  margin: 0 auto 3rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.about-intro p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.about-intro h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.about-intro em { font-style: italic; }
+
+.about-body {
+  width: 85%;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  columns: 2;
+  column-gap: 3.5rem;
+}
+
+.about-body h2 {
+  column-span: all;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.about-body p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.about-body em { font-style: italic; }
+
+.about-body sup {
+  font-size: 0.65rem;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.about-body .footnotes {
+  column-span: all;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .about-intro,
+  .about-body {
+    width: 90%;
+  }
+  .about-body {
+    columns: 1;
+  }
 }
 
 /* ── Entry sections ── */
@@ -365,6 +445,9 @@ def generate(entries: list[dict]) -> str:
 def load_about() -> str:
     """Convert md/about.md to HTML for the about page.
 
+    The ## Abstract section is wrapped in <div class="about-intro">.
+    All remaining sections are wrapped in <div class="about-body"> (two-column layout).
+
     Supported markdown:
       ## Heading       → <h2>
       *italic*         → <em>
@@ -376,8 +459,17 @@ def load_about() -> str:
         return ""
     text = ABOUT_FILE.read_text(encoding="utf-8")
 
+    def inline(s):
+        s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
+        s = re.sub(r"(?<!\n)\[(\d+)\]", r"<sup>[\1]</sup>", s)
+        s = re.sub(r"&(?!amp;|lt;|gt;|#)", "&amp;", s)
+        return s
+
     blocks = re.split(r"\n{2,}", text.strip())
-    lines_out = []
+    intro_lines = []
+    body_lines = []
+    in_abstract = False
+    in_body = False
     in_footnotes = False
 
     for block in blocks:
@@ -385,35 +477,40 @@ def load_about() -> str:
         if not block:
             continue
 
-        # Section headings
         if block.startswith("## "):
             heading = block[3:].strip()
-            if heading.lower() == "notes":
-                lines_out.append('  <div class="footnotes">')
+            if heading.lower() == "abstract":
+                in_abstract = True
+                in_body = False
+                intro_lines.append(f"  <h2>{heading}</h2>")
+            elif heading.lower() == "notes":
+                in_abstract = False
+                in_body = True
+                body_lines.append('  <div class="footnotes">')
                 in_footnotes = True
             else:
-                lines_out.append(f"  <h2>{heading}</h2>")
+                in_abstract = False
+                in_body = True
+                body_lines.append(f"  <h2>{heading}</h2>")
             continue
 
-        # Inline transforms shared by paragraphs and footnote lines
-        def inline(s):
-            # *italic*
-            s = re.sub(r"\*(.+?)\*", r"<em>\1</em>", s)
-            # citation markers [n] → superscript (not at line start, to avoid footnote labels)
-            s = re.sub(r"(?<!\n)\[(\d+)\]", r"<sup>[\1]</sup>", s)
-            # & → &amp; only when not already an entity
-            s = re.sub(r"&(?!amp;|lt;|gt;|#)", "&amp;", s)
-            return s
-
-        if in_footnotes:
-            lines_out.append(f"    <p>{inline(block)}</p>")
-        else:
-            lines_out.append(f"  <p>{inline(block)}</p>")
+        if in_abstract:
+            intro_lines.append(f"  <p>{inline(block)}</p>")
+        elif in_body:
+            if in_footnotes:
+                body_lines.append(f"    <p>{inline(block)}</p>")
+            else:
+                body_lines.append(f"  <p>{inline(block)}</p>")
 
     if in_footnotes:
-        lines_out.append("  </div>")
+        body_lines.append("  </div>")
 
-    return "\n".join(lines_out) + "\n"
+    intro_html = "\n".join(intro_lines)
+    body_html = "\n".join(body_lines)
+    return (
+        f'<div class="about-intro">\n{intro_html}\n</div>\n\n'
+        f'<div class="about-body">\n{body_html}\n</div>\n'
+    )
 
 
 def generate_about() -> str:
@@ -437,8 +534,7 @@ def generate_about() -> str:
   </nav>
 </header>
 
-<div class="description">
-{about_html}</div>
+{about_html}
 
 </body>
 </html>

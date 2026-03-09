@@ -9,7 +9,7 @@
 
 :root {
   --img-width: 90%;
-  --text-width: 70%;
+  --text-width: 60%;
   --gap: 2.5rem;
   --mono: 'Courier New', Courier, monospace;
 }
@@ -58,6 +58,7 @@ nav a:hover { text-decoration: underline; }
 
 .description p {
   margin-bottom: 1em;
+  text-align: justify;
 }
 
 .description h2 {
@@ -86,6 +87,85 @@ nav a:hover { text-decoration: underline; }
   font-size: 0.65rem;
   vertical-align: super;
   line-height: 0;
+}
+
+/* ── About page layout ── */
+.about-intro {
+  width: var(--text-width);
+  margin: 0 auto 3rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.about-intro p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.about-intro h2 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.about-intro em { font-style: italic; }
+
+.about-body {
+  width: 85%;
+  max-width: 1100px;
+  margin: 0 auto 3rem;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+  columns: 2;
+  column-gap: 3.5rem;
+}
+
+.about-body h2 {
+  column-span: all;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #111;
+  margin: 2rem 0 0.6rem;
+}
+
+.about-body p {
+  margin-bottom: 1em;
+  text-align: justify;
+}
+
+.about-body em { font-style: italic; }
+
+.about-body sup {
+  font-size: 0.65rem;
+  vertical-align: super;
+  line-height: 0;
+}
+
+.about-body .footnotes {
+  column-span: all;
+  margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .about-intro,
+  .about-body {
+    width: 90%;
+  }
+  .about-body {
+    columns: 1;
+  }
 }
 
 /* ── Entry sections ── */
@@ -153,24 +233,27 @@ nav a:hover { text-decoration: underline; }
   </nav>
 </header>
 
-<div class="description">
+<div class="about-intro">
+  <h2>Abstract</h2>
   <p>Assembled at a specific historical moment by a situated group of contributors and filtered through the infrastructure and aesthetics of Web 2.0, ImageNet is one of the most consequential taxonomies produced by computational culture. Its 1000-class benchmark helped shape the field of computer vision and continues to influence how datasets are filtered, how computer vision tasks are posed and how models are trained, evaluated, and benchmarked. More than a technical dataset, ImageNet is also an ethnographic artefact of a mainly WEIRD society at a specific point in history, capturing a world frozen in time. The particular algorithmic lens emerging from this dataset continues to shape contemporary computer vision, and its cultural inscription persists in the generative AI systems that inherit and reproduce it.</p>
-  <p><em>Drawing ImageNet</em> slowly and inefficiently approaches a taxonomy that is meant to be primarily performative, for benchmarking, evaluation, and filtering, with its actual content rarely looked at, apart from data annotators with a specific and imposed task. As an exercise, <em>Drawing ImageNet</em> coaxes out situatedness and cultural assumptions embedded in individual images through a human lens. One hundred classes were randomly selected and drawn this way, using a script that selects an unvisited class at random and presents a random image from within it as a drawing reference. The resulting drawings characterize ImageNet itself — revealing the dataset as both systematic and idiosyncratic: sometimes absurd, sometimes charming, and shaped by a distinctly narrow cultural lens. By translating algorithmic taxonomy into slow, analogue drawings, the project stages an encounter between two fundamentally different worldviews: the human tradition of art as an intentional, context-driven act, and the computational paradigm that treats visual culture as measurable, optimizable data.</p>
-  <h2>An Accidental Taxonomy</h2>
-  <p>ImageNet was announced in 2009 by a team of researchers at Princeton and Stanford Universities, led by Fei-Fei Li. Its categorical backbone was inherited from WordNet — a large database of English words organized into a semantic hierarchy, developed by cognitive psychologist George A. Miller in the 1980s. The WordNet hierarchy gave ImageNet its structure; internet search engines gave it its images.<sup>[1]</sup> What resulted was less a neutral inventory of the visible world than a taxonomy: a hierarchical classification whose categories reflect the assumptions, values, and cultural context of those who built it — a fact that grew more consequential as the dataset did.</p>
-  <p>The 1000-class subset, used for the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) from 2010 to 2017, is the version the world came to know. When Alex Krizhevsky's deep neural network won the 2012 challenge by a previously unimaginable margin, a field was transformed.<sup>[1]</sup> ImageNet did not just train models — it shaped the algorithmic lens through which datasets are filtered and models benchmarked, establishing a particular way of seeing as the default infrastructure of computer vision.</p>
-  <h2>A WEIRD World, Carefully Labeled</h2>
-  <p>Alongside an emphasis on prosaic everyday objects frequently rooted in Americana — football, fishing gear, barbecue equipment, pickup trucks — ImageNet contains a myriad of classes referencing the natural world. Yet this world appears through a distinctly human lens: among its many animal categories, nearly half are different dog breeds. Rather than simply representing nature, the dataset characterizes a culturally specific human relationship to it.</p>
-  <p>ImageNet gives a perspective of a WEIRD society — Western, Educated, Industrialized, Rich, Democratic<sup>[5]</sup> — at a very specific point in time. It is shaped by a narrow demographic and a very specific cultural context: its visual representations are drawn overwhelmingly from the American internet. It contains dogs, war machinery, transportation devices, and prosaic domestic objects; it contains the bald eagle — the only one of sixty species of eagle that exist globally, and not coincidentally the national bird of the United States.<sup>[4]</sup> Ninety-three classes for mammals; twenty-seven for insects — despite there being roughly one million known insect species to every six thousand mammals.<sup>[4]</sup></p>
-  <p>As Denton et al. observe, it is a view that "associates 'bikinis' with women, 'sports' with men, 'trout' with fishing trophies, and 'lobsters' with dinner."<sup>[1]</sup> The dataset does not describe the world so much as it describes a specific culture's <em>relationship</em> to it — one shaped by "digital photography and image sharing practices of the late 2000s, the functionality of web search engines, the imperative for speed, and non-reflexivity designed into the dataset curation process."<sup>[1]</sup></p>
-  <p>This is not merely a limitation — it is what makes ImageNet so fascinating to look at. Its images are "stereotypical, unnatural, and overly simple representations of the class category"<sup>[3]</sup> — photographs selected precisely because they matched an imagined prototype, verified by annotators operating under the assumption that visual recognition is decontextualized, universal, and self-evident. Each class is a small, surprisingly specific portrait of how one culture, at one moment, imagined a concept should look.</p>
-  <h2>A Historical Artifact</h2>
-  <p>ImageNet is a historically situated artifact<sup>[1]</sup> — assembled at a specific historical moment, by a situated group of contributors, and filtered through the infrastructure and aesthetics of Web 2.0. Its cultural inscription does not end there. It is still used for benchmarking models today,<sup>[2]</sup> and its taxonomy continues to impact how contemporary models are designed and what data they are trained on. Generative AI has inherited and reproduces the cultural taxonomies embedded in this world frozen in time. In a counterfactual scenario, if only a few of these classes had been different — if they had contained different representations, different geographies, different proportions of life — the downstream effects on an entire field could have been profound.</p>
-  <p>Luccioni and Crawford trace what they call the "nine lives" of ImageNet<sup>[2]</sup>: its multiple official and unofficial versions, its quiet remediations. In 2019, artist Trevor Paglen and researcher Kate Crawford launched <em>ImageNet Roulette</em>, a work that exposed ImageNet's "person" subcategories — labels inherited from WordNet ranging from the archaic to the violently dehumanizing. The project went viral, and within days, the ImageNet team removed more than half a million images from the dataset.<sup>[6]</sup> Yet Crawford and Paglen were clear that no technical fix could reach the deeper issue: "The whole endeavor of collecting images, categorizing them, and labeling them is itself a form of politics, filled with questions about who gets to decide what images mean and what kinds of social and political work those representations perform."<sup>[6]</sup></p>
-  <p>What is colloquially called "the ImageNet dataset" is not a single stable object but a multiplicity of image sets, each transmitting an evolving set of values. Remarkably, competitive text-to-image models can still be trained on ImageNet <em>alone</em>, surpassing models trained on datasets a thousand times the size<sup>[7]</sup> — and even LAION-5B, the billion-scale dataset behind Stable Diffusion, used ImageNet as its quality benchmark during construction.<sup>[8]</sup> ImageNet is the foundation beneath the foundation.</p>
-  <h2>Drawing as Method</h2>
+  <p><em>Drawing ImageNet</em> slowly and inefficiently approaches a taxonomy that is meant to be primarily performative, for benchmarking, evaluation, and filtering, with its actual content rarely looked at, apart from data annotators with a specific and imposed task. As an exercise, <em>Drawing ImageNet</em> coaxes out situatedness and cultural assumptions embedded in individual images through a human lens. One hundred classes were randomly selected and drawn this way, using a script that selects an unvisited class at random and presents a random image from within it as a drawing reference. The resulting drawings characterize ImageNet itself, revealing the dataset as both systematic and idiosyncratic: sometimes absurd, sometimes charming, and shaped by a distinctly narrow cultural lens. By translating algorithmic taxonomy into slow, analogue drawings, the project stages an encounter between two fundamentally different worldviews: the human tradition of art as an intentional, context-driven act, and the computational paradigm that treats visual culture as measurable, optimizable data.</p>
+</div>
+
+<div class="about-body">
+  <h2>A Consequential Dataset</h2>
+  <p>ImageNet was announced in 2009 by a team of researchers at Princeton and Stanford Universities, led by Fei-Fei Li. Its categorical backbone was inherited from WordNet, a large database of English words organized into a semantic hierarchy, developed by cognitive psychologist George A. Miller in the 1980s. The WordNet hierarchy gave ImageNet its structure, and internet search engines gave it its images.<sup>[1]</sup> What resulted was less a neutral inventory of the visible world than a taxonomy: a hierarchical classification whose categories reflect the assumptions, values, and cultural context of those who built it, a fact that grew more consequential as the dataset did.</p>
+  <p>The 1000-class subset, used for the ImageNet Large Scale Visual Recognition Challenge (ILSVRC) from 2010 to 2017, is the version the world came to know. When Alex Krizhevsky's deep neural network won the 2012 challenge by a previously unimaginable margin, a field was transformed.<sup>[1]</sup> ImageNet did not just train models. It shaped the algorithmic lens through which datasets are filtered and models benchmarked, establishing a particular way of seeing as the default infrastructure of computer vision.</p>
+  <h2>An Artefact from a WEIRD World</h2>
+  <p>Alongside an emphasis on prosaic everyday objects frequently rooted in Americana, such as football, fishing gear, barbecue equipment pickup trucks and military artefacts. ImageNet contains a myriad of classes referencing the natural world. Yet this world appears through a distinctly human lens: among its many animal categories, nearly half are different dog breeds often depicted on leashes or in the context of dog competitons. The class of bird house is represented by two individuals poking the entrance of a bird house with a stick. Rather than simply representing nature, the dataset characterizes a culturally specific human relationship to it.</p>
+  <p>ImageNet gives a perspective of a WEIRD society, Western, Educated, Industrialized, Rich, Democratic<sup>[5]</sup>, at a very specific point in time. It is shaped by a narrow demographic and a very specific cultural context: its visual representations are drawn overwhelmingly from Americana and subsequently filtered through the lens of Web2. It contains dogs, war machinery, transportation devices, and prosaic domestic objects; it contains the bald eagle, the only one of sixty species of eagle that exist globally, and not coincidentally the national bird of the United States.<sup>[4]</sup> Ninety-three classes for mammals; twenty-seven for insects, despite there being roughly one million known insect species to every six thousand mammals.<sup>[4]</sup></p>
+  <p>As Denton et al. observe, it is a view that "associates 'bikinis' with women, 'sports' with men, 'trout' with fishing trophies, and 'lobsters' with dinner."<sup>[1]</sup> The dataset does not describe the world so much as it describes a specific culture's <em>relationship</em> to it, one shaped by "digital photography and image sharing practices of the late 2000s, the functionality of web search engines, the imperative for speed, and non-reflexivity designed into the dataset curation process."<sup>[1]</sup></p>
+  <p>This is not merely a limitation. It is what makes ImageNet so fascinating to look at. Its images are "stereotypical, unnatural, and overly simple representations of the class category"<sup>[3]</sup>, photographs selected precisely because they matched an imagined prototype, verified by annotators operating under the assumption that visual recognition is decontextualized, universal, and self-evident. Each class is a small, surprisingly specific portrait of how one culture, at one moment, imagined a concept should look.</p>
+  <p>ImageNet is a historically situated artifact<sup>[1]</sup>, assembled at a specific historical moment by a situated group of contributors and filtered through the infrastructure and aesthetics of Web 2.0. Its cultural inscription does not end there. It is still used for benchmarking models today,<sup>[2]</sup> and its taxonomy continues to impact how contemporary models are designed and what data they are trained on. Generative AI has inherited and reproduces the cultural taxonomies embedded in this world frozen in time. In a counterfactual scenario, if only a few of these classes had been different, if they had contained different representations, different geographies, different proportions of life, the downstream effects on an entire field could have been profound.</p>
+  <p>Luccioni and Crawford trace what they call the "nine lives" of ImageNet<sup>[2]</sup>: its multiple official and unofficial versions, and its quiet remediations. In 2019, artist Trevor Paglen and researcher Kate Crawford launched <em>ImageNet Roulette</em>, a work that exposed ImageNet's "person" subcategories, labels inherited from WordNet ranging from the archaic to the violently dehumanizing. The project went viral, and within days, the ImageNet team removed more than half a million images from the dataset.<sup>[6]</sup> Yet Crawford and Paglen were clear that no technical fix could reach the deeper issue: "The whole endeavor of collecting images, categorizing them, and labeling them is itself a form of politics, filled with questions about who gets to decide what images mean and what kinds of social and political work those representations perform."<sup>[6]</sup></p>
+  <p>What is colloquially called "the ImageNet dataset" is not a single stable object but a multiplicity of image sets, each transmitting an evolving set of values. Remarkably, competitive text-to-image models can still be trained on ImageNet <em>alone</em>, surpassing models trained on datasets a thousand times the size,<sup>[7]</sup> and even LAION-5B, the billion-scale dataset behind Stable Diffusion, used ImageNet as its quality benchmark during construction.<sup>[8]</sup> ImageNet is the foundation beneath the foundation.</p>
+  <h2>Tracing Cultural Inscription, Charme and Absurdity of ImageNet trough drawing</h2>
   <p><em>Drawing ImageNet</em> slowly and inefficiently approaches a taxonomy that is meant to be primarily performative, for benchmarking, evaluation, and filtering, with its actual content rarely looked at, apart from data annotators with a specific and imposed task. The experiment is simple: 100 drawings, one per class, each class chosen at random from the 1000-class benchmark, each reference image presented at random from within that class. No filtering, no curation beyond what ImageNet itself has already performed.</p>
-  <p>The exercise coaxes out situatedness and cultural assumptions embedded in individual images through a human lens. Where automated recognition moves at computational speed, drawing is slow. Where a classifier outputs a probability score, a drawing carries hesitation, interpretation, and the marks of attention. Human analogue art remains slow and inefficient — measuring its virtue with mechanistic means may result in absurdity. What emerges from this slowness are 100 images that characterize ImageNet: showing its absurdity, sometimes its charm, and its narrow cultural lens. They are drawings of images that were themselves selected to be typical, verified to be correct, stripped of the context that would make them particular. They are portraits of a prototype.</p>
+  <p>The exercise coaxes out situatedness and cultural assumptions embedded in individual images through a human lens. Where automated recognition moves at computational speed, drawing is slow. Where a classifier outputs a probability score, a drawing carries hesitation, interpretation, and the marks of attention. Human analogue art remains slow and inefficient, and measuring its virtue with mechanistic means may result in absurdity. What emerges from this slowness are 100 images that characterize ImageNet: showing its absurdity, sometimes its charm, and its narrow cultural lens. They are drawings of images that were themselves selected to be typical, verified to be correct, stripped of the context that would make them particular. They are portraits of a prototype.</p>
   <div class="footnotes">
     <p><sup>[1]</sup> Denton, E., Hanna, A., Amironesei, R., Smart, A., &amp; Nicole, H. (2021). On the genealogy of machine learning datasets: A critical history of ImageNet. <em>Big Data &amp; Society</em>. DOI: 10.1177/20539517211035955</p>
     <p><sup>[2]</sup> Luccioni, A. S., &amp; Crawford, K. (2024). The Nine Lives of ImageNet. <em>Journal of Data-centric Machine Learning Research</em>.</p>
@@ -182,6 +265,7 @@ nav a:hover { text-decoration: underline; }
     <p><sup>[8]</sup> Lehuger, S. et al. (2024). Models All The Way.</p>
   </div>
 </div>
+
 
 </body>
 </html>
