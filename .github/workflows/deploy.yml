@@ -47,8 +47,9 @@ jobs:
       - name: Assemble site
         run: |
           mkdir -p _site/data
-          # index.html goes to site root
+          # html pages go to site root
           cp website/index.html _site/index.html
+          cp website/about.html _site/about.html
           # copy only the image types the site references
           cp -r data/scans    _site/data/scans
           cp -r data/drawings _site/data/drawings
