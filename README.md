@@ -1,5 +1,9 @@
 # Drawing ImageNet
 
+
+![alt text](misc/preview.webp)
+
+
 ## Abstract
 
 Assembled at a specific historical moment by a situated group of contributors and filtered through the infrastructure and aesthetics of Web 2.0, ImageNet is one of the most consequential taxonomies produced by computational culture. Its 1000-class benchmark helped shape the field of computer vision and continues to influence how datasets are filtered, how computer vision tasks are posed and how models are trained, evaluated, and benchmarked. More than a technical dataset, ImageNet is also an ethnographic artefact of a mainly WEIRD society at a specific point in history, capturing a world frozen in time. The particular algorithmic lens emerging from this dataset continues to shape contemporary computer vision, and its cultural inscription persists in the generative AI systems that inherit and reproduce it.
