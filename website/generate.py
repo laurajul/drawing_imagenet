@@ -304,6 +304,12 @@ nav a:hover { text-decoration: underline; }
   letter-spacing: -0.01em;
 }
 
+@media (min-width: 769px) {
+  .entry h2 {
+    padding-left: 15vw;
+  }
+}
+
 .entry-grid {
   display: flex;
   gap: var(--gap);
